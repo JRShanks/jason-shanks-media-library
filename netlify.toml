@@ -1,8 +1,7 @@
 [build]
   publish = "public"
-  command = "python scripts/build.py --skip-scrape"
 
-# Headers for security and caching
+# Headers for security and iframe embedding
 [[headers]]
   for = "/*"
   [headers.values]
@@ -24,10 +23,3 @@
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=86400"
-
-# SPA-style redirect (not needed for static but keeps things clean)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
