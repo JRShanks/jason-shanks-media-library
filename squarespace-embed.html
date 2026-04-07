@@ -1,0 +1,147 @@
+<!--
+  JASON SHANKS MEDIA LIBRARY — Squarespace Code Block
+
+  Paste this entire block into a Squarespace "Code Block" on your
+  Media & Appearances page. It fetches data from your Netlify JSON
+  feed and renders natively using your Squarespace site's fonts.
+
+  Data source: https://jason-shanks-media.netlify.app/data/media_links.json
+-->
+
+<style>
+  .jml-wrap { font-family: inherit; color: inherit; max-width: 800px; margin: 0 auto; }
+  .jml-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; align-items: center; }
+  .jml-search { flex: 1 1 240px; padding: 0.55rem 0.9rem; font-size: 0.95rem; font-family: inherit;
+    border: 1px solid #d4d4d4; border-radius: 4px; background: #fff; }
+  .jml-search:focus { outline: none; border-color: #888; }
+  .jml-filters { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .jml-fbtn { padding: 0.4rem 0.85rem; font-size: 0.82rem; font-family: inherit; font-weight: 500;
+    border: 1px solid #d4d4d4; border-radius: 20px; background: #fff; color: #555; cursor: pointer; transition: all 0.15s; }
+  .jml-fbtn:hover { border-color: #333; color: #333; }
+  .jml-fbtn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+  .jml-stats { font-size: 0.8rem; color: #999; margin-bottom: 0.8rem; }
+  .jml-grid { display: flex; flex-direction: column; gap: 0.65rem; }
+  .jml-card { display: block; padding: 1rem 1.1rem; border: 1px solid #e8e8e8; border-radius: 6px;
+    text-decoration: none !important; color: inherit !important; transition: box-shadow 0.2s, transform 0.15s; }
+  .jml-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.08); transform: translateY(-1px); }
+  .jml-card-top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; }
+  .jml-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.04em; padding: 0.12rem 0.5rem; border-radius: 20px; color: #fff; }
+  .jml-badge-Video { background: #dc2626; }
+  .jml-badge-Podcast { background: #7c3aed; }
+  .jml-badge-Article { background: #059669; }
+  .jml-badge-Talk { background: #d97706; }
+  .jml-source { font-size: 0.78rem; color: #999; }
+  .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.2rem; }
+  .jml-desc { font-size: 0.85rem; color: #777; margin-bottom: 0.4rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .jml-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+  .jml-date { font-size: 0.78rem; color: #999; }
+  .jml-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  .jml-tag { font-size: 0.7rem; padding: 0.08rem 0.45rem; background: #f0f0f5; color: #555; border-radius: 20px; }
+  .jml-empty { text-align: center; padding: 2.5rem 1rem; color: #aaa; }
+  @media (max-width: 600px) {
+    .jml-controls { flex-direction: column; }
+    .jml-search { width: 100%; }
+    .jml-title { font-size: 0.92rem; }
+  }
+</style>
+
+<div class="jml-wrap">
+  <div class="jml-controls">
+    <input type="search" class="jml-search" id="jml-search" placeholder="Search by title, source, or tag…">
+    <div class="jml-filters" id="jml-filters"></div>
+  </div>
+  <div class="jml-stats" id="jml-stats"></div>
+  <div class="jml-grid" id="jml-grid">
+    <div class="jml-empty">Loading media library…</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var DATA_URL = "https://jason-shanks-media.netlify.app/data/media_links.json";
+  var allItems = [], activeCat = "All", query = "";
+  var grid = document.getElementById("jml-grid");
+  var search = document.getElementById("jml-search");
+  var filters = document.getElementById("jml-filters");
+  var stats = document.getElementById("jml-stats");
+
+  function esc(s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+  function fmtDate(s) {
+    if (!s) return "";
+    try { var d = new Date(s + "T00:00:00");
+      return d.toLocaleDateString("en-US", { year:"numeric", month:"short", day:"numeric" });
+    } catch(e) { return s; }
+  }
+
+  function getFiltered() {
+    return allItems.filter(function(item) {
+      if (activeCat !== "All" && item.category !== activeCat) return false;
+      if (query) {
+        var q = query.toLowerCase();
+        var h = [item.title, item.description, item.source].concat(item.tags || []).join(" ").toLowerCase();
+        if (h.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderCard(item) {
+    var tags = (item.tags || []).filter(function(t) {
+      return t && ["web-search","YouTube","RSS"].indexOf(t) === -1;
+    }).slice(0, 3).map(function(t) { return '<span class="jml-tag">' + esc(t) + '</span>'; }).join("");
+    return '<a href="' + esc(item.url) + '" target="_blank" rel="noopener" class="jml-card">' +
+      '<div class="jml-card-top"><span class="jml-badge jml-badge-' + esc(item.category) + '">' + esc(item.category) + '</span>' +
+      '<span class="jml-source">' + esc(item.source) + '</span></div>' +
+      '<div class="jml-title">' + esc(item.title) + '</div>' +
+      (item.description ? '<div class="jml-desc">' + esc(item.description) + '</div>' : '') +
+      '<div class="jml-meta">' + (item.date ? '<span class="jml-date">' + fmtDate(item.date) + '</span>' : '') +
+      (tags ? '<div class="jml-tags">' + tags + '</div>' : '') + '</div></a>';
+  }
+
+  function render() {
+    var f = getFiltered();
+    stats.textContent = "Showing " + f.length + " of " + allItems.length + " items";
+    if (f.length === 0) { grid.innerHTML = '<div class="jml-empty">No results found.</div>'; return; }
+    grid.innerHTML = f.map(renderCard).join("");
+  }
+
+  function setupFilters() {
+    var cats = ["All","Video","Podcast","Article","Talk"];
+    filters.innerHTML = cats.map(function(c) {
+      return '<button class="jml-fbtn' + (c === "All" ? " active" : "") + '" data-cat="' + c + '">' + c + '</button>';
+    }).join("");
+    filters.addEventListener("click", function(e) {
+      var btn = e.target.closest(".jml-fbtn");
+      if (!btn) return;
+      activeCat = btn.getAttribute("data-cat");
+      filters.querySelectorAll(".jml-fbtn").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      render();
+    });
+  }
+
+  function setupSearch() {
+    var timer;
+    search.addEventListener("input", function() {
+      clearTimeout(timer);
+      timer = setTimeout(function() { query = search.value.trim(); render(); }, 200);
+    });
+  }
+
+  function loadData() {
+    fetch(DATA_URL).then(function(r) { return r.json(); }).then(function(data) {
+      allItems = data.filter(function(i) { return i.verified !== false; });
+      allItems.sort(function(a, b) { return (b.date || "").localeCompare(a.date || ""); });
+      render();
+    }).catch(function(err) {
+      grid.innerHTML = '<div class="jml-empty">Unable to load media library.</div>';
+    });
+  }
+
+  setupFilters();
+  setupSearch();
+  loadData();
+})();
+</script>
