@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media &amp; Appearances — Jason Shanks</title>
+  <meta name="description" content="A living library of Jason Shanks media appearances: videos, podcasts, articles, and conference talks.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jason Shanks — Media & Appearances">
+  <meta property="og:description" content="Videos, podcasts, articles, and talks by and featuring Jason Shanks.">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Media &amp; Appearances</h1>
+    <p>Videos, podcasts, articles, and talks featuring Jason Shanks</p>
+  </header>
+
+  <div class="controls">
+    <input
+      type="search"
+      id="search-box"
+      class="search-box"
+      placeholder="Search by title, source, or tag…"
+      aria-label="Search media library"
+    >
+    <div id="filter-buttons" class="filter-buttons">
+      <!-- Populated by app.js -->
+    </div>
+  </div>
+
+  <div id="stats" class="stats"></div>
+
+  <main id="media-grid" class="media-grid">
+    <div class="empty-state">
+      <p>Loading media library…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Jason Shanks. Updated automatically.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
