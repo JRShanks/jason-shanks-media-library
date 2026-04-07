@@ -15,7 +15,8 @@
   --color-tag-text: #3730a3;
   --color-video: #dc2626;
   --color-podcast: #7c3aed;
-  --color-article: #059669;
+  --color-radio: #2563eb;
+  --color-writing: #059669;
   --color-talk: #d97706;
   --radius: 8px;
   --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
@@ -176,7 +177,8 @@ body {
 
 .category-badge.Video   { background: var(--color-video); }
 .category-badge.Podcast { background: var(--color-podcast); }
-.category-badge.Article { background: var(--color-article); }
+.category-badge.Radio   { background: var(--color-radio); }
+.category-badge.Writing { background: var(--color-writing); }
 .category-badge.Talk    { background: var(--color-talk); }
 
 .card-source {
