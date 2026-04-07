@@ -146,7 +146,7 @@
   }
 
   function setupFilters() {
-    const categories = ["All", "Video", "Podcast", "Article", "Talk"];
+    const categories = ["All", "Video", "Podcast", "Radio", "Writing", "Talk"];
     filterContainer.innerHTML = categories
       .map(
         (cat) =>
