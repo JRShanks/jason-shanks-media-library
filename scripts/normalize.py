@@ -81,18 +81,23 @@ CATEGORY_RULES = {
         "video", "watch", "livestream",
     ],
     "Podcast": [
-        "podcast", "radio", "audio", "episode", "listen",
-        "relevantradio.com", "spotify.com", "apple.com/podcast",
-        "anchor.fm", "soundcloud.com",
+        "podcast", "episode", "listen",
+        "spotify.com", "apple.com/podcast",
+        "anchor.fm", "soundcloud.com", "podbean.com",
     ],
-    "Article": [
-        "article", "news", "opinion", "column",
+    "Radio": [
+        "radio", "relevantradio.com", "sirius", "am ", "fm ",
+        "radio interview", "on air", "broadcast",
+    ],
+    "Writing": [
+        "article", "news", "opinion", "column", "wrote", "writing",
         "osvnews.com", "ncronline.org", "americamagazine.org",
-        "catholicnewsagency.com",
+        "catholicnewsagency.com", "pillar", "blog", "essay",
+        "editorial", "op-ed", "publication",
     ],
     "Talk": [
         "conference", "congress", "summit", "keynote", "talk",
-        "panel", "symposium", "event",
+        "panel", "symposium", "event", "speech", "address",
     ],
 }
 
@@ -129,7 +134,7 @@ def validate_item(item: dict, index: int) -> list[str]:
         issues.append(f"Item {index}: empty URL")
     if item.get("date") and not re.match(r"\d{4}-\d{2}-\d{2}", item["date"]):
         issues.append(f"Item {index}: date '{item['date']}' is not YYYY-MM-DD")
-    if item.get("category") not in ("Video", "Podcast", "Article", "Talk"):
+    if item.get("category") not in ("Video", "Podcast", "Radio", "Writing", "Talk"):
         issues.append(f"Item {index}: invalid category '{item.get('category')}'")
     return issues
 
@@ -184,7 +189,7 @@ def normalize(check_only: bool = False):
         item.setdefault("verified", False)
         item.setdefault("date", "")
         item.setdefault("source", "")
-        item.setdefault("category", "Article")
+        item.setdefault("category", "Writing")
 
         # Re-categorize
         item["category"] = recategorize(item)
