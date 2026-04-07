@@ -29,7 +29,8 @@
     letter-spacing: 0.04em; padding: 0.12rem 0.5rem; border-radius: 20px; color: #fff; }
   .jml-badge-Video { background: #dc2626; }
   .jml-badge-Podcast { background: #7c3aed; }
-  .jml-badge-Article { background: #059669; }
+  .jml-badge-Radio { background: #2563eb; }
+  .jml-badge-Writing { background: #059669; }
   .jml-badge-Talk { background: #d97706; }
   .jml-source { font-size: 0.78rem; color: #999; }
   .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.2rem; }
@@ -108,7 +109,7 @@
   }
 
   function setupFilters() {
-    var cats = ["All","Video","Podcast","Article","Talk"];
+    var cats = ["All","Video","Podcast","Radio","Writing","Talk"];
     filters.innerHTML = cats.map(function(c) {
       return '<button class="jml-fbtn' + (c === "All" ? " active" : "") + '" data-cat="' + c + '">' + c + '</button>';
     }).join("");
