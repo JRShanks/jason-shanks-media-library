@@ -58,18 +58,23 @@ CATEGORY_RULES = {
         "video", "watch", "livestream",
     ],
     "Podcast": [
-        "podcast", "radio", "audio", "episode", "listen",
-        "relevantradio.com", "spotify.com", "apple.com/podcast",
-        "anchor.fm", "soundcloud.com",
+        "podcast", "episode", "listen",
+        "spotify.com", "apple.com/podcast",
+        "anchor.fm", "soundcloud.com", "podbean.com",
     ],
-    "Article": [
-        "article", "news", "opinion", "column", "interview",
+    "Radio": [
+        "radio", "relevantradio.com", "sirius", "am ", "fm ",
+        "radio interview", "on air", "broadcast",
+    ],
+    "Writing": [
+        "article", "news", "opinion", "column", "wrote", "writing",
         "osvnews.com", "ncronline.org", "americamagazine.org",
-        "catholicnewsagency.com", "pillar",
+        "catholicnewsagency.com", "pillar", "blog", "essay",
+        "editorial", "op-ed", "publication",
     ],
     "Talk": [
         "conference", "congress", "summit", "keynote", "talk",
-        "panel", "symposium", "event",
+        "panel", "symposium", "event", "speech", "address",
     ],
 }
 
@@ -136,7 +141,7 @@ def guess_category(title: str, url: str, description: str = "") -> str:
     for cat, keywords in CATEGORY_RULES.items():
         scores[cat] = sum(1 for kw in keywords if kw in combined)
     best = max(scores, key=scores.get)
-    return best if scores[best] > 0 else "Article"
+    return best if scores[best] > 0 else "Writing"
 
 
 def guess_source(url: str) -> str:
