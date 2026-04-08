@@ -29,7 +29,7 @@ DATA_FILE = REPO_ROOT / "data" / "media_links.json"
 PUBLIC_DIR = REPO_ROOT / "public"
 PUBLIC_DATA = PUBLIC_DIR / "data"
 
-CATEGORIES = ["Video", "Podcast", "Radio", "Writing", "Talk"]
+CATEGORIES = ["Video", "Podcast", "Radio", "Writing", "Talk", "Book"]
 FEATURED_COUNT = 6
 
 
@@ -101,12 +101,18 @@ def render_card_html(item, extra_class=""):
 
 
 def pick_featured(items):
-    """Select featured items: prefer variety across categories and recency."""
+    """Select featured items: explicit featured flag first, then variety across categories."""
     featured = []
     seen_cats = set()
+    # First: items explicitly marked as featured
+    for item in items:
+        if item.get("featured") and len(featured) < FEATURED_COUNT:
+            featured.append(item)
+            seen_cats.add(item.get("category", ""))
+    # Then: fill remaining slots with category variety
     for item in items:
         cat = item.get("category", "")
-        if cat not in seen_cats and len(featured) < FEATURED_COUNT:
+        if item not in featured and cat not in seen_cats and len(featured) < FEATURED_COUNT:
             featured.append(item)
             seen_cats.add(cat)
     for item in items:
@@ -128,12 +134,17 @@ def count_by_category(items):
 # CSS (shared between standalone page and Squarespace embed)
 # ===========================================================================
 SHARED_CSS = """
+  /* ---------- Section Title ---------- */
   .jml-section-title { font-size: 1rem; font-weight: 600; color: #888;
     text-transform: uppercase; letter-spacing: .06em; margin-bottom: .6rem; }
+
+  /* ---------- Featured Grid ---------- */
   .jml-featured-grid { display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: .65rem; margin-bottom: 1.5rem; }
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem; margin-bottom: 1.5rem; }
   .jml-featured-grid .jml-card { border-left: 3px solid #1e3a5f; }
+
+  /* ---------- Search & Filter Controls ---------- */
   .jml-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; align-items: center; }
   .jml-search { flex: 1 1 240px; padding: .55rem .9rem; font-size: .95rem; font-family: inherit;
     border: 1px solid #d4d4d4; border-radius: 6px; background: #fff; }
@@ -146,8 +157,13 @@ SHARED_CSS = """
   .jml-fbtn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
   .jml-fcount { font-weight: 400; opacity: .7; }
   .jml-stats { font-size: .8rem; color: #999; margin-bottom: .8rem; }
-  .jml-grid { display: flex; flex-direction: column; gap: .65rem; }
-  .jml-card { display: block; padding: 1rem 1.1rem; border: 1px solid #e8e8e8; border-radius: 6px;
+
+  /* ---------- Card Grid (2 columns on desktop) ---------- */
+  .jml-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+
+  /* ---------- Card Styles ---------- */
+  .jml-card { display: flex; flex-direction: column; padding: 1rem 1.1rem;
+    border: 1px solid #e8e8e8; border-radius: 6px;
     text-decoration: none !important; color: inherit !important; background: #fff;
     transition: box-shadow .2s, transform .15s; }
   .jml-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.08); transform: translateY(-1px); }
@@ -160,20 +176,42 @@ SHARED_CSS = """
   .jml-badge-Radio { background: #2563eb; }
   .jml-badge-Writing { background: #059669; }
   .jml-badge-Talk { background: #d97706; }
+  .jml-badge-Book { background: #92400e; }
   .jml-source { font-size: .78rem; color: #999; }
   .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: .2rem; }
   .jml-desc { font-size: .85rem; color: #777; margin-bottom: .4rem;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .jml-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+  .jml-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-top: auto; }
   .jml-date { font-size: .78rem; color: #999; }
   .jml-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
   .jml-tag { font-size: .7rem; padding: .08rem .45rem; background: #eef2ff; color: #3730a3; border-radius: 20px; }
   .jml-empty { text-align: center; padding: 2rem 1rem; color: #aaa; }
-  @media (max-width: 600px) {
+
+  /* ---------- CTA Banner ---------- */
+  .jml-cta { display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #1e3a5f 100%);
+    border-radius: 8px; color: #fff; text-decoration: none !important; gap: 1rem;
+    transition: transform .15s, box-shadow .2s; }
+  .jml-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(30,58,95,.3); }
+  .jml-cta-text { flex: 1; }
+  .jml-cta-title { font-size: 1.05rem; font-weight: 700; margin-bottom: .15rem; color: #fff !important; }
+  .jml-cta-sub { font-size: .82rem; opacity: .85; color: #e0e0e0 !important; }
+  .jml-cta-btn { padding: .5rem 1.2rem; background: #fff; color: #1a1a2e;
+    font-weight: 600; font-size: .85rem; border-radius: 6px; white-space: nowrap;
+    text-decoration: none !important; }
+
+  /* ---------- Section Divider ---------- */
+  .jml-divider { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0 1rem; }
+
+  /* ---------- Mobile (single column, stacked controls) ---------- */
+  @media (max-width: 680px) {
     .jml-controls { flex-direction: column; }
     .jml-search { width: 100%; }
     .jml-title { font-size: .92rem; }
     .jml-featured-grid { grid-template-columns: 1fr; }
+    .jml-grid { grid-template-columns: 1fr; }
+    .jml-cta { flex-direction: column; text-align: center; }
   }
 """
 
@@ -236,6 +274,16 @@ def build_filter_buttons(counts):
                 cat=cat, count=count
             )
     return html
+
+
+# CTA Banner for the book
+CTA_BANNER = """<a href="https://www.amazon.com/dp/B09J36FDP5" target="_blank" rel="noopener noreferrer" class="jml-cta">
+      <div class="jml-cta-text">
+        <div class="jml-cta-title">The Foundations and Pillars of Evangelization</div>
+        <div class="jml-cta-sub">By Jason Shanks &mdash; A foundational work defining evangelization through the documents of Vatican II</div>
+      </div>
+      <span class="jml-cta-btn">Buy the Book</span>
+    </a>"""
 
 
 # ===========================================================================
@@ -301,10 +349,7 @@ def generate_index_html(items):
 
   <div class="jml-wrap">
 
-    <h2 class="jml-section-title">Featured</h2>
-    <div class="jml-featured-grid">
-{featured_cards}
-    </div>
+    {cta_banner}
 
     <div class="jml-controls">
       <input type="search" class="jml-search" id="jml-search"
@@ -316,6 +361,14 @@ def generate_index_html(items):
     </div>
     <div class="jml-stats" id="jml-stats" aria-live="polite">Showing {total} of {total} appearances</div>
 
+    <h2 class="jml-section-title">Featured</h2>
+    <div class="jml-featured-grid">
+{featured_cards}
+    </div>
+
+    <hr class="jml-divider">
+
+    <h2 class="jml-section-title">Browse All</h2>
     <main class="jml-grid" id="jml-grid">
 {all_cards}
     </main>
@@ -334,6 +387,7 @@ def generate_index_html(items):
 </html>""".format(
         total=total,
         shared_css=SHARED_CSS,
+        cta_banner=CTA_BANNER,
         featured_cards=featured_cards,
         filter_buttons=filter_buttons,
         all_cards=all_cards,
@@ -364,16 +418,26 @@ def generate_squarespace_embed(items):
 -->
 
 <style>
-  .jml-wrap {{ font-family: inherit; color: inherit; max-width: 860px; margin: 0 auto; }}
+  /* Break out of Squarespace Fluid Engine narrow Code Block */
+  .jml-wrap {{
+    font-family: inherit; color: inherit; box-sizing: border-box;
+    width: 100vw;
+    max-width: 1100px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 0 2rem;
+  }}
+  /* Also override Squarespace parent constraints */
+  .sqs-block-code .sqs-block-content,
+  .fe-block .sqs-block-content {{
+    max-width: 100% !important; width: 100% !important; overflow: visible !important;
+  }}
 {shared_css}
 </style>
 
 <div class="jml-wrap">
 
-  <h2 class="jml-section-title">Featured</h2>
-  <div class="jml-featured-grid">
-{featured_cards}
-  </div>
+  {cta_banner}
 
   <div class="jml-controls">
     <input type="search" class="jml-search" id="jml-search" placeholder="Search {total} appearances…">
@@ -383,6 +447,14 @@ def generate_squarespace_embed(items):
   </div>
   <div class="jml-stats" id="jml-stats">Showing {total} of {total} appearances</div>
 
+  <h2 class="jml-section-title">Featured</h2>
+  <div class="jml-featured-grid">
+{featured_cards}
+  </div>
+
+  <hr class="jml-divider">
+
+  <h2 class="jml-section-title">Browse All</h2>
   <div class="jml-grid" id="jml-grid">
 {all_cards}
   </div>
@@ -395,6 +467,7 @@ def generate_squarespace_embed(items):
         total=total,
         now=now,
         shared_css=SHARED_CSS,
+        cta_banner=CTA_BANNER,
         featured_cards=featured_cards,
         filter_buttons=filter_buttons,
         all_cards=all_cards,
