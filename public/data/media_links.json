@@ -717,5 +717,155 @@
       "Local News"
     ],
     "verified": true
+  },
+  {
+    "title": "Meet Our Sunday Visitor's 2021 Catholics of the Year",
+    "url": "https://www.osvnews.com/2021/12/13/meet-our-sunday-visitors-2021-catholics-of-the-year/",
+    "category": "Writing",
+    "source": "OSV News",
+    "date": "2021-12-13",
+    "description": "Jason and Melissa Shanks named 2021 Catholics of the Year for their witness of faith during Jason's miraculous COVID-19 recovery",
+    "tags": ["Catholic of the Year", "Award", "2021", "COVID-19"],
+    "verified": true
+  },
+  {
+    "title": "Our Sunday Visitor's 2024 Catholics of the Year",
+    "url": "https://www.oursundayvisitor.com/our-sunday-visitors-2024-catholics-of-the-year/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2024-12-30",
+    "description": "Shanks named 2024 Catholic of the Year for humble leadership of the National Eucharistic Congress that drew 60,000 pilgrims",
+    "tags": ["Catholic of the Year", "Award", "2024", "Eucharistic Congress"],
+    "verified": true
+  },
+  {
+    "title": "Year in Review — Meet Our Sunday Visitor's 2021 Catholics of the Year",
+    "url": "https://todayscatholic.org/year-in-review-meet-our-sunday-visitors-2021-catholics-of-the-year/",
+    "category": "Writing",
+    "source": "Today's Catholic",
+    "date": "2021-12-13",
+    "description": "Today's Catholic coverage of Jason and Melissa Shanks being named 2021 Catholics of the Year",
+    "tags": ["Catholic of the Year", "Award", "2021"],
+    "verified": true
+  },
+  {
+    "title": "Top 10 Catholic Figures of the Year 2024",
+    "url": "https://arkansas-catholic.org/2024/12/30/osv-catholics-year-2024-notable-individuals/",
+    "category": "Writing",
+    "source": "Arkansas Catholic",
+    "date": "2024-12-30",
+    "description": "Arkansas Catholic coverage of OSV's 2024 Catholics of the Year featuring Jason Shanks",
+    "tags": ["Catholic of the Year", "Award", "2024"],
+    "verified": true
+  },
+  {
+    "title": "Three Catholic Apostolates Claim $100,000 Prize in First OSV Innovation Challenge",
+    "url": "https://www.oursundayvisitor.com/three-catholic-apostolates-claim-100000-prize-in-first-osv-innovation-challenge/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2020-08-31",
+    "description": "Coverage of the inaugural OSV Innovation Challenge winners, led by Shanks as OSV Institute president",
+    "tags": ["Innovation", "OSV Challenge", "2020"],
+    "verified": true
+  },
+  {
+    "title": "Three Catholic Innovators Take Home $100,000 in 2021 OSV Challenge",
+    "url": "https://www.oursundayvisitor.com/three-catholic-innovators-take-home-100000-in-2021-osv-challenge/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2021-09-18",
+    "description": "Coverage of the second annual OSV Challenge winners, the Catholic 'shark-tank' competition led by Shanks",
+    "tags": ["Innovation", "OSV Challenge", "2021"],
+    "verified": true
+  },
+  {
+    "title": "Heading Into Its Third Year, OSV Challenge Is Ready to Fund Ideas That Will Change the Church",
+    "url": "https://www.oursundayvisitor.com/heading-into-its-third-year-osv-challenge-is-ready-to-fund-ideas-that-will-change-the-church/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2022-03-01",
+    "description": "Preview of the third annual OSV Challenge, the Catholic innovation competition led by Shanks",
+    "tags": ["Innovation", "OSV Challenge", "2022"],
+    "verified": true
+  },
+  {
+    "title": "Like a Good Neighbor, the OSV Challenge Is Here to Help",
+    "url": "https://www.oursundayvisitor.com/like-a-good-neighbor-the-osv-challenge-is-here-to-help/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2021-03-01",
+    "description": "Feature on the OSV Innovation Challenge and its mission to support Catholic entrepreneurs and innovators",
+    "tags": ["Innovation", "OSV Challenge"],
+    "verified": true
+  },
+  {
+    "title": "2021 OSV Challenge Will Help Build Up Catholic Innovators and Non-Profits",
+    "url": "https://www.catholicworldreport.com/2021/03/01/2021-osv-challenge-will-help-build-up-catholic-innovators-and-non-profits/",
+    "category": "Writing",
+    "source": "Catholic World Report",
+    "date": "2021-03-01",
+    "description": "Catholic World Report coverage of the 2021 OSV Challenge led by Shanks at the OSV Institute",
+    "tags": ["Innovation", "OSV Challenge", "2021"],
+    "verified": true
+  },
+  {
+    "title": "OSV Innovation Challenge — A Conversation with Jason Shanks (CatholicMom)",
+    "url": "https://www.catholicmom.com/articles/osv-innovation-challenge-a-conversation-with-jason-shanks",
+    "category": "Writing",
+    "source": "CatholicMom",
+    "date": "2020-08-01",
+    "description": "Interview with Shanks about the OSV Innovation Challenge and fostering Catholic creativity",
+    "tags": ["Innovation", "OSV Challenge", "Interview"],
+    "verified": true
+  },
+  {
+    "title": "New Eucharistic Society Aims at Supporting Eucharistic Revival",
+    "url": "https://www.oursundayvisitor.com/national-eucharistic-congress-inc-launches-society-of-the-eucharistic-heart-of-jesus-to-support-its-efforts/",
+    "category": "Writing",
+    "source": "Our Sunday Visitor",
+    "date": "2024-09-03",
+    "description": "OSV coverage of the launch of the Society of the Eucharistic Heart of Jesus, announced by Shanks",
+    "tags": ["NEC", "Society", "Eucharistic Heart"],
+    "verified": true
+  },
+  {
+    "title": "Bishops Approve New National Eucharistic Congress for Summer 2029",
+    "url": "https://www.osvnews.com/bishops-approve-new-national-eucharistic-congress-for-summer-2029/",
+    "category": "Writing",
+    "source": "OSV News",
+    "date": "2024-11-13",
+    "description": "OSV News coverage of bishops approving the 2029 National Eucharistic Congress, with Shanks quoted on plans",
+    "tags": ["Eucharistic Congress", "2029", "Bishops"],
+    "verified": true
+  },
+  {
+    "title": "Next National Eucharistic Congress to Be Held in 2029, Will 'Build on Grace' of Indianapolis",
+    "url": "https://www.osvnews.com/next-national-eucharistic-congress-to-be-held-in-2029-will-build-on-grace-of-indianapolis/",
+    "category": "Writing",
+    "source": "OSV News",
+    "date": "2024-12-01",
+    "description": "Shanks discusses how the 2029 Congress will build on the grace of the 10th Congress in Indianapolis",
+    "tags": ["Eucharistic Congress", "2029"],
+    "verified": true
+  },
+  {
+    "title": "Regional Events Will Help Set the Stage for 2029 National Eucharistic Congress",
+    "url": "https://www.osvnews.com/regional-events-will-help-set-the-stage-for-2029-national-eucharistic-congress/",
+    "category": "Writing",
+    "source": "OSV News",
+    "date": "2025-02-11",
+    "description": "Shanks outlines plans for regional congresses of 10,000 people across the country leading to 2029",
+    "tags": ["Eucharistic Congress", "2029", "Regional Events"],
+    "verified": true
+  },
+  {
+    "title": "National Eucharistic Pilgrimage Seeks to Be a Sacred Journey for US at 250 Years",
+    "url": "https://www.osvnews.com/national-eucharistic-pilgrimage-seeks-to-be-a-sacred-journey-for-us-at-250-years/",
+    "category": "Writing",
+    "source": "OSV News",
+    "date": "2026-01-09",
+    "description": "OSV News feature on the 2026 Eucharistic Pilgrimage marking America's 250th anniversary",
+    "tags": ["Pilgrimage", "2026", "250th Anniversary"],
+    "verified": true
   }
 ]
