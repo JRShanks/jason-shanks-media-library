@@ -134,7 +134,7 @@ def validate_item(item: dict, index: int) -> list[str]:
         issues.append(f"Item {index}: empty URL")
     if item.get("date") and not re.match(r"\d{4}-\d{2}-\d{2}", item["date"]):
         issues.append(f"Item {index}: date '{item['date']}' is not YYYY-MM-DD")
-    if item.get("category") not in ("Video", "Podcast", "Radio", "Writing", "Talk"):
+    if item.get("category") not in ("Video", "Podcast", "Radio", "Writing", "Talk", "Book"):
         issues.append(f"Item {index}: invalid category '{item.get('category')}'")
     return issues
 
