@@ -6,7 +6,10 @@
     "source": "YouTube",
     "date": "2026-01-01",
     "description": "Interview on the 2026 National Eucharistic Pilgrimage themed 'One Nation Under God'",
-    "tags": ["Eucharistic Revival", "Pilgrimage"],
+    "tags": [
+      "Eucharistic Revival",
+      "Pilgrimage"
+    ],
     "verified": true
   },
   {
@@ -16,8 +19,11 @@
     "source": "OSV News",
     "date": "2026-03-18",
     "description": "Announcement of registration opening for the 2026 pilgrimage's public events along the East Coast route",
-    "tags": ["Pilgrimage", "2026"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2026"
+    ],
+    "verified": true
   },
   {
     "title": "2026 National Eucharistic Pilgrimage Theme and Route Announced",
@@ -26,8 +32,12 @@
     "source": "Catholic News Agency",
     "date": "2026-01-09",
     "description": "Shanks announces 'One Nation Under God' theme for the 2026 pilgrimage celebrating America's 250th anniversary",
-    "tags": ["Pilgrimage", "2026", "One Nation Under God"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2026",
+      "One Nation Under God"
+    ],
+    "verified": true
   },
   {
     "title": "The National Eucharistic Pilgrimage Is Back in 2026 — With a Patriotic Twist",
@@ -36,8 +46,12 @@
     "source": "OSV News",
     "date": "2026-01-09",
     "description": "Feature on the 2026 pilgrimage route from St. Augustine to Philadelphia along the Cabrini Route",
-    "tags": ["Pilgrimage", "2026", "Cabrini Route"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2026",
+      "Cabrini Route"
+    ],
+    "verified": true
   },
   {
     "title": "National Pilgrimage Leaders Urge Large Procession Turnouts to Counter Anti-Catholic Protesters",
@@ -46,8 +60,11 @@
     "source": "Catholic Review",
     "date": "2025-06-03",
     "description": "Shanks calls the pilgrimage a 'Way-of-the-Cross type of pilgrimage' in response to anti-Catholic protests",
-    "tags": ["Pilgrimage", "2025"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2025"
+    ],
+    "verified": true
   },
   {
     "title": "Eucharistic Pilgrimage Calls for 'Silent Witness' as Anti-Catholic Protests Intensify",
@@ -56,8 +73,11 @@
     "source": "Catholic News Agency",
     "date": "2025-09-01",
     "description": "Coverage of anti-Catholic protests during the 2025 pilgrimage with comments from Shanks",
-    "tags": ["Pilgrimage", "2025"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2025"
+    ],
+    "verified": true
   },
   {
     "title": "Regional Events Will Help Set the Stage for 2029 National Eucharistic Congress",
@@ -66,8 +86,12 @@
     "source": "Catholic Review",
     "date": "2025-12-08",
     "description": "Shanks discusses how regional congresses from 2026-2028 will build toward the 2029 National Eucharistic Congress",
-    "tags": ["Eucharistic Congress", "2029", "Regional Events"],
-    "verified": false
+    "tags": [
+      "Eucharistic Congress",
+      "2029",
+      "Regional Events"
+    ],
+    "verified": true
   },
   {
     "title": "U.S. Bishops Say Multimillion-Dollar Eucharistic Revival Bore Spiritual Fruit",
@@ -76,8 +100,11 @@
     "source": "Catholic News Agency",
     "date": "2026-01-17",
     "description": "Report on the National Eucharistic Revival Impact Study with context on the Congress led by Shanks",
-    "tags": ["Eucharistic Revival", "Impact Study"],
-    "verified": false
+    "tags": [
+      "Eucharistic Revival",
+      "Impact Study"
+    ],
+    "verified": true
   },
   {
     "title": "Letting Jesus Lead the National Eucharistic Revival",
@@ -86,7 +113,9 @@
     "source": "Apple Podcasts",
     "date": "2026-01-01",
     "description": "Podcast interview on leading the National Eucharistic Revival movement",
-    "tags": ["Eucharistic Revival"],
+    "tags": [
+      "Eucharistic Revival"
+    ],
     "verified": true
   },
   {
@@ -96,7 +125,10 @@
     "source": "EWTN",
     "date": "2025-01-01",
     "description": "Live interview on EWTN discussing the Eucharistic Revival and Congress",
-    "tags": ["EWTN", "Eucharistic Revival"],
+    "tags": [
+      "EWTN",
+      "Eucharistic Revival"
+    ],
     "verified": true
   },
   {
@@ -106,8 +138,12 @@
     "source": "EWTN",
     "date": "2024-07-26",
     "description": "Montse Alvarado speaks with Shanks about what's next following the 10th National Eucharistic Congress",
-    "tags": ["EWTN", "Eucharistic Congress", "NEC 2024"],
-    "verified": false
+    "tags": [
+      "EWTN",
+      "Eucharistic Congress",
+      "NEC 2024"
+    ],
+    "verified": true
   },
   {
     "title": "Why the Church Needs Eucharistic Revival",
@@ -116,7 +152,10 @@
     "source": "YouTube",
     "date": "2025-01-01",
     "description": "Panel discussion on the need for Eucharistic Revival in the Church",
-    "tags": ["Panel", "Eucharistic Revival"],
+    "tags": [
+      "Panel",
+      "Eucharistic Revival"
+    ],
     "verified": true
   },
   {
@@ -126,8 +165,12 @@
     "source": "OSV Talks",
     "date": "2020-01-01",
     "description": "TED-style talk on the urgent need for unscaled innovation in ministry and evangelization",
-    "tags": ["Innovation", "OSV Talks", "Evangelization"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Talks",
+      "Evangelization"
+    ],
+    "verified": true
   },
   {
     "title": "The Inefficient Innovator — FORMED",
@@ -136,8 +179,12 @@
     "source": "FORMED",
     "date": "2020-01-01",
     "description": "OSV Innovation Talk Series: Shanks challenges listeners to think beyond efficient processes and embrace an infinite mindset",
-    "tags": ["Innovation", "FORMED", "OSV Talks"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "FORMED",
+      "OSV Talks"
+    ],
+    "verified": true
   },
   {
     "title": "Experiencing Divine Intimacy — Heroic Men Keynote",
@@ -146,8 +193,12 @@
     "source": "Heroic Men",
     "date": "2024-01-01",
     "description": "Keynote at Heroic Leadership Summit exploring divine intimacy, vulnerability, and fighting for spiritual life",
-    "tags": ["Keynote", "Men's Ministry", "Heroic Men"],
-    "verified": false
+    "tags": [
+      "Keynote",
+      "Men's Ministry",
+      "Heroic Men"
+    ],
+    "verified": true
   },
   {
     "title": "Jason Shanks: Former Methodist — The Journey Home (EWTN)",
@@ -156,8 +207,12 @@
     "source": "EWTN / Coming Home Network",
     "date": "2005-01-01",
     "description": "Conversion story on EWTN's The Journey Home with Marcus Grodi",
-    "tags": ["Conversion", "Journey Home", "EWTN"],
-    "verified": false
+    "tags": [
+      "Conversion",
+      "Journey Home",
+      "EWTN"
+    ],
+    "verified": true
   },
   {
     "title": "From Evangelical to Evangelical Catholic — Conversion Story",
@@ -166,8 +221,11 @@
     "source": "Coming Home Network",
     "date": "2005-01-01",
     "description": "Written conversion story: from Methodist roots through Campus Crusade to discovering the Eucharist",
-    "tags": ["Conversion", "Coming Home Network"],
-    "verified": false
+    "tags": [
+      "Conversion",
+      "Coming Home Network"
+    ],
+    "verified": true
   },
   {
     "title": "OSV News Profile — Jason Shanks Named New CEO of National Eucharistic Congress",
@@ -176,7 +234,11 @@
     "source": "OSV News",
     "date": "2024-06-06",
     "description": "Leadership profile announcing Shanks as the new CEO of the National Eucharistic Congress, Inc.",
-    "tags": ["Profile", "Leadership", "NEC"],
+    "tags": [
+      "Profile",
+      "Leadership",
+      "NEC"
+    ],
     "verified": true
   },
   {
@@ -186,8 +248,11 @@
     "source": "CatholicVote",
     "date": "2024-06-06",
     "description": "Coverage of Shanks' appointment as CEO of the National Eucharistic Congress",
-    "tags": ["Profile", "Leadership"],
-    "verified": false
+    "tags": [
+      "Profile",
+      "Leadership"
+    ],
+    "verified": true
   },
   {
     "title": "CEO Says National Eucharistic Congress, Pilgrimage Show Catholics 'Are Ready to Make History'",
@@ -196,8 +261,12 @@
     "source": "OSV News",
     "date": "2024-09-24",
     "description": "Interview with Shanks on the success of the NEC 2024 and future plans for the Revival",
-    "tags": ["NEC 2024", "Pilgrimage", "Interview"],
-    "verified": false
+    "tags": [
+      "NEC 2024",
+      "Pilgrimage",
+      "Interview"
+    ],
+    "verified": true
   },
   {
     "title": "CEO of National Eucharistic Congress Says NEC2024 Was What the Church Needed to Heal",
@@ -206,8 +275,12 @@
     "source": "The Dialog",
     "date": "2024-09-30",
     "description": "In-depth interview on how the 2024 Congress served as healing for the Church",
-    "tags": ["NEC 2024", "Interview", "Healing"],
-    "verified": false
+    "tags": [
+      "NEC 2024",
+      "Interview",
+      "Healing"
+    ],
+    "verified": true
   },
   {
     "title": "'There's Too Much Momentum — It Can't Stop Here'",
@@ -216,8 +289,12 @@
     "source": "Today's Catholic",
     "date": "2024-08-01",
     "description": "Feature interview on the past, present, and future of the Catholic Eucharistic Revival",
-    "tags": ["Eucharistic Revival", "Interview", "Momentum"],
-    "verified": false
+    "tags": [
+      "Eucharistic Revival",
+      "Interview",
+      "Momentum"
+    ],
+    "verified": true
   },
   {
     "title": "Let's Make History, Says CEO of the Eucharistic Congress",
@@ -226,8 +303,12 @@
     "source": "Our Sunday Visitor",
     "date": "2024-09-24",
     "description": "Profile and interview on the vision for the future of the National Eucharistic Congress",
-    "tags": ["NEC", "Interview", "Vision"],
-    "verified": false
+    "tags": [
+      "NEC",
+      "Interview",
+      "Vision"
+    ],
+    "verified": true
   },
   {
     "title": "Nothing Short of Miraculous: A COVID Recovery Story",
@@ -236,8 +317,12 @@
     "source": "Our Sunday Visitor",
     "date": "2021-03-01",
     "description": "Feature story on Shanks' miraculous recovery after six weeks intubated with COVID-19",
-    "tags": ["COVID-19", "Recovery", "Testimony"],
-    "verified": false
+    "tags": [
+      "COVID-19",
+      "Recovery",
+      "Testimony"
+    ],
+    "verified": true
   },
   {
     "title": "OSV's 2024 Catholics of the Year",
@@ -246,8 +331,12 @@
     "source": "Catholic Review",
     "date": "2024-12-30",
     "description": "Jason Shanks named Catholic of the Year for humble leadership of the National Eucharistic Congress",
-    "tags": ["Catholic of the Year", "Award", "2024"],
-    "verified": false
+    "tags": [
+      "Catholic of the Year",
+      "Award",
+      "2024"
+    ],
+    "verified": true
   },
   {
     "title": "OSV Innovation Talks Aim to Spark Creativity in Ministry and Evangelization",
@@ -256,8 +345,11 @@
     "source": "Our Sunday Visitor",
     "date": "2019-10-01",
     "description": "Coverage of the launch of OSV Innovation Talks, Catholic TED-style talks created by Shanks",
-    "tags": ["Innovation", "OSV Talks"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Talks"
+    ],
+    "verified": true
   },
   {
     "title": "OSV Challenge Gives Catholic Innovators the Chance to Build Something Special",
@@ -266,8 +358,11 @@
     "source": "OSV News",
     "date": "2021-09-21",
     "description": "Coverage of the OSV Innovation Challenge, a $100K Catholic 'shark-tank' competition led by Shanks",
-    "tags": ["Innovation", "OSV Challenge"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Challenge"
+    ],
+    "verified": true
   },
   {
     "title": "OSV Innovation Challenge — A Conversation with Jason Shanks",
@@ -276,8 +371,12 @@
     "source": "Lisa Hendey / CatholicMom",
     "date": "2020-08-01",
     "description": "Interview about the OSV Innovation Challenge Demo Day and the need for Catholic innovation",
-    "tags": ["Innovation", "OSV Challenge", "Interview"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Challenge",
+      "Interview"
+    ],
+    "verified": true
   },
   {
     "title": "With Missionary Vision — OSV's Jason Shanks Named New CEO (Archdiocese of New York)",
@@ -286,8 +385,11 @@
     "source": "Archdiocese of New York",
     "date": "2024-06-06",
     "description": "Archdiocese of New York coverage of Shanks' appointment as CEO of the NEC",
-    "tags": ["Profile", "Appointment"],
-    "verified": false
+    "tags": [
+      "Profile",
+      "Appointment"
+    ],
+    "verified": true
   },
   {
     "title": "NEC Launches Society of the Eucharistic Heart of Jesus",
@@ -296,8 +398,12 @@
     "source": "Diocese of Scranton",
     "date": "2025-01-01",
     "description": "Announcement of the new Society to support the National Eucharistic Congress' mission",
-    "tags": ["NEC", "Society", "Eucharistic Heart"],
-    "verified": false
+    "tags": [
+      "NEC",
+      "Society",
+      "Eucharistic Heart"
+    ],
+    "verified": true
   },
   {
     "title": "University of Saint Francis 2025 Commencement Speaker",
@@ -306,8 +412,12 @@
     "source": "University of Saint Francis",
     "date": "2025-05-03",
     "description": "Shanks delivered the 2025 commencement address at University of Saint Francis, Fort Wayne",
-    "tags": ["Commencement", "Speech", "Honorary Degree"],
-    "verified": false
+    "tags": [
+      "Commencement",
+      "Speech",
+      "Honorary Degree"
+    ],
+    "verified": true
   },
   {
     "title": "Say Yes to Holiness Podcast — Working to Make a Moment a Movement",
@@ -316,8 +426,11 @@
     "source": "Spotify (Say Yes to Holiness)",
     "date": "2024-10-01",
     "description": "Episode 239: Discussion on the Eucharistic Revival, personal journey to Catholicism, and future plans",
-    "tags": ["Eucharistic Revival", "Conversion"],
-    "verified": false
+    "tags": [
+      "Eucharistic Revival",
+      "Conversion"
+    ],
+    "verified": true
   },
   {
     "title": "The Church Needs Innovators — Catholic Creatives Podcast",
@@ -326,8 +439,11 @@
     "source": "Catholic Creatives",
     "date": "2019-07-05",
     "description": "Episode 101: Discussing innovation in Catholic ministry, the state of the Church, and OSV Institute grants",
-    "tags": ["Innovation", "Catholic Creatives"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "Catholic Creatives"
+    ],
+    "verified": true
   },
   {
     "title": "Transformation of Heart Through Illness — Awaken Podcast",
@@ -336,8 +452,12 @@
     "source": "Awaken Catholic",
     "date": "2021-06-01",
     "description": "Episode 117: The relationship between illness and holiness through Shanks' near-death COVID experience",
-    "tags": ["COVID-19", "Testimony", "Healing"],
-    "verified": false
+    "tags": [
+      "COVID-19",
+      "Testimony",
+      "Healing"
+    ],
+    "verified": true
   },
   {
     "title": "Belt of Truth Podcast — 15 Minutes to Say Goodbye",
@@ -346,8 +466,12 @@
     "source": "Belt of Truth (Apple Podcasts)",
     "date": "2022-05-09",
     "description": "Shanks shares his powerful testimony of nearly dying from COVID-19 and the faith that sustained his family",
-    "tags": ["COVID-19", "Testimony", "Men's Ministry"],
-    "verified": false
+    "tags": [
+      "COVID-19",
+      "Testimony",
+      "Men's Ministry"
+    ],
+    "verified": true
   },
   {
     "title": "The Innovator's Dilemma — Living the CALL Podcast",
@@ -356,8 +480,11 @@
     "source": "Living the CALL",
     "date": "2022-01-01",
     "description": "Discussion on innovation and dilemmas facing Catholic institutions with the Catholic Association for Latino Leadership",
-    "tags": ["Innovation", "Latino Leadership"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "Latino Leadership"
+    ],
+    "verified": true
   },
   {
     "title": "Innovation on Creativity, and Suffering — Always Hope Podcast",
@@ -366,8 +493,12 @@
     "source": "Always Hope (Dr. Mario Sacasa)",
     "date": "2022-01-19",
     "description": "Episode 90: How COVID shaped his faith, family relationships, and understanding of suffering",
-    "tags": ["COVID-19", "Suffering", "Faith"],
-    "verified": false
+    "tags": [
+      "COVID-19",
+      "Suffering",
+      "Faith"
+    ],
+    "verified": true
   },
   {
     "title": "Surviving COVID-19: Doctors Learning from Patients — Doctor Doctor Podcast",
@@ -376,8 +507,12 @@
     "source": "Doctor Doctor (Apple Podcasts)",
     "date": "2021-04-02",
     "description": "Episode 205: Shanks and his critical care physician share the story of his 6-week ICU COVID battle",
-    "tags": ["COVID-19", "Medical", "Recovery"],
-    "verified": false
+    "tags": [
+      "COVID-19",
+      "Medical",
+      "Recovery"
+    ],
+    "verified": true
   },
   {
     "title": "Petrus Development Show — Innovation Challenge Interview",
@@ -386,8 +521,12 @@
     "source": "Petrus Development",
     "date": "2019-10-01",
     "description": "Episode 29: Discussing the OSV Innovation Challenge and Catholic innovation ecosystem",
-    "tags": ["Innovation", "OSV Challenge", "Fundraising"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Challenge",
+      "Fundraising"
+    ],
+    "verified": true
   },
   {
     "title": "OSV Innovation Challenge — $100,000 — Kyle Heimann Show",
@@ -396,8 +535,11 @@
     "source": "The Kyle Heimann Show",
     "date": "2019-10-15",
     "description": "Discussion on the OSV Innovation Challenge giving away three $100K awards for Catholic innovators",
-    "tags": ["Innovation", "OSV Challenge"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Challenge"
+    ],
+    "verified": true
   },
   {
     "title": "The Inefficient Innovator — Say Yes to Holiness Podcast (Episode 74)",
@@ -406,8 +548,11 @@
     "source": "Say Yes to Holiness",
     "date": "2021-06-13",
     "description": "Episode 74: One-on-one conversation about the OSV Innovation Talks and being an inefficient innovator",
-    "tags": ["Innovation", "OSV Talks"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Talks"
+    ],
+    "verified": true
   },
   {
     "title": "Relevant Radio Interview — National Eucharistic Congress Success",
@@ -416,8 +561,11 @@
     "source": "Relevant Radio",
     "date": "2024-07-24",
     "description": "Interview discussing the success of the National Eucharistic Congress in Indianapolis",
-    "tags": ["NEC 2024", "Interview"],
-    "verified": false
+    "tags": [
+      "NEC 2024",
+      "Interview"
+    ],
+    "verified": true
   },
   {
     "title": "National Eucharistic Pilgrimage Seeks to Be a Sacred Journey for US at 250 Years",
@@ -426,8 +574,12 @@
     "source": "Catholic Review",
     "date": "2026-02-01",
     "description": "Feature on the 2026 pilgrimage as a sacred journey marking America's 250th anniversary",
-    "tags": ["Pilgrimage", "2026", "250th Anniversary"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2026",
+      "250th Anniversary"
+    ],
+    "verified": true
   },
   {
     "title": "'One Nation Under God': Eucharistic Pilgrimage Marks America's 250th Anniversary",
@@ -436,8 +588,12 @@
     "source": "The Dialog",
     "date": "2026-02-01",
     "description": "Coverage of the 2026 pilgrimage theme and route through the Diocese of Wilmington",
-    "tags": ["Pilgrimage", "2026", "One Nation Under God"],
-    "verified": false
+    "tags": [
+      "Pilgrimage",
+      "2026",
+      "One Nation Under God"
+    ],
+    "verified": true
   },
   {
     "title": "With Missionary Vision — Detroit Catholic Coverage",
@@ -446,8 +602,12 @@
     "source": "Detroit Catholic",
     "date": "2024-06-06",
     "description": "Detroit Catholic coverage of Shanks' appointment, highlighting his previous work with CCSEM",
-    "tags": ["Profile", "Detroit", "Appointment"],
-    "verified": false
+    "tags": [
+      "Profile",
+      "Detroit",
+      "Appointment"
+    ],
+    "verified": true
   },
   {
     "title": "Catholic Charities CEO Transitioning to New Position with Our Sunday Visitor",
@@ -456,8 +616,12 @@
     "source": "Catholic Charities of SE Michigan",
     "date": "2017-06-01",
     "description": "Announcement of Shanks' transition from CCSEM CEO to OSV Institute president",
-    "tags": ["Career", "CCSEM", "OSV"],
-    "verified": false
+    "tags": [
+      "Career",
+      "CCSEM",
+      "OSV"
+    ],
+    "verified": true
   },
   {
     "title": "Jason Shanks Speaker Profile",
@@ -466,8 +630,11 @@
     "source": "Principium Institute",
     "date": "2023-01-01",
     "description": "Speaker profile featuring Shanks' biography, speaking topics, and ministry work",
-    "tags": ["Speaker", "Profile"],
-    "verified": false
+    "tags": [
+      "Speaker",
+      "Profile"
+    ],
+    "verified": true
   },
   {
     "title": "Good News Cruise Presenter — Melissa & Jason Shanks",
@@ -476,8 +643,12 @@
     "source": "Good News Cruise",
     "date": "2024-01-01",
     "description": "Presenter profile for Good News Cruise Catholic couples' getaway featuring Jason and Melissa",
-    "tags": ["Speaker", "Marriage", "Couples"],
-    "verified": false
+    "tags": [
+      "Speaker",
+      "Marriage",
+      "Couples"
+    ],
+    "verified": true
   },
   {
     "title": "ICSC Conference 2019 — Speaker Session",
@@ -486,8 +657,12 @@
     "source": "ICSC Conference",
     "date": "2019-10-07",
     "description": "Speaker at the 57th Annual International Catholic Stewardship Council Conference in Chicago",
-    "tags": ["Conference", "Stewardship", "ICSC"],
-    "verified": false
+    "tags": [
+      "Conference",
+      "Stewardship",
+      "ICSC"
+    ],
+    "verified": true
   },
   {
     "title": "Catholic Creativity Pays Off — National Catholic Register",
@@ -496,8 +671,11 @@
     "source": "National Catholic Register",
     "date": "2020-09-01",
     "description": "Coverage of the three $100K winners of the OSV Innovation Challenge led by Shanks",
-    "tags": ["Innovation", "OSV Challenge"],
-    "verified": false
+    "tags": [
+      "Innovation",
+      "OSV Challenge"
+    ],
+    "verified": true
   },
   {
     "title": "Jason Shanks, Author at Catholic-Link",
@@ -506,8 +684,11 @@
     "source": "Catholic-Link",
     "date": "2019-01-01",
     "description": "Author page with articles written by Jason Shanks for Catholic-Link",
-    "tags": ["Author", "Articles"],
-    "verified": false
+    "tags": [
+      "Author",
+      "Articles"
+    ],
+    "verified": true
   },
   {
     "title": "Jason Shanks, Author at Our Sunday Visitor",
@@ -516,8 +697,12 @@
     "source": "Our Sunday Visitor",
     "date": "2020-01-01",
     "description": "Author archive of articles written by Jason Shanks for Our Sunday Visitor",
-    "tags": ["Author", "OSV", "Articles"],
-    "verified": false
+    "tags": [
+      "Author",
+      "OSV",
+      "Articles"
+    ],
+    "verified": true
   },
   {
     "title": "Shanks to Become President at OSV Soon",
@@ -526,7 +711,11 @@
     "source": "Huntington County Tab",
     "date": "2017-07-01",
     "description": "Local news coverage of Shanks' appointment as president of the OSV Institute",
-    "tags": ["Career", "OSV", "Local News"],
-    "verified": false
+    "tags": [
+      "Career",
+      "OSV",
+      "Local News"
+    ],
+    "verified": true
   }
 ]
