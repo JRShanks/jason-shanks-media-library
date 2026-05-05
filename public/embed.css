@@ -1,0 +1,94 @@
+/* Jason Shanks Media Library — external Squarespace embed CSS */
+.jml-wrap {
+  font-family: inherit; color: inherit; box-sizing: border-box;
+  width: 100vw; max-width: 1100px;
+  margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);
+  padding: 0 2rem;
+}
+.sqs-block-code .sqs-block-content,
+.fe-block .sqs-block-content {
+  max-width: 100% !important; width: 100% !important; overflow: visible !important;
+}
+
+  /* ---------- Section Title ---------- */
+  .jml-section-title { font-size: 1rem; font-weight: 600; color: #888;
+    text-transform: uppercase; letter-spacing: .06em; margin-bottom: .6rem; }
+
+  /* ---------- Featured Grid ---------- */
+  .jml-featured-grid { display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem; margin-bottom: 1.5rem; }
+  .jml-featured-grid .jml-card { border-left: 3px solid #1e3a5f; }
+
+  /* ---------- Search & Filter Controls ---------- */
+  .jml-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; align-items: center; }
+  .jml-search { flex: 1 1 240px; padding: .55rem .9rem; font-size: .95rem; font-family: inherit;
+    border: 1px solid #d4d4d4; border-radius: 6px; background: #fff; }
+  .jml-search:focus { outline: none; border-color: #1e3a5f; box-shadow: 0 0 0 3px rgba(30,58,95,.1); }
+  .jml-filters { display: flex; gap: .35rem; flex-wrap: wrap; }
+  .jml-fbtn { padding: .4rem .8rem; font-size: .82rem; font-family: inherit; font-weight: 500;
+    border: 1px solid #d4d4d4; border-radius: 20px; background: #fff; color: #555;
+    cursor: pointer; transition: all .15s; }
+  .jml-fbtn:hover { border-color: #333; color: #333; }
+  .jml-fbtn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+  .jml-fcount { font-weight: 400; opacity: .7; }
+  .jml-stats { font-size: .8rem; color: #999; margin-bottom: .8rem; }
+
+  /* ---------- Card Grid (2 columns on desktop) ---------- */
+  .jml-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+
+  /* ---------- Card Styles ---------- */
+  .jml-card { display: flex; flex-direction: column; padding: 1rem 1.1rem;
+    border: 1px solid #e8e8e8; border-radius: 6px;
+    text-decoration: none !important; color: inherit !important; background: #fff;
+    transition: box-shadow .2s, transform .15s; }
+  .jml-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.08); transform: translateY(-1px); }
+  .jml-card[hidden] { display: none; }
+  .jml-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+  .jml-badge { display: inline-block; font-size: .65rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .04em; padding: .12rem .5rem; border-radius: 20px; color: #fff; }
+  .jml-badge-Video { background: #dc2626; }
+  .jml-badge-Podcast { background: #7c3aed; }
+  .jml-badge-Radio { background: #2563eb; }
+  .jml-badge-Writing { background: #059669; }
+  .jml-badge-Talk { background: #d97706; }
+  .jml-badge-Book { background: #92400e; }
+  .jml-badge-Interview { background: #0f766e; }
+  .jml-badge-Recognition { background: #9333ea; }
+  .jml-source { font-size: .78rem; color: #999; }
+  .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: .2rem; }
+  .jml-desc { font-size: .85rem; color: #777; margin-bottom: .4rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .jml-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-top: auto; }
+  .jml-date { font-size: .78rem; color: #999; }
+  .jml-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+  .jml-tag { font-size: .7rem; padding: .08rem .45rem; background: #eef2ff; color: #3730a3; border-radius: 20px; }
+  .jml-empty { text-align: center; padding: 2rem 1rem; color: #aaa; }
+
+  /* ---------- CTA Banner ---------- */
+  .jml-cta { display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #1e3a5f 100%);
+    border-radius: 8px; color: #fff; text-decoration: none !important; gap: 1rem;
+    transition: transform .15s, box-shadow .2s; }
+  .jml-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(30,58,95,.3); }
+  .jml-cta-text { flex: 1; }
+  .jml-cta-title { font-size: 1.05rem; font-weight: 700; margin-bottom: .15rem; color: #fff !important; }
+  .jml-cta-sub { font-size: .82rem; opacity: .85; color: #e0e0e0 !important; }
+  .jml-cta-btn { padding: .5rem 1.2rem; background: #fff; color: #1a1a2e;
+    font-weight: 600; font-size: .85rem; border-radius: 6px; white-space: nowrap;
+    text-decoration: none !important; }
+
+  /* ---------- Section Divider ---------- */
+  .jml-divider { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0 1rem; }
+
+  /* ---------- Mobile (single column, stacked controls) ---------- */
+  @media (max-width: 680px) {
+    .jml-controls { flex-direction: column; }
+    .jml-search { width: 100%; }
+    .jml-title { font-size: .92rem; }
+    .jml-featured-grid { grid-template-columns: 1fr; }
+    .jml-grid { grid-template-columns: 1fr; }
+    .jml-cta { flex-direction: column; text-align: center; }
+  }
+

@@ -29,8 +29,9 @@ DATA_FILE = REPO_ROOT / "data" / "media_links.json"
 PUBLIC_DIR = REPO_ROOT / "public"
 PUBLIC_DATA = PUBLIC_DIR / "data"
 
-CATEGORIES = ["Video", "Podcast", "Radio", "Writing", "Talk", "Book"]
+CATEGORIES = ["Video", "Podcast", "Radio", "Writing", "Talk", "Book", "Interview", "Recognition"]
 FEATURED_COUNT = 6
+ASSET_BASE_URL = "https://jason-shanks-media.netlify.app"
 
 
 def esc(text):
@@ -177,6 +178,8 @@ SHARED_CSS = """
   .jml-badge-Writing { background: #059669; }
   .jml-badge-Talk { background: #d97706; }
   .jml-badge-Book { background: #92400e; }
+  .jml-badge-Interview { background: #0f766e; }
+  .jml-badge-Recognition { background: #9333ea; }
   .jml-source { font-size: .78rem; color: #999; }
   .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: .2rem; }
   .jml-desc { font-size: .85rem; color: #777; margin-bottom: .4rem;
@@ -476,6 +479,180 @@ def generate_squarespace_embed(items):
 
 
 # ===========================================================================
+# Generate Option B assets: permanent Squarespace loader + external data/render
+# ===========================================================================
+def generate_external_embed_assets(items):
+    """Generate a tiny permanent Squarespace loader plus hosted CSS/JS assets.
+
+    This is the preferred Squarespace integration: paste squarespace-loader.html
+    once, then future media updates only require updating public/data/media_links.json
+    and redeploying the external static site.
+    """
+    total = len(items)
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    embed_css = """/* Jason Shanks Media Library — external Squarespace embed CSS */
+.jml-wrap {
+  font-family: inherit; color: inherit; box-sizing: border-box;
+  width: 100vw; max-width: 1100px;
+  margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);
+  padding: 0 2rem;
+}
+.sqs-block-code .sqs-block-content,
+.fe-block .sqs-block-content {
+  max-width: 100% !important; width: 100% !important; overflow: visible !important;
+}
+{shared_css}
+""".replace("{shared_css}", SHARED_CSS)
+
+    embed_js = r"""(function() {
+  'use strict';
+
+  var script = document.currentScript || (function() {
+    var scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  })();
+
+  var containerId = script.getAttribute('data-jml-container') || 'jason-media-library';
+  var dataUrl = script.getAttribute('data-jml-data-url') || 'https://jason-shanks-media.netlify.app/data/media_links.json';
+  var container = document.getElementById(containerId);
+  if (!container) return;
+
+  var categories = ['Video', 'Podcast', 'Radio', 'Writing', 'Talk', 'Book', 'Interview', 'Recognition'];
+
+  function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+    });
+  }
+
+  function formatDate(value) {
+    if (!value) return '';
+    var parts = String(value).split('-');
+    if (parts.length !== 3) return esc(value);
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    if (isNaN(date.getTime())) return esc(value);
+    return date.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+  }
+
+  function card(item, extraClass) {
+    var tags = (item.tags || []).filter(function(t) {
+      return t && ['web-search', 'YouTube', 'RSS'].indexOf(t) === -1;
+    }).slice(0, 3).map(function(t) {
+      return '<span class="jml-tag">' + esc(t) + '</span>';
+    }).join('');
+
+    var cat = esc(item.category || 'Writing');
+    var desc = item.description ? '<div class="jml-desc">' + esc(item.description) + '</div>' : '';
+    var date = item.date ? '<span class="jml-date">' + formatDate(item.date) + '</span>' : '';
+    var tagWrap = tags ? '<div class="jml-tags">' + tags + '</div>' : '';
+
+    return '<a href="' + esc(item.url || '#') + '" target="_blank" rel="noopener noreferrer" class="jml-card ' + (extraClass || '') + '" data-category="' + cat + '">' +
+      '<div class="jml-card-top"><span class="jml-badge jml-badge-' + cat + '">' + cat + '</span><span class="jml-source">' + esc(item.source || '') + '</span></div>' +
+      '<div class="jml-title">' + esc(item.title || '') + '</div>' + desc +
+      '<div class="jml-meta">' + date + tagWrap + '</div></a>';
+  }
+
+  function pickFeatured(items) {
+    var featured = items.filter(function(i) { return i.featured; }).slice(0, 6);
+    var seen = {};
+    featured.forEach(function(i) { seen[i.category || ''] = true; });
+    items.forEach(function(i) {
+      if (featured.length >= 6) return;
+      var cat = i.category || '';
+      if (!seen[cat] && featured.indexOf(i) === -1) { featured.push(i); seen[cat] = true; }
+    });
+    items.forEach(function(i) { if (featured.length < 6 && featured.indexOf(i) === -1) featured.push(i); });
+    return featured;
+  }
+
+  function render(items) {
+    items = (items || []).filter(function(i) { return i && i.verified !== false; });
+    items.sort(function(a, b) { return String(b.date || '').localeCompare(String(a.date || '')) || String(a.title || '').localeCompare(String(b.title || '')); });
+
+    var counts = {};
+    items.forEach(function(i) { var c = i.category || 'Writing'; counts[c] = (counts[c] || 0) + 1; });
+    var filters = '<button class="jml-fbtn active" data-cat="All">All</button>';
+    categories.forEach(function(cat) { if (counts[cat]) filters += '<button class="jml-fbtn" data-cat="' + esc(cat) + '">' + esc(cat) + ' <span class="jml-fcount">(' + counts[cat] + ')</span></button>'; });
+
+    var total = items.length;
+    var featured = pickFeatured(items);
+    container.innerHTML = '<div class="jml-wrap">' +
+      '<a href="https://www.amazon.com/dp/B09J36FDP5" target="_blank" rel="noopener noreferrer" class="jml-cta"><div class="jml-cta-text"><div class="jml-cta-title">The Foundations and Pillars of Evangelization</div><div class="jml-cta-sub">By Jason Shanks &mdash; A foundational work defining evangelization through the documents of Vatican II</div></div><span class="jml-cta-btn">Buy the Book</span></a>' +
+      '<div class="jml-controls"><input type="search" class="jml-search" id="jml-search" placeholder="Search ' + total + ' appearances…" aria-label="Search media library"><div class="jml-filters" id="jml-filters" role="group" aria-label="Filter by category">' + filters + '</div></div>' +
+      '<div class="jml-stats" id="jml-stats" aria-live="polite">Showing ' + total + ' of ' + total + ' appearances</div>' +
+      '<h2 class="jml-section-title">Featured</h2><div class="jml-featured-grid">' + featured.map(function(i) { return card(i, 'jml-featured'); }).join('') + '</div>' +
+      '<hr class="jml-divider"><h2 class="jml-section-title">Browse All</h2><div class="jml-grid" id="jml-grid">' + items.map(function(i) { return card(i, ''); }).join('') + '</div>' +
+      '<div class="jml-empty" id="jml-empty" hidden>No appearances match your search.</div></div>';
+
+    var grid = container.querySelector('#jml-grid');
+    var search = container.querySelector('#jml-search');
+    var filtersEl = container.querySelector('#jml-filters');
+    var statsEl = container.querySelector('#jml-stats');
+    var emptyEl = container.querySelector('#jml-empty');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.jml-card'));
+    var activeCat = 'All', query = '';
+
+    function norm(s) { return (s || '').toLowerCase(); }
+    function apply() {
+      var shown = 0, q = norm(query);
+      cards.forEach(function(c) {
+        var catOk = activeCat === 'All' || c.getAttribute('data-category') === activeCat;
+        var txtOk = !q || norm(c.textContent).indexOf(q) !== -1;
+        c.hidden = !(catOk && txtOk);
+        if (catOk && txtOk) shown++;
+      });
+      statsEl.textContent = 'Showing ' + shown + ' of ' + total + ' appearances';
+      emptyEl.hidden = shown !== 0;
+    }
+
+    filtersEl.addEventListener('click', function(e) {
+      var btn = e.target.closest('.jml-fbtn');
+      if (!btn) return;
+      activeCat = btn.getAttribute('data-cat');
+      Array.prototype.forEach.call(filtersEl.querySelectorAll('.jml-fbtn'), function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      apply();
+    });
+    search.addEventListener('input', function() { query = search.value.trim(); apply(); });
+  }
+
+  container.innerHTML = '<div class="jml-wrap"><div class="jml-stats">Loading media appearances…</div></div>';
+  fetch(dataUrl, { credentials: 'omit' })
+    .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    .then(render)
+    .catch(function(err) {
+      container.innerHTML = '<div class="jml-wrap"><div class="jml-empty">Media appearances could not be loaded. Please refresh the page.</div></div>';
+      if (window.console) console.error('Jason media library failed to load:', err);
+    });
+})();
+"""
+
+    loader = """<!--
+  JASON SHANKS MEDIA LIBRARY — Squarespace Loader (Option B)
+  Paste this once into the Squarespace Media & Appearances Code Block.
+  Future updates happen by changing the hosted JSON/assets, not by rebuilding this block.
+  Generated: {now}; current item count: {total}
+-->
+<div id="jason-media-library"></div>
+<link rel="stylesheet" href="{base}/embed.css?v={version}">
+<script src="{base}/embed.js?v={version}" data-jml-container="jason-media-library" data-jml-data-url="{base}/data/media_links.json?v={version}" defer></script>
+""".format(
+        now=now,
+        total=total,
+        base=ASSET_BASE_URL,
+        version=datetime.now().strftime("%Y%m%d%H%M"),
+    )
+
+    (PUBLIC_DIR / "embed.css").write_text(embed_css, encoding="utf-8")
+    (PUBLIC_DIR / "embed.js").write_text(embed_js, encoding="utf-8")
+    (REPO_ROOT / "squarespace-loader.html").write_text(loader, encoding="utf-8")
+    print("  Generated public/embed.css ({:,} bytes)".format(len(embed_css)))
+    print("  Generated public/embed.js ({:,} bytes)".format(len(embed_js)))
+    print("  Generated squarespace-loader.html ({:,} bytes)".format(len(loader)))
+
+
+# ===========================================================================
 # Pipeline
 # ===========================================================================
 def run(cmd, label):
@@ -565,6 +742,10 @@ def main():
     embed_path = REPO_ROOT / "squarespace-embed.html"
     embed_path.write_text(embed_html, encoding="utf-8")
     print("  Generated {} ({:,} bytes)".format(embed_path.name, len(embed_html)))
+
+    # Generate the preferred Option B integration assets: a tiny permanent
+    # Squarespace loader plus externally hosted CSS/JS/data.
+    generate_external_embed_assets(items)
 
     copy_data_to_public()
     generate_sitemap()

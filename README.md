@@ -25,7 +25,7 @@ Weekly (GitHub Actions)
                                                       ▼
                                               ┌──────────────┐
                                               │  Squarespace  │
-                                              │  iframe embed │
+                                              │  loader block │
                                               └──────────────┘
 ```
 
@@ -45,8 +45,9 @@ jason-shanks-media-library/
 │   └── build.py                ← Build pipeline
 ├── public/
 │   ├── index.html              ← Media library page
-│   ├── app.js                  ← Search/filter logic
-│   └── styles.css              ← Styling
+│   ├── embed.js                ← Squarespace external renderer
+│   ├── embed.css               ← Squarespace external styling
+│   └── data/media_links.json   ← Published data
 ├── netlify.toml                ← Netlify config
 ├── requirements.txt            ← Python dependencies
 └── README.md
@@ -110,7 +111,19 @@ You need these for automated content discovery:
 
 ### 4. Embed in Squarespace
 
-#### Option A: iframe Embed (Recommended)
+#### Recommended: external loader Code Block
+
+Paste the contents of `squarespace-loader.html` into the Squarespace Media & Appearances Code Block.
+
+That loader is intentionally tiny and stable. Future media updates happen by updating `data/media_links.json`, running the build, and redeploying Netlify — the Squarespace block does not need to be rebuilt each time.
+
+```html
+<div id="jason-media-library"></div>
+<link rel="stylesheet" href="https://jason-shanks-media.netlify.app/embed.css">
+<script src="https://jason-shanks-media.netlify.app/embed.js" data-jml-container="jason-media-library" data-jml-data-url="https://jason-shanks-media.netlify.app/data/media_links.json" defer></script>
+```
+
+#### Alternative: iframe Embed
 
 In Squarespace, add a **Code Block** and paste:
 
@@ -127,7 +140,7 @@ In Squarespace, add a **Code Block** and paste:
 
 The `?embed=true` parameter hides the header and footer so it blends into your Squarespace page.
 
-#### Option B: Link to Standalone Page
+#### Alternative: Link to Standalone Page
 
 Simply add a link/button in Squarespace pointing to your Netlify URL.
 
@@ -150,7 +163,7 @@ Edit `data/media_links.json` directly on GitHub. Each entry follows this format:
 }
 ```
 
-**Categories:** `Video`, `Podcast`, `Article`, `Talk`
+**Categories:** `Video`, `Podcast`, `Radio`, `Writing`, `Talk`, `Book`, `Interview`, `Recognition`
 
 After editing, Netlify will auto-redeploy within ~1 minute.
 

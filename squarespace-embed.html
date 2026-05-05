@@ -1,19 +1,37 @@
 <!--
   JASON SHANKS MEDIA LIBRARY — Squarespace Code Block
-  68 pre-rendered media appearances. No external fetch required.
+  71 pre-rendered media appearances. No external fetch required.
   Content is visible even if JavaScript is disabled.
-  Generated: 2026-04-07 21:04
+  Generated: 2026-05-05 08:08
 -->
 
 <style>
-  .jml-wrap { font-family: inherit; color: inherit; max-width: 860px; margin: 0 auto; }
+  /* Break out of Squarespace Fluid Engine narrow Code Block */
+  .jml-wrap {
+    font-family: inherit; color: inherit; box-sizing: border-box;
+    width: 100vw;
+    max-width: 1100px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 0 2rem;
+  }
+  /* Also override Squarespace parent constraints */
+  .sqs-block-code .sqs-block-content,
+  .fe-block .sqs-block-content {
+    max-width: 100% !important; width: 100% !important; overflow: visible !important;
+  }
 
+  /* ---------- Section Title ---------- */
   .jml-section-title { font-size: 1rem; font-weight: 600; color: #888;
     text-transform: uppercase; letter-spacing: .06em; margin-bottom: .6rem; }
+
+  /* ---------- Featured Grid ---------- */
   .jml-featured-grid { display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: .65rem; margin-bottom: 1.5rem; }
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem; margin-bottom: 1.5rem; }
   .jml-featured-grid .jml-card { border-left: 3px solid #1e3a5f; }
+
+  /* ---------- Search & Filter Controls ---------- */
   .jml-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; align-items: center; }
   .jml-search { flex: 1 1 240px; padding: .55rem .9rem; font-size: .95rem; font-family: inherit;
     border: 1px solid #d4d4d4; border-radius: 6px; background: #fff; }
@@ -26,8 +44,13 @@
   .jml-fbtn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
   .jml-fcount { font-weight: 400; opacity: .7; }
   .jml-stats { font-size: .8rem; color: #999; margin-bottom: .8rem; }
-  .jml-grid { display: flex; flex-direction: column; gap: .65rem; }
-  .jml-card { display: block; padding: 1rem 1.1rem; border: 1px solid #e8e8e8; border-radius: 6px;
+
+  /* ---------- Card Grid (2 columns on desktop) ---------- */
+  .jml-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+
+  /* ---------- Card Styles ---------- */
+  .jml-card { display: flex; flex-direction: column; padding: 1rem 1.1rem;
+    border: 1px solid #e8e8e8; border-radius: 6px;
     text-decoration: none !important; color: inherit !important; background: #fff;
     transition: box-shadow .2s, transform .15s; }
   .jml-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.08); transform: translateY(-1px); }
@@ -40,36 +63,103 @@
   .jml-badge-Radio { background: #2563eb; }
   .jml-badge-Writing { background: #059669; }
   .jml-badge-Talk { background: #d97706; }
+  .jml-badge-Book { background: #92400e; }
+  .jml-badge-Interview { background: #0f766e; }
+  .jml-badge-Recognition { background: #9333ea; }
   .jml-source { font-size: .78rem; color: #999; }
   .jml-title { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: .2rem; }
   .jml-desc { font-size: .85rem; color: #777; margin-bottom: .4rem;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .jml-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+  .jml-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-top: auto; }
   .jml-date { font-size: .78rem; color: #999; }
   .jml-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
   .jml-tag { font-size: .7rem; padding: .08rem .45rem; background: #eef2ff; color: #3730a3; border-radius: 20px; }
   .jml-empty { text-align: center; padding: 2rem 1rem; color: #aaa; }
-  @media (max-width: 600px) {
+
+  /* ---------- CTA Banner ---------- */
+  .jml-cta { display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #1e3a5f 100%);
+    border-radius: 8px; color: #fff; text-decoration: none !important; gap: 1rem;
+    transition: transform .15s, box-shadow .2s; }
+  .jml-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(30,58,95,.3); }
+  .jml-cta-text { flex: 1; }
+  .jml-cta-title { font-size: 1.05rem; font-weight: 700; margin-bottom: .15rem; color: #fff !important; }
+  .jml-cta-sub { font-size: .82rem; opacity: .85; color: #e0e0e0 !important; }
+  .jml-cta-btn { padding: .5rem 1.2rem; background: #fff; color: #1a1a2e;
+    font-weight: 600; font-size: .85rem; border-radius: 6px; white-space: nowrap;
+    text-decoration: none !important; }
+
+  /* ---------- Section Divider ---------- */
+  .jml-divider { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0 1rem; }
+
+  /* ---------- Mobile (single column, stacked controls) ---------- */
+  @media (max-width: 680px) {
     .jml-controls { flex-direction: column; }
     .jml-search { width: 100%; }
     .jml-title { font-size: .92rem; }
     .jml-featured-grid { grid-template-columns: 1fr; }
+    .jml-grid { grid-template-columns: 1fr; }
+    .jml-cta { flex-direction: column; text-align: center; }
   }
 
 </style>
 
 <div class="jml-wrap">
 
+  <a href="https://www.amazon.com/dp/B09J36FDP5" target="_blank" rel="noopener noreferrer" class="jml-cta">
+      <div class="jml-cta-text">
+        <div class="jml-cta-title">The Foundations and Pillars of Evangelization</div>
+        <div class="jml-cta-sub">By Jason Shanks &mdash; A foundational work defining evangelization through the documents of Vatican II</div>
+      </div>
+      <span class="jml-cta-btn">Buy the Book</span>
+    </a>
+
+  <div class="jml-controls">
+    <input type="search" class="jml-search" id="jml-search" placeholder="Search 71 appearances…">
+    <div class="jml-filters" id="jml-filters">
+      <button class="jml-fbtn active" data-cat="All">All</button>
+      <button class="jml-fbtn" data-cat="Video">Video <span class="jml-fcount">(16)</span></button>
+      <button class="jml-fbtn" data-cat="Podcast">Podcast <span class="jml-fcount">(13)</span></button>
+      <button class="jml-fbtn" data-cat="Radio">Radio <span class="jml-fcount">(1)</span></button>
+      <button class="jml-fbtn" data-cat="Writing">Writing <span class="jml-fcount">(14)</span></button>
+      <button class="jml-fbtn" data-cat="Talk">Talk <span class="jml-fcount">(7)</span></button>
+      <button class="jml-fbtn" data-cat="Book">Book <span class="jml-fcount">(1)</span></button>
+      <button class="jml-fbtn" data-cat="Interview">Interview <span class="jml-fcount">(11)</span></button>
+      <button class="jml-fbtn" data-cat="Recognition">Recognition <span class="jml-fcount">(8)</span></button>
+
+    </div>
+  </div>
+  <div class="jml-stats" id="jml-stats">Showing 71 of 71 appearances</div>
+
   <h2 class="jml-section-title">Featured</h2>
   <div class="jml-featured-grid">
-<a href="https://www.osvnews.com/registration-opens-for-national-eucharistic-pilgrimages-public-events/" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Writing">
+<a href="https://blog.heroicmen.org/p/what-45-days-near-death-taught-jason" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Interview">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Interview">Interview</span>
+    <span class="jml-source">Heroic Men Blog</span>
+  </div>
+  <div class="jml-title">What 45 Days Near Death Taught Jason Shanks About the Eucharist</div>
+  <div class="jml-desc">In-depth feature on Jason&#x27;s 45-day intubation during COVID-19 (sepsis, pneumonia, kidney failure) and how the experience transformed his Eucharistic faith</div>
+  <div class="jml-meta"><span class="jml-date">Apr 07, 2026</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Eucharist</span><span class="jml-tag">Near-Death Experience</span></div></div>
+</a>
+<a href="https://www.eucharisticrevival.org/post/manna-distractions-and-the-daily-bread-we-need" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
+    <span class="jml-source">National Eucharistic Revival Blog</span>
   </div>
-  <div class="jml-title">Registration Opens for 2026 National Eucharistic Pilgrimage Public Events</div>
-  <div class="jml-desc">Announcement of registration opening for the 2026 pilgrimage&#x27;s public events along the East Coast route</div>
-  <div class="jml-meta"><span class="jml-date">Mar 18, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span></div></div>
+  <div class="jml-title">Manna, Distractions, and the Daily Bread We Need</div>
+  <div class="jml-desc">Jason Shanks reflects on how the Israelites&#x27;s daily manna in the desert mirrors our need to seek spiritual nourishment without distraction in daily life</div>
+  <div class="jml-meta"><span class="jml-date">Mar 25, 2026</span><div class="jml-tags"><span class="jml-tag">Eucharist</span><span class="jml-tag">Spiritual Formation</span><span class="jml-tag">Reflection</span></div></div>
+</a>
+<a href="https://www.eucharisticrevival.org/post/the-fullness-of-prayer-an-exchange-of-hearts" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Writing">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-source">National Eucharistic Revival Blog</span>
+  </div>
+  <div class="jml-title">The Fullness of Prayer: An Exchange of Hearts</div>
+  <div class="jml-desc">As the NEC turns attention to prayer in 2026, Shanks introduces a year-long prayer series describing prayer as a profound mutual exchange with God</div>
+  <div class="jml-meta"><span class="jml-date">Jan 14, 2026</span><div class="jml-tags"><span class="jml-tag">Prayer</span><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Spiritual Formation</span></div></div>
 </a>
 <a href="https://www.youtube.com/watch?v=BrFZAp7jnu0" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Video">
   <div class="jml-card-top">
@@ -89,112 +179,47 @@
   <div class="jml-desc">Podcast interview on leading the National Eucharistic Revival movement</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2026</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span></div></div>
 </a>
-<a href="https://www.sf.edu/news/2025/02/saint-francis-announces-2025-commencement-speaker-and-honorary-degree-recipient/" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Talk">
+<a href="https://www.youtube.com/watch?v=ckSzKqFSQPI" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Podcast">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Talk">Talk</span>
-    <span class="jml-source">University of Saint Francis</span>
+    <span class="jml-badge jml-badge-Podcast">Podcast</span>
+    <span class="jml-source">Dr. Johann D&#x27;Souza Podcast</span>
   </div>
-  <div class="jml-title">University of Saint Francis 2025 Commencement Speaker</div>
-  <div class="jml-desc">Shanks delivered the 2025 commencement address at University of Saint Francis, Fort Wayne</div>
-  <div class="jml-meta"><span class="jml-date">May 03, 2025</span><div class="jml-tags"><span class="jml-tag">Commencement</span><span class="jml-tag">Speech</span><span class="jml-tag">Honorary Degree</span></div></div>
-</a>
-<a href="https://relevantradio.com/" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Radio">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Radio">Radio</span>
-    <span class="jml-source">Relevant Radio</span>
-  </div>
-  <div class="jml-title">Relevant Radio Interview — National Eucharistic Congress Success</div>
-  <div class="jml-desc">Interview discussing the success of the National Eucharistic Congress in Indianapolis</div>
-  <div class="jml-meta"><span class="jml-date">Jul 24, 2024</span><div class="jml-tags"><span class="jml-tag">NEC 2024</span><span class="jml-tag">Interview</span></div></div>
-</a>
-<a href="https://catholicreview.org/national-eucharistic-pilgrimage-seeks-to-be-a-sacred-journey-for-u-s-at-250-years/" target="_blank" rel="noopener noreferrer" class="jml-card jml-featured" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic Review</span>
-  </div>
-  <div class="jml-title">National Eucharistic Pilgrimage Seeks to Be a Sacred Journey for US at 250 Years</div>
-  <div class="jml-desc">Feature on the 2026 pilgrimage as a sacred journey marking America&#x27;s 250th anniversary</div>
-  <div class="jml-meta"><span class="jml-date">Feb 01, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">250th Anniversary</span></div></div>
+  <div class="jml-title">Sparking a Catholic Revival in the Family — Ep. 81</div>
+  <div class="jml-desc">Jason Shanks, President of the National Eucharistic Congress, discusses how Catholic communities can move from disengagement and apathy to a living faith centered on the Eucharist, and what it means to be a &#x27;Eucharistic missionary.&#x27;</div>
+  <div class="jml-meta"><span class="jml-date">Sep 04, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Family</span><span class="jml-tag">Podcast</span></div></div>
 </a>
   </div>
 
-  <div class="jml-controls">
-    <input type="search" class="jml-search" id="jml-search" placeholder="Search 68 appearances…">
-    <div class="jml-filters" id="jml-filters">
-      <button class="jml-fbtn active" data-cat="All">All</button>
-      <button class="jml-fbtn" data-cat="Video">Video <span class="jml-fcount">(6)</span></button>
-      <button class="jml-fbtn" data-cat="Podcast">Podcast <span class="jml-fcount">(11)</span></button>
-      <button class="jml-fbtn" data-cat="Radio">Radio <span class="jml-fcount">(1)</span></button>
-      <button class="jml-fbtn" data-cat="Writing">Writing <span class="jml-fcount">(45)</span></button>
-      <button class="jml-fbtn" data-cat="Talk">Talk <span class="jml-fcount">(5)</span></button>
+  <hr class="jml-divider">
 
-    </div>
-  </div>
-  <div class="jml-stats" id="jml-stats">Showing 68 of 68 appearances</div>
-
+  <h2 class="jml-section-title">Browse All</h2>
   <div class="jml-grid" id="jml-grid">
-<a href="https://www.osvnews.com/registration-opens-for-national-eucharistic-pilgrimages-public-events/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://blog.heroicmen.org/p/what-45-days-near-death-taught-jason" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
+    <span class="jml-source">Heroic Men Blog</span>
   </div>
-  <div class="jml-title">Registration Opens for 2026 National Eucharistic Pilgrimage Public Events</div>
-  <div class="jml-desc">Announcement of registration opening for the 2026 pilgrimage&#x27;s public events along the East Coast route</div>
-  <div class="jml-meta"><span class="jml-date">Mar 18, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span></div></div>
+  <div class="jml-title">What 45 Days Near Death Taught Jason Shanks About the Eucharist</div>
+  <div class="jml-desc">In-depth feature on Jason&#x27;s 45-day intubation during COVID-19 (sepsis, pneumonia, kidney failure) and how the experience transformed his Eucharistic faith</div>
+  <div class="jml-meta"><span class="jml-date">Apr 07, 2026</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Eucharist</span><span class="jml-tag">Near-Death Experience</span></div></div>
 </a>
-<a href="https://catholicreview.org/national-eucharistic-pilgrimage-seeks-to-be-a-sacred-journey-for-u-s-at-250-years/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.eucharisticrevival.org/post/manna-distractions-and-the-daily-bread-we-need" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic Review</span>
+    <span class="jml-source">National Eucharistic Revival Blog</span>
   </div>
-  <div class="jml-title">National Eucharistic Pilgrimage Seeks to Be a Sacred Journey for US at 250 Years</div>
-  <div class="jml-desc">Feature on the 2026 pilgrimage as a sacred journey marking America&#x27;s 250th anniversary</div>
-  <div class="jml-meta"><span class="jml-date">Feb 01, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">250th Anniversary</span></div></div>
+  <div class="jml-title">Manna, Distractions, and the Daily Bread We Need</div>
+  <div class="jml-desc">Jason Shanks reflects on how the Israelites&#x27;s daily manna in the desert mirrors our need to seek spiritual nourishment without distraction in daily life</div>
+  <div class="jml-meta"><span class="jml-date">Mar 25, 2026</span><div class="jml-tags"><span class="jml-tag">Eucharist</span><span class="jml-tag">Spiritual Formation</span><span class="jml-tag">Reflection</span></div></div>
 </a>
-<a href="https://thedialog.org/national-news/one-nation-under-god-eucharistic-pilgrimage-marks-americas-250th-anniversary/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.eucharisticrevival.org/post/the-fullness-of-prayer-an-exchange-of-hearts" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">The Dialog</span>
+    <span class="jml-source">National Eucharistic Revival Blog</span>
   </div>
-  <div class="jml-title">&#x27;One Nation Under God&#x27;: Eucharistic Pilgrimage Marks America&#x27;s 250th Anniversary</div>
-  <div class="jml-desc">Coverage of the 2026 pilgrimage theme and route through the Diocese of Wilmington</div>
-  <div class="jml-meta"><span class="jml-date">Feb 01, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">One Nation Under God</span></div></div>
-</a>
-<a href="https://www.catholicnewsagency.com/news/269145/bishops-say-multimillion-dollar-eucharistic-revival-bore-spiritual-fruit" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic News Agency</span>
-  </div>
-  <div class="jml-title">U.S. Bishops Say Multimillion-Dollar Eucharistic Revival Bore Spiritual Fruit</div>
-  <div class="jml-desc">Report on the National Eucharistic Revival Impact Study with context on the Congress led by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Jan 17, 2026</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Impact Study</span></div></div>
-</a>
-<a href="https://www.catholicnewsagency.com/news/268971/2026-national-eucharistic-pilgrimage-inspired-by-250th-anniversary-of-the-nation" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic News Agency</span>
-  </div>
-  <div class="jml-title">2026 National Eucharistic Pilgrimage Theme and Route Announced</div>
-  <div class="jml-desc">Shanks announces &#x27;One Nation Under God&#x27; theme for the 2026 pilgrimage celebrating America&#x27;s 250th anniversary</div>
-  <div class="jml-meta"><span class="jml-date">Jan 09, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">One Nation Under God</span></div></div>
-</a>
-<a href="https://www.osvnews.com/the-national-eucharistic-pilgrimage-is-back-in-2026-with-a-patriotic-twist/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
-  </div>
-  <div class="jml-title">The National Eucharistic Pilgrimage Is Back in 2026 — With a Patriotic Twist</div>
-  <div class="jml-desc">Feature on the 2026 pilgrimage route from St. Augustine to Philadelphia along the Cabrini Route</div>
-  <div class="jml-meta"><span class="jml-date">Jan 09, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">Cabrini Route</span></div></div>
-</a>
-<a href="https://www.osvnews.com/national-eucharistic-pilgrimage-seeks-to-be-a-sacred-journey-for-us-at-250-years/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
-  </div>
-  <div class="jml-title">National Eucharistic Pilgrimage Seeks to Be a Sacred Journey for US at 250 Years</div>
-  <div class="jml-desc">OSV News feature on the 2026 Eucharistic Pilgrimage marking America&#x27;s 250th anniversary</div>
-  <div class="jml-meta"><span class="jml-date">Jan 09, 2026</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2026</span><span class="jml-tag">250th Anniversary</span></div></div>
+  <div class="jml-title">The Fullness of Prayer: An Exchange of Hearts</div>
+  <div class="jml-desc">As the NEC turns attention to prayer in 2026, Shanks introduces a year-long prayer series describing prayer as a profound mutual exchange with God</div>
+  <div class="jml-meta"><span class="jml-date">Jan 14, 2026</span><div class="jml-tags"><span class="jml-tag">Prayer</span><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Spiritual Formation</span></div></div>
 </a>
 <a href="https://www.youtube.com/watch?v=BrFZAp7jnu0" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
@@ -214,32 +239,50 @@
   <div class="jml-desc">Podcast interview on leading the National Eucharistic Revival movement</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2026</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span></div></div>
 </a>
-<a href="https://catholicreview.org/regional-events-will-help-set-the-stage-for-2029-national-eucharistic-congress/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=ckSzKqFSQPI" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic Review</span>
+    <span class="jml-badge jml-badge-Podcast">Podcast</span>
+    <span class="jml-source">Dr. Johann D&#x27;Souza Podcast</span>
   </div>
-  <div class="jml-title">Regional Events Will Help Set the Stage for 2029 National Eucharistic Congress</div>
-  <div class="jml-desc">Shanks discusses how regional congresses from 2026-2028 will build toward the 2029 National Eucharistic Congress</div>
-  <div class="jml-meta"><span class="jml-date">Dec 08, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Congress</span><span class="jml-tag">2029</span><span class="jml-tag">Regional Events</span></div></div>
+  <div class="jml-title">Sparking a Catholic Revival in the Family — Ep. 81</div>
+  <div class="jml-desc">Jason Shanks, President of the National Eucharistic Congress, discusses how Catholic communities can move from disengagement and apathy to a living faith centered on the Eucharist, and what it means to be a &#x27;Eucharistic missionary.&#x27;</div>
+  <div class="jml-meta"><span class="jml-date">Sep 04, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Family</span><span class="jml-tag">Podcast</span></div></div>
 </a>
-<a href="https://www.catholicnewsagency.com/news/264589/eucharistic-pilgrimage-calls-for-silent-witness-as-anti-catholic-protests-intensify" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=OtnloRGbO3c" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic News Agency</span>
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">Christ In You - CMC</span>
   </div>
-  <div class="jml-title">Eucharistic Pilgrimage Calls for &#x27;Silent Witness&#x27; as Anti-Catholic Protests Intensify</div>
-  <div class="jml-desc">Coverage of anti-Catholic protests during the 2025 pilgrimage with comments from Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Sep 01, 2025</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2025</span></div></div>
+  <div class="jml-title">Living By Faith #12 — Jason Shanks</div>
+  <div class="jml-desc">Chad Sandwell and Andy Sonnier welcome National Eucharistic Congress President Jason Shanks to the Living By Faith podcast</div>
+  <div class="jml-meta"><span class="jml-date">Aug 01, 2025</span><div class="jml-tags"><span class="jml-tag">Faith</span><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Podcast</span></div></div>
 </a>
-<a href="https://catholicreview.org/national-pilgrimage-leaders-urge-large-procession-turnouts-to-counter-anti-catholic-protesters/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=vLrP_bwwd0A" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic Review</span>
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">EWTN</span>
   </div>
-  <div class="jml-title">National Pilgrimage Leaders Urge Large Procession Turnouts to Counter Anti-Catholic Protesters</div>
-  <div class="jml-desc">Shanks calls the pilgrimage a &#x27;Way-of-the-Cross type of pilgrimage&#x27; in response to anti-Catholic protests</div>
-  <div class="jml-meta"><span class="jml-date">Jun 03, 2025</span><div class="jml-tags"><span class="jml-tag">Pilgrimage</span><span class="jml-tag">2025</span></div></div>
+  <div class="jml-title">EWTN Live — Jason Shanks</div>
+  <div class="jml-desc">Fr. Mitch and Jason Shanks discuss the centrality of the Eucharist, the 2025 National Eucharistic Pilgrimage, and hope through suffering</div>
+  <div class="jml-meta"><span class="jml-date">Jun 25, 2025</span><div class="jml-tags"><span class="jml-tag">EWTN</span><span class="jml-tag">Eucharistic Pilgrimage</span><span class="jml-tag">2025</span></div></div>
+</a>
+<a href="https://www.eucharisticrevival.org/post/when-is-a-revival-a-revival" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Talk">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Talk">Talk</span>
+    <span class="jml-source">National Eucharistic Revival Blog</span>
+  </div>
+  <div class="jml-title">When Is a Revival a Revival? And How Can It Be Ongoing?</div>
+  <div class="jml-desc">Shanks explores what constitutes a genuine revival movement and how the National Eucharistic Revival can sustain momentum beyond major events</div>
+  <div class="jml-meta"><span class="jml-date">Jun 12, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Movement Building</span><span class="jml-tag">Faith</span></div></div>
+</a>
+<a href="https://www.youtube.com/watch?v=ttgCvsJzha4" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">Say Yes to Holiness</span>
+  </div>
+  <div class="jml-title">Working to Make a Moment a Movement — Jason Shanks | Say Yes to Holiness Ep. 239</div>
+  <div class="jml-desc">Christina Semmens speaks with Jason Shanks about sustaining the momentum of the National Eucharistic Revival beyond the 2024 Congress</div>
+  <div class="jml-meta"><span class="jml-date">Jun 01, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Podcast</span><span class="jml-tag">Movement</span></div></div>
 </a>
 <a href="https://www.sf.edu/news/2025/02/saint-francis-announces-2025-commencement-speaker-and-honorary-degree-recipient/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Talk">
   <div class="jml-card-top">
@@ -250,14 +293,23 @@
   <div class="jml-desc">Shanks delivered the 2025 commencement address at University of Saint Francis, Fort Wayne</div>
   <div class="jml-meta"><span class="jml-date">May 03, 2025</span><div class="jml-tags"><span class="jml-tag">Commencement</span><span class="jml-tag">Speech</span><span class="jml-tag">Honorary Degree</span></div></div>
 </a>
-<a href="https://www.osvnews.com/regional-events-will-help-set-the-stage-for-2029-national-eucharistic-congress/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=xHiLjmaf0hg" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">Castletown Media</span>
   </div>
-  <div class="jml-title">Regional Events Will Help Set the Stage for 2029 National Eucharistic Congress</div>
-  <div class="jml-desc">Shanks outlines plans for regional congresses of 10,000 people across the country leading to 2029</div>
-  <div class="jml-meta"><span class="jml-date">Feb 11, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharistic Congress</span><span class="jml-tag">2029</span><span class="jml-tag">Regional Events</span></div></div>
+  <div class="jml-title">Jason Shanks: Trapped Between Life &amp; Death — Finding Reality in the Eucharist</div>
+  <div class="jml-desc">Deep conversation on Jason&#x27;s COVID-19 near-death experience and how 45 days in a medically induced coma transformed his understanding of the Eucharist</div>
+  <div class="jml-meta"><span class="jml-date">Apr 01, 2025</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Eucharist</span><span class="jml-tag">Near-Death Experience</span></div></div>
+</a>
+<a href="https://legatus.org/blog/the-2025-legatus-national-summit-encouraged-attendees-to-do-whatever-he-tells-you" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
+    <span class="jml-source">Legatus</span>
+  </div>
+  <div class="jml-title">2024 Bowie Award for Evangelization — Legatus National Summit</div>
+  <div class="jml-desc">Jason Shanks receives the 2024 Bowie Award for Evangelization at the 2025 Legatus National Summit in Naples, FL, for significant efforts leading the National Eucharistic Revival.</div>
+  <div class="jml-meta"><span class="jml-date">Feb 08, 2025</span><div class="jml-tags"><span class="jml-tag">Legatus</span><span class="jml-tag">Award</span><span class="jml-tag">Evangelization</span></div></div>
 </a>
 <a href="https://ondemand.ewtn.com/Home/Play/en/ELI03361" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
@@ -277,59 +329,41 @@
   <div class="jml-desc">Panel discussion on the need for Eucharistic Revival in the Church</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2025</span><div class="jml-tags"><span class="jml-tag">Panel</span><span class="jml-tag">Eucharistic Revival</span></div></div>
 </a>
-<a href="https://www.dioceseofscranton.org/national-eucharistic-congress-inc-launches-society-of-the-eucharistic-heart-of-jesus-to-support-its-efforts/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.eucharisticrevival.org/art-of-accompaniment/eucharistic-life" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Diocese of Scranton</span>
+    <span class="jml-source">National Eucharistic Revival</span>
   </div>
-  <div class="jml-title">NEC Launches Society of the Eucharistic Heart of Jesus</div>
-  <div class="jml-desc">Announcement of the new Society to support the National Eucharistic Congress&#x27; mission</div>
-  <div class="jml-meta"><span class="jml-date">Jan 01, 2025</span><div class="jml-tags"><span class="jml-tag">NEC</span><span class="jml-tag">Society</span><span class="jml-tag">Eucharistic Heart</span></div></div>
+  <div class="jml-title">Eucharistic Life</div>
+  <div class="jml-desc">Part of &#x27;The Art of Accompaniment&#x27; series. Jason Shanks explores oneness in Eucharistic living, drawing on Mother Teresa&#x27;s teachings, illustrated through his personal COVID recovery.</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2025</span><div class="jml-tags"><span class="jml-tag">Eucharist</span><span class="jml-tag">Accompaniment</span><span class="jml-tag">Mother Teresa</span></div></div>
 </a>
-<a href="https://catholicreview.org/osvs-2024-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://catholicreview.org/osvs-2024-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
     <span class="jml-source">Catholic Review</span>
   </div>
   <div class="jml-title">OSV&#x27;s 2024 Catholics of the Year</div>
   <div class="jml-desc">Jason Shanks named Catholic of the Year for humble leadership of the National Eucharistic Congress</div>
   <div class="jml-meta"><span class="jml-date">Dec 30, 2024</span><div class="jml-tags"><span class="jml-tag">Catholic of the Year</span><span class="jml-tag">Award</span><span class="jml-tag">2024</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/our-sunday-visitors-2024-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.oursundayvisitor.com/our-sunday-visitors-2024-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
     <span class="jml-source">Our Sunday Visitor</span>
   </div>
   <div class="jml-title">Our Sunday Visitor&#x27;s 2024 Catholics of the Year</div>
   <div class="jml-desc">Shanks named 2024 Catholic of the Year for humble leadership of the National Eucharistic Congress that drew 60,000 pilgrims</div>
   <div class="jml-meta"><span class="jml-date">Dec 30, 2024</span><div class="jml-tags"><span class="jml-tag">Catholic of the Year</span><span class="jml-tag">Award</span><span class="jml-tag">2024</span></div></div>
 </a>
-<a href="https://arkansas-catholic.org/2024/12/30/osv-catholics-year-2024-notable-individuals/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://arkansas-catholic.org/2024/12/30/osv-catholics-year-2024-notable-individuals/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
     <span class="jml-source">Arkansas Catholic</span>
   </div>
   <div class="jml-title">Top 10 Catholic Figures of the Year 2024</div>
   <div class="jml-desc">Arkansas Catholic coverage of OSV&#x27;s 2024 Catholics of the Year featuring Jason Shanks</div>
   <div class="jml-meta"><span class="jml-date">Dec 30, 2024</span><div class="jml-tags"><span class="jml-tag">Catholic of the Year</span><span class="jml-tag">Award</span><span class="jml-tag">2024</span></div></div>
-</a>
-<a href="https://www.osvnews.com/next-national-eucharistic-congress-to-be-held-in-2029-will-build-on-grace-of-indianapolis/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
-  </div>
-  <div class="jml-title">Next National Eucharistic Congress to Be Held in 2029, Will &#x27;Build on Grace&#x27; of Indianapolis</div>
-  <div class="jml-desc">Shanks discusses how the 2029 Congress will build on the grace of the 10th Congress in Indianapolis</div>
-  <div class="jml-meta"><span class="jml-date">Dec 01, 2024</span><div class="jml-tags"><span class="jml-tag">Eucharistic Congress</span><span class="jml-tag">2029</span></div></div>
-</a>
-<a href="https://www.osvnews.com/bishops-approve-new-national-eucharistic-congress-for-summer-2029/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
-  </div>
-  <div class="jml-title">Bishops Approve New National Eucharistic Congress for Summer 2029</div>
-  <div class="jml-desc">OSV News coverage of bishops approving the 2029 National Eucharistic Congress, with Shanks quoted on plans</div>
-  <div class="jml-meta"><span class="jml-date">Nov 13, 2024</span><div class="jml-tags"><span class="jml-tag">Eucharistic Congress</span><span class="jml-tag">2029</span><span class="jml-tag">Bishops</span></div></div>
 </a>
 <a href="https://creators.spotify.com/pod/profile/sayyestoholiness/episodes/Episode-239--Working-To-Make-A-Moment-A-Movement--11-Jason-Shanks--National-Eucharistic-Congress-e32vu3t" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
@@ -340,45 +374,27 @@
   <div class="jml-desc">Episode 239: Discussion on the Eucharistic Revival, personal journey to Catholicism, and future plans</div>
   <div class="jml-meta"><span class="jml-date">Oct 01, 2024</span><div class="jml-tags"><span class="jml-tag">Eucharistic Revival</span><span class="jml-tag">Conversion</span></div></div>
 </a>
-<a href="https://thedialog.org/national-news/ceo-of-national-eucharistic-congress-inc-jason-shanks-says-nec2024-was-what-the-church-needed-to-heal/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://thedialog.org/national-news/ceo-of-national-eucharistic-congress-inc-jason-shanks-says-nec2024-was-what-the-church-needed-to-heal/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">The Dialog</span>
   </div>
   <div class="jml-title">CEO of National Eucharistic Congress Says NEC2024 Was What the Church Needed to Heal</div>
   <div class="jml-desc">In-depth interview on how the 2024 Congress served as healing for the Church</div>
   <div class="jml-meta"><span class="jml-date">Sep 30, 2024</span><div class="jml-tags"><span class="jml-tag">NEC 2024</span><span class="jml-tag">Interview</span><span class="jml-tag">Healing</span></div></div>
 </a>
-<a href="https://www.osvnews.com/ceo-says-national-eucharistic-congress-pilgrimage-show-catholics-are-ready-to-make-history/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.osvnews.com/ceo-says-national-eucharistic-congress-pilgrimage-show-catholics-are-ready-to-make-history/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">OSV News</span>
   </div>
   <div class="jml-title">CEO Says National Eucharistic Congress, Pilgrimage Show Catholics &#x27;Are Ready to Make History&#x27;</div>
   <div class="jml-desc">Interview with Shanks on the success of the NEC 2024 and future plans for the Revival</div>
   <div class="jml-meta"><span class="jml-date">Sep 24, 2024</span><div class="jml-tags"><span class="jml-tag">NEC 2024</span><span class="jml-tag">Pilgrimage</span><span class="jml-tag">Interview</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/ceo-says-national-eucharistic-congress-pilgrimage-show-catholics-are-ready-to-make-history/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://todayscatholic.org/theres-too-much-momentum-it-cant-stop-here/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
-  </div>
-  <div class="jml-title">Let&#x27;s Make History, Says CEO of the Eucharistic Congress</div>
-  <div class="jml-desc">Profile and interview on the vision for the future of the National Eucharistic Congress</div>
-  <div class="jml-meta"><span class="jml-date">Sep 24, 2024</span><div class="jml-tags"><span class="jml-tag">NEC</span><span class="jml-tag">Interview</span><span class="jml-tag">Vision</span></div></div>
-</a>
-<a href="https://www.oursundayvisitor.com/national-eucharistic-congress-inc-launches-society-of-the-eucharistic-heart-of-jesus-to-support-its-efforts/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
-  </div>
-  <div class="jml-title">New Eucharistic Society Aims at Supporting Eucharistic Revival</div>
-  <div class="jml-desc">OSV coverage of the launch of the Society of the Eucharistic Heart of Jesus, announced by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Sep 03, 2024</span><div class="jml-tags"><span class="jml-tag">NEC</span><span class="jml-tag">Society</span><span class="jml-tag">Eucharistic Heart</span></div></div>
-</a>
-<a href="https://todayscatholic.org/theres-too-much-momentum-it-cant-stop-here/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">Today&#x27;s Catholic</span>
   </div>
   <div class="jml-title">&#x27;There&#x27;s Too Much Momentum — It Can&#x27;t Stop Here&#x27;</div>
@@ -394,6 +410,15 @@
   <div class="jml-desc">Montse Alvarado speaks with Shanks about what&#x27;s next following the 10th National Eucharistic Congress</div>
   <div class="jml-meta"><span class="jml-date">Jul 26, 2024</span><div class="jml-tags"><span class="jml-tag">EWTN</span><span class="jml-tag">Eucharistic Congress</span><span class="jml-tag">NEC 2024</span></div></div>
 </a>
+<a href="https://www.youtube.com/watch?v=gdau4-NbVUM" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">EWTN</span>
+  </div>
+  <div class="jml-title">Jason Shanks on What&#x27;s Next for the National Eucharistic Congress | EWTN News In Depth</div>
+  <div class="jml-desc">Montse Alvarado sits down with Jason Shanks as the 10th National Eucharistic Congress in Indianapolis concludes to discuss what&#x27;s next for the movement</div>
+  <div class="jml-meta"><span class="jml-date">Jul 26, 2024</span><div class="jml-tags"><span class="jml-tag">NEC 2024</span><span class="jml-tag">EWTN</span><span class="jml-tag">Interview</span></div></div>
+</a>
 <a href="https://relevantradio.com/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Radio">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Radio">Radio</span>
@@ -403,41 +428,14 @@
   <div class="jml-desc">Interview discussing the success of the National Eucharistic Congress in Indianapolis</div>
   <div class="jml-meta"><span class="jml-date">Jul 24, 2024</span><div class="jml-tags"><span class="jml-tag">NEC 2024</span><span class="jml-tag">Interview</span></div></div>
 </a>
-<a href="https://www.osvnews.com/osvs-jason-shanks-named-new-ceo-of-national-eucharistic-congress-inc/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.osvnews.com/osvs-jason-shanks-named-new-ceo-of-national-eucharistic-congress-inc/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">OSV News</span>
   </div>
   <div class="jml-title">OSV News Profile — Jason Shanks Named New CEO of National Eucharistic Congress</div>
   <div class="jml-desc">Leadership profile announcing Shanks as the new CEO of the National Eucharistic Congress, Inc.</div>
   <div class="jml-meta"><span class="jml-date">Jun 06, 2024</span><div class="jml-tags"><span class="jml-tag">Profile</span><span class="jml-tag">Leadership</span><span class="jml-tag">NEC</span></div></div>
-</a>
-<a href="https://catholicvote.org/national-eucharistic-congress-appoints-new-ceo-to-lead-future-revival/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">CatholicVote</span>
-  </div>
-  <div class="jml-title">National Eucharistic Congress Appoints New CEO to Lead Future Revival</div>
-  <div class="jml-desc">Coverage of Shanks&#x27; appointment as CEO of the National Eucharistic Congress</div>
-  <div class="jml-meta"><span class="jml-date">Jun 06, 2024</span><div class="jml-tags"><span class="jml-tag">Profile</span><span class="jml-tag">Leadership</span></div></div>
-</a>
-<a href="https://www.archny.org/posts/osvs-jason-shanks-named-new-ceo-of-national-eucharistic-congress-inc" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Archdiocese of New York</span>
-  </div>
-  <div class="jml-title">With Missionary Vision — OSV&#x27;s Jason Shanks Named New CEO (Archdiocese of New York)</div>
-  <div class="jml-desc">Archdiocese of New York coverage of Shanks&#x27; appointment as CEO of the NEC</div>
-  <div class="jml-meta"><span class="jml-date">Jun 06, 2024</span><div class="jml-tags"><span class="jml-tag">Profile</span><span class="jml-tag">Appointment</span></div></div>
-</a>
-<a href="https://www.detroitcatholic.com/news/with-missionary-vision-osvs-jason-shanks-named-new-ceo-of-national-eucharistic-congress-inc" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Detroit Catholic</span>
-  </div>
-  <div class="jml-title">With Missionary Vision — Detroit Catholic Coverage</div>
-  <div class="jml-desc">Detroit Catholic coverage of Shanks&#x27; appointment, highlighting his previous work with CCSEM</div>
-  <div class="jml-meta"><span class="jml-date">Jun 06, 2024</span><div class="jml-tags"><span class="jml-tag">Profile</span><span class="jml-tag">Detroit</span><span class="jml-tag">Appointment</span></div></div>
 </a>
 <a href="https://watch.heroicmen.org/discover/item/jason-shanks-keynote" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Talk">
   <div class="jml-card-top">
@@ -457,14 +455,59 @@
   <div class="jml-desc">Presenter profile for Good News Cruise Catholic couples&#x27; getaway featuring Jason and Melissa</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2024</span><div class="jml-tags"><span class="jml-tag">Speaker</span><span class="jml-tag">Marriage</span><span class="jml-tag">Couples</span></div></div>
 </a>
-<a href="https://principiuminstitute.com/https-wordpress-com-page-principiuminstitute-com-935/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=hJc8QpGer1A" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">The Beatidudes</span>
+  </div>
+  <div class="jml-title">Miracle Man — Life After an Extended COVID Coma and a St. Jude Novena | The Beatidudes Ep. 047</div>
+  <div class="jml-desc">Jason recalls his 45-day COVID-induced coma, the faithfulness of his family, and the spiritual transformation that followed in this must-listen episode</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2024</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">St. Jude</span><span class="jml-tag">Near-Death Experience</span></div></div>
+</a>
+<a href="https://www.oursundayvisitor.com/we-the-laity-not-just-clergy-could-have-been-more-courageous-during-covid/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-source">Our Sunday Visitor</span>
+  </div>
+  <div class="jml-title">We the Laity — Not Just Clergy — Could Have Been More Courageous During COVID</div>
+  <div class="jml-desc">Jason Shanks reflects on the Church&#x27;s pandemic response, emphasizing the laity&#x27;s role in accountability and pastoral care.</div>
+  <div class="jml-meta"><span class="jml-date">Aug 03, 2023</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Laity</span><span class="jml-tag">Church Response</span></div></div>
+</a>
+<a href="https://principiuminstitute.com/https-wordpress-com-page-principiuminstitute-com-935/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">Principium Institute</span>
   </div>
   <div class="jml-title">Jason Shanks Speaker Profile</div>
   <div class="jml-desc">Speaker profile featuring Shanks&#x27; biography, speaking topics, and ministry work</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2023</span><div class="jml-tags"><span class="jml-tag">Speaker</span><span class="jml-tag">Profile</span></div></div>
+</a>
+<a href="https://osvinstitute.com/the-death-of-mission/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-source">OSV Institute for Catholic Innovation</span>
+  </div>
+  <div class="jml-title">The Death of Mission</div>
+  <div class="jml-desc">Jason Shanks examines how universalism undermines Catholic missionary work and evangelization, arguing that clarity on the Gospel vision is essential.</div>
+  <div class="jml-meta"><span class="jml-date">Dec 15, 2022</span><div class="jml-tags"><span class="jml-tag">Mission</span><span class="jml-tag">Evangelization</span><span class="jml-tag">Universalism</span></div></div>
+</a>
+<a href="https://catholictimescolumbus.org/news/former-student-professor-named-josephinum-alumni-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
+    <span class="jml-source">Catholic Times Columbus</span>
+  </div>
+  <div class="jml-title">Former Student, Professor Named Josephinum Alumni of the Year</div>
+  <div class="jml-desc">Jason Shanks receives the Jessing Alumnus of the Year Award from the Pontifical College Josephinum, recognizing his leadership across Catholic organizations in Ohio and beyond</div>
+  <div class="jml-meta"><span class="jml-date">Oct 13, 2022</span><div class="jml-tags"><span class="jml-tag">Award</span><span class="jml-tag">Josephinum</span><span class="jml-tag">Columbus</span></div></div>
+</a>
+<a href="https://osvinstitute.com/now-is-the-time-for-the-pro-life-community-to-innovate/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-source">OSV Institute for Catholic Innovation</span>
+  </div>
+  <div class="jml-title">Now Is the Time for the Pro-Life Community to Innovate</div>
+  <div class="jml-desc">Following the overturn of Roe v. Wade, Jason Shanks calls for the pro-life community to develop comprehensive solutions addressing barriers that drive abortion advocacy.</div>
+  <div class="jml-meta"><span class="jml-date">Aug 04, 2022</span><div class="jml-tags"><span class="jml-tag">Pro-Life</span><span class="jml-tag">Innovation</span><span class="jml-tag">Roe v. Wade</span></div></div>
 </a>
 <a href="https://podcasts.apple.com/us/podcast/belt-of-truth/id1603133851" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
@@ -474,15 +517,6 @@
   <div class="jml-title">Belt of Truth Podcast — 15 Minutes to Say Goodbye</div>
   <div class="jml-desc">Shanks shares his powerful testimony of nearly dying from COVID-19 and the faith that sustained his family</div>
   <div class="jml-meta"><span class="jml-date">May 09, 2022</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Testimony</span><span class="jml-tag">Men&#x27;s Ministry</span></div></div>
-</a>
-<a href="https://www.oursundayvisitor.com/heading-into-its-third-year-osv-challenge-is-ready-to-fund-ideas-that-will-change-the-church/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
-  </div>
-  <div class="jml-title">Heading Into Its Third Year, OSV Challenge Is Ready to Fund Ideas That Will Change the Church</div>
-  <div class="jml-desc">Preview of the third annual OSV Challenge, the Catholic innovation competition led by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Mar 01, 2022</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">2022</span></div></div>
 </a>
 <a href="https://www.drmariosacasa.com/podcasts/always-hope/episodes/2148993368" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
@@ -502,41 +536,50 @@
   <div class="jml-desc">Discussion on innovation and dilemmas facing Catholic institutions with the Catholic Association for Latino Leadership</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2022</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">Latino Leadership</span></div></div>
 </a>
-<a href="https://www.osvnews.com/2021/12/13/meet-our-sunday-visitors-2021-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=CkNwTFD62mU" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">DIA Schools Collaborative</span>
+  </div>
+  <div class="jml-title">Follow to Lead with Guest Jason Shanks</div>
+  <div class="jml-desc">Jason Shanks, President of the OSV Institute for Catholic Innovation, discusses leadership, evangelization, and the OSV Innovation Challenge</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2022</span><div class="jml-tags"><span class="jml-tag">Leadership</span><span class="jml-tag">OSV</span><span class="jml-tag">Innovation</span></div></div>
+</a>
+<a href="https://www.youtube.com/watch?v=2BIflv6jPdQ" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">MAX Studios</span>
+  </div>
+  <div class="jml-title">Rediscovering Catholic Innovation with Jason Shanks | Protagonists of Change</div>
+  <div class="jml-desc">A conversation with Jason Shanks on Catholic innovation, the role of entrepreneurs in the Church, and building meaningful change in Catholic ministry</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2022</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">Catholic Media</span><span class="jml-tag">Evangelization</span></div></div>
+</a>
+<a href="https://www.osvnews.com/2021/12/13/meet-our-sunday-visitors-2021-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
     <span class="jml-source">OSV News</span>
   </div>
   <div class="jml-title">Meet Our Sunday Visitor&#x27;s 2021 Catholics of the Year</div>
   <div class="jml-desc">Jason and Melissa Shanks named 2021 Catholics of the Year for their witness of faith during Jason&#x27;s miraculous COVID-19 recovery</div>
   <div class="jml-meta"><span class="jml-date">Dec 13, 2021</span><div class="jml-tags"><span class="jml-tag">Catholic of the Year</span><span class="jml-tag">Award</span><span class="jml-tag">2021</span></div></div>
 </a>
-<a href="https://todayscatholic.org/year-in-review-meet-our-sunday-visitors-2021-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://todayscatholic.org/year-in-review-meet-our-sunday-visitors-2021-catholics-of-the-year/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
     <span class="jml-source">Today&#x27;s Catholic</span>
   </div>
   <div class="jml-title">Year in Review — Meet Our Sunday Visitor&#x27;s 2021 Catholics of the Year</div>
   <div class="jml-desc">Today&#x27;s Catholic coverage of Jason and Melissa Shanks being named 2021 Catholics of the Year</div>
   <div class="jml-meta"><span class="jml-date">Dec 13, 2021</span><div class="jml-tags"><span class="jml-tag">Catholic of the Year</span><span class="jml-tag">Award</span><span class="jml-tag">2021</span></div></div>
 </a>
-<a href="https://www.osvnews.com/amp/2021/09/21/osv-challenge-gives-catholic-innovators-the-chance-to-build-something-special/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.catholic.com/magazine/print-edition/this-is-a-hard-teaching" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">OSV News</span>
+    <span class="jml-source">Catholic Answers Magazine</span>
   </div>
-  <div class="jml-title">OSV Challenge Gives Catholic Innovators the Chance to Build Something Special</div>
-  <div class="jml-desc">Coverage of the OSV Innovation Challenge, a $100K Catholic &#x27;shark-tank&#x27; competition led by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Sep 21, 2021</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span></div></div>
-</a>
-<a href="https://www.oursundayvisitor.com/three-catholic-innovators-take-home-100000-in-2021-osv-challenge/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
-  </div>
-  <div class="jml-title">Three Catholic Innovators Take Home $100,000 in 2021 OSV Challenge</div>
-  <div class="jml-desc">Coverage of the second annual OSV Challenge winners, the Catholic &#x27;shark-tank&#x27; competition led by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Sep 18, 2021</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">2021</span></div></div>
+  <div class="jml-title">The Eucharist Is the Meal to Top All Meals</div>
+  <div class="jml-desc">Jason Shanks uses a Thanksgiving meal analogy to explain the Eucharist, tracing Old Testament typology (Melchizedek, manna, Passover lamb) as prefigurations of Christ — arguing the Eucharist is real food and the central family meal of the Church.</div>
+  <div class="jml-meta"><span class="jml-date">Nov 25, 2021</span><div class="jml-tags"><span class="jml-tag">Eucharist</span><span class="jml-tag">Catholic Answers</span><span class="jml-tag">Typology</span></div></div>
 </a>
 <a href="https://christinasemmens.com/blog/2021/06/13/episode-74-the-inefficient-innovator-1-on-1-conversation-with-jason-shanks-osv-innovation-talk-speaker/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
@@ -565,68 +608,86 @@
   <div class="jml-desc">Episode 205: Shanks and his critical care physician share the story of his 6-week ICU COVID battle</div>
   <div class="jml-meta"><span class="jml-date">Apr 02, 2021</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Medical</span><span class="jml-tag">Recovery</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/nothing-short-of-miraculous-a-covid-recovery-story/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://catholicexchange.com/rethinking-how-we-approach-the-new-evangelization-jason-shanks-of-our-sunday-visitor/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
+    <span class="jml-source">Catholic Exchange</span>
+  </div>
+  <div class="jml-title">Rethinking How We Approach the New Evangelization</div>
+  <div class="jml-desc">Discussion featuring Jason Shanks on innovative approaches to Catholic evangelization at Our Sunday Visitor.</div>
+  <div class="jml-meta"><span class="jml-date">Mar 23, 2021</span><div class="jml-tags"><span class="jml-tag">Evangelization</span><span class="jml-tag">OSV</span><span class="jml-tag">Innovation</span></div></div>
+</a>
+<a href="https://www.oursundayvisitor.com/nothing-short-of-miraculous-a-covid-recovery-story/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">Our Sunday Visitor</span>
   </div>
   <div class="jml-title">Nothing Short of Miraculous: A COVID Recovery Story</div>
   <div class="jml-desc">Feature story on Shanks&#x27; miraculous recovery after six weeks intubated with COVID-19</div>
   <div class="jml-meta"><span class="jml-date">Mar 01, 2021</span><div class="jml-tags"><span class="jml-tag">COVID-19</span><span class="jml-tag">Recovery</span><span class="jml-tag">Testimony</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/like-a-good-neighbor-the-osv-challenge-is-here-to-help/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://catholic-link.org/osv-catholic-challenge/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
+    <span class="jml-source">Catholic-Link</span>
   </div>
-  <div class="jml-title">Like a Good Neighbor, the OSV Challenge Is Here to Help</div>
-  <div class="jml-desc">Feature on the OSV Innovation Challenge and its mission to support Catholic entrepreneurs and innovators</div>
-  <div class="jml-meta"><span class="jml-date">Mar 01, 2021</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span></div></div>
+  <div class="jml-title">For The Love Of The World, OSV Challenge Is Back!</div>
+  <div class="jml-desc">Jason Shanks announces the OSV Challenge, inviting innovators and entrepreneurs to submit ideas addressing the Church&#x27;s evangelization challenges.</div>
+  <div class="jml-meta"><span class="jml-date">Feb 04, 2021</span><div class="jml-tags"><span class="jml-tag">OSV Challenge</span><span class="jml-tag">Innovation</span><span class="jml-tag">Evangelization</span></div></div>
 </a>
-<a href="https://www.catholicworldreport.com/2021/03/01/2021-osv-challenge-will-help-build-up-catholic-innovators-and-non-profits/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.youtube.com/watch?v=sUmW26M3A84" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic World Report</span>
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">OSV Innovation</span>
   </div>
-  <div class="jml-title">2021 OSV Challenge Will Help Build Up Catholic Innovators and Non-Profits</div>
-  <div class="jml-desc">Catholic World Report coverage of the 2021 OSV Challenge led by Shanks at the OSV Institute</div>
-  <div class="jml-meta"><span class="jml-date">Mar 01, 2021</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">2021</span></div></div>
+  <div class="jml-title">The Inefficient Innovator — Jason Shanks | OSV Innovation Talks</div>
+  <div class="jml-desc">Jason Shanks, President of OSV Institute, challenges leaders on the urgent need for unscaled innovation in Catholic ministry and evangelization</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2021</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV</span><span class="jml-tag">Evangelization</span></div></div>
 </a>
-<a href="https://www.ncregister.com/blog/catholic-creativity-pays-off-for-three-big-winners-in-osv-institute-s-innovation-challenge" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://catholic-link.org/why-innovation-should-matter-to-catholics/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">National Catholic Register</span>
+    <span class="jml-source">Catholic-Link</span>
   </div>
-  <div class="jml-title">Catholic Creativity Pays Off — National Catholic Register</div>
-  <div class="jml-desc">Coverage of the three $100K winners of the OSV Innovation Challenge led by Shanks</div>
-  <div class="jml-meta"><span class="jml-date">Sep 01, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span></div></div>
+  <div class="jml-title">Why Innovation Should Matter to Catholics</div>
+  <div class="jml-desc">Jason Shanks argues the Catholic Church must embrace innovative approaches to evangelization, noting that for every one person who enters the Church, six leave.</div>
+  <div class="jml-meta"><span class="jml-date">Aug 28, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">Evangelization</span><span class="jml-tag">Catholic</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/three-catholic-apostolates-claim-100000-prize-in-first-osv-innovation-challenge/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://lisahendey.com/osv-innovation-challenge-a-conversation-with-jason-shanks/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Our Sunday Visitor</span>
-  </div>
-  <div class="jml-title">Three Catholic Apostolates Claim $100,000 Prize in First OSV Innovation Challenge</div>
-  <div class="jml-desc">Coverage of the inaugural OSV Innovation Challenge winners, led by Shanks as OSV Institute president</div>
-  <div class="jml-meta"><span class="jml-date">Aug 31, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">2020</span></div></div>
-</a>
-<a href="https://lisahendey.com/osv-innovation-challenge-a-conversation-with-jason-shanks/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
-  <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">Lisa Hendey / CatholicMom</span>
   </div>
   <div class="jml-title">OSV Innovation Challenge — A Conversation with Jason Shanks</div>
   <div class="jml-desc">Interview about the OSV Innovation Challenge Demo Day and the need for Catholic innovation</div>
   <div class="jml-meta"><span class="jml-date">Aug 01, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">Interview</span></div></div>
 </a>
-<a href="https://www.catholicmom.com/articles/osv-innovation-challenge-a-conversation-with-jason-shanks" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.catholicmom.com/articles/osv-innovation-challenge-a-conversation-with-jason-shanks" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">CatholicMom</span>
   </div>
   <div class="jml-title">OSV Innovation Challenge — A Conversation with Jason Shanks (CatholicMom)</div>
   <div class="jml-desc">Interview with Shanks about the OSV Innovation Challenge and fostering Catholic creativity</div>
   <div class="jml-meta"><span class="jml-date">Aug 01, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Challenge</span><span class="jml-tag">Interview</span></div></div>
+</a>
+<a href="https://www.osvtalks.com/shanks" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Talk">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Talk">Talk</span>
+    <span class="jml-source">OSV Talks</span>
+  </div>
+  <div class="jml-title">The Inefficient Innovator — OSV Innovation Talk</div>
+  <div class="jml-desc">Jason Shanks&#x27; featured talk on unscaled innovation in ministry — emphasizing relational approaches over processes and programs.</div>
+  <div class="jml-meta"><span class="jml-date">Jun 08, 2020</span><div class="jml-tags"><span class="jml-tag">Innovation</span><span class="jml-tag">OSV Talks</span><span class="jml-tag">Ministry</span></div></div>
+</a>
+<a href="https://www.spreaker.com/episode/29-jason-shanks-our-sunday-visitor-institute-innovation-challenge--21456354" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Podcast">Podcast</span>
+    <span class="jml-source">The Petrus Development Show</span>
+  </div>
+  <div class="jml-title">Jason Shanks: Innovation Challenge — Petrus Development Show Ep. 29</div>
+  <div class="jml-desc">Jason Shanks discusses his personal background, OSV innovation efforts, fundraising growth, and the OSV Challenge with host Andrew Robison.</div>
+  <div class="jml-meta"><span class="jml-date">Jan 08, 2020</span><div class="jml-tags"><span class="jml-tag">OSV Challenge</span><span class="jml-tag">Innovation</span><span class="jml-tag">Fundraising</span></div></div>
 </a>
 <a href="https://www.osvtalks.com/talks/the-inefficient-innovator/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Talk">
   <div class="jml-card-top">
@@ -655,6 +716,15 @@
   <div class="jml-desc">Author archive of articles written by Jason Shanks for Our Sunday Visitor</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2020</span><div class="jml-tags"><span class="jml-tag">Author</span><span class="jml-tag">OSV</span><span class="jml-tag">Articles</span></div></div>
 </a>
+<a href="https://pubhtml5.com/myqc/qxfw/basic/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-source">Legatus Magazine</span>
+  </div>
+  <div class="jml-title">Entrepreneurism in the Church — A New Springtime</div>
+  <div class="jml-desc">Guest Voice article in Legatus Magazine (Jan 2020, pp. 30-31). Jason Shanks argues that professional expertise from business leaders can help parishes innovate outreach for the new evangelization.</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2020</span><div class="jml-tags"><span class="jml-tag">Legatus</span><span class="jml-tag">Entrepreneurism</span><span class="jml-tag">Innovation</span></div></div>
+</a>
 <a href="https://www.kyleheimann.com/show752/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Podcast">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Podcast">Podcast</span>
@@ -673,9 +743,9 @@
   <div class="jml-desc">Speaker at the 57th Annual International Catholic Stewardship Council Conference in Chicago</div>
   <div class="jml-meta"><span class="jml-date">Oct 07, 2019</span><div class="jml-tags"><span class="jml-tag">Conference</span><span class="jml-tag">Stewardship</span><span class="jml-tag">ICSC</span></div></div>
 </a>
-<a href="https://www.oursundayvisitor.com/osv-innovation-talks-aim-to-spark-creativity-in-ministry-and-evangelization/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.oursundayvisitor.com/osv-innovation-talks-aim-to-spark-creativity-in-ministry-and-evangelization/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Interview">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
+    <span class="jml-badge jml-badge-Interview">Interview</span>
     <span class="jml-source">Our Sunday Visitor</span>
   </div>
   <div class="jml-title">OSV Innovation Talks Aim to Spark Creativity in Ministry and Evangelization</div>
@@ -709,23 +779,32 @@
   <div class="jml-desc">Author page with articles written by Jason Shanks for Catholic-Link</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2019</span><div class="jml-tags"><span class="jml-tag">Author</span><span class="jml-tag">Articles</span></div></div>
 </a>
-<a href="http://www.huntingtoncountytab.com/community/44355/shanks-become-president-osv-soon" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.catholic.com/magazine/print-edition/god-is-too-hot-to-handle" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
   <div class="jml-card-top">
     <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Huntington County Tab</span>
+    <span class="jml-source">Catholic Answers Magazine</span>
   </div>
-  <div class="jml-title">Shanks to Become President at OSV Soon</div>
-  <div class="jml-desc">Local news coverage of Shanks&#x27; appointment as president of the OSV Institute</div>
-  <div class="jml-meta"><span class="jml-date">Jul 01, 2017</span><div class="jml-tags"><span class="jml-tag">Career</span><span class="jml-tag">OSV</span><span class="jml-tag">Local News</span></div></div>
+  <div class="jml-title">God Is too Hot to Handle</div>
+  <div class="jml-desc">Jason Shanks defends the sacrament of Confession against five common Protestant objections, drawing on Scripture, Old Testament parallels, and his own conversion experience as a former Methodist.</div>
+  <div class="jml-meta"><span class="jml-date">Nov 01, 2014</span><div class="jml-tags"><span class="jml-tag">Confession</span><span class="jml-tag">Sacraments</span><span class="jml-tag">Catholic Answers</span></div></div>
 </a>
-<a href="https://ccsem.org/catholic-charities-ceo-transitioning-to-new-position-with-our-sunday-visitor/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Writing">
+<a href="https://www.crainsdetroit.com/awards/40-under-40-2014" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Recognition">
   <div class="jml-card-top">
-    <span class="jml-badge jml-badge-Writing">Writing</span>
-    <span class="jml-source">Catholic Charities of SE Michigan</span>
+    <span class="jml-badge jml-badge-Recognition">Recognition</span>
+    <span class="jml-source">Crain&#x27;s Detroit Business</span>
   </div>
-  <div class="jml-title">Catholic Charities CEO Transitioning to New Position with Our Sunday Visitor</div>
-  <div class="jml-desc">Announcement of Shanks&#x27; transition from CCSEM CEO to OSV Institute president</div>
-  <div class="jml-meta"><span class="jml-date">Jun 01, 2017</span><div class="jml-tags"><span class="jml-tag">Career</span><span class="jml-tag">CCSEM</span><span class="jml-tag">OSV</span></div></div>
+  <div class="jml-title">Crain&#x27;s Detroit Business 40 Under 40 — Jason Shanks</div>
+  <div class="jml-desc">Jason Shanks named to Crain&#x27;s Detroit Business 40 Under 40 class of 2014 for his work as founding CEO of Catholic Charities of Southeast Michigan</div>
+  <div class="jml-meta"><span class="jml-date">Oct 06, 2014</span><div class="jml-tags"><span class="jml-tag">Award</span><span class="jml-tag">Detroit</span><span class="jml-tag">CCSEM</span></div></div>
+</a>
+<a href="https://www.amazon.com/dp/B09J36FDP5" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Book">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Book">Book</span>
+    <span class="jml-source">Amazon</span>
+  </div>
+  <div class="jml-title">The Foundations and Pillars of Evangelization</div>
+  <div class="jml-desc">A foundational work defining evangelization in its essence through the documents of Vatican II and Pope Paul VI&#x27;s Evangelii Nuntiandi</div>
+  <div class="jml-meta"><span class="jml-date">Jan 01, 2007</span><div class="jml-tags"><span class="jml-tag">Evangelization</span><span class="jml-tag">Vatican II</span><span class="jml-tag">Theology</span></div></div>
 </a>
 <a href="https://chnetwork.org/journey-home/jason-shanks-methodist-became-catholic-journey-home-program/" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
   <div class="jml-card-top">
@@ -744,6 +823,15 @@
   <div class="jml-title">From Evangelical to Evangelical Catholic — Conversion Story</div>
   <div class="jml-desc">Written conversion story: from Methodist roots through Campus Crusade to discovering the Eucharist</div>
   <div class="jml-meta"><span class="jml-date">Jan 01, 2005</span><div class="jml-tags"><span class="jml-tag">Conversion</span><span class="jml-tag">Coming Home Network</span></div></div>
+</a>
+<a href="https://www.youtube.com/watch?v=dYXVGnagK6Y" target="_blank" rel="noopener noreferrer" class="jml-card" data-category="Video">
+  <div class="jml-card-top">
+    <span class="jml-badge jml-badge-Video">Video</span>
+    <span class="jml-source">EWTN</span>
+  </div>
+  <div class="jml-title">Jason Shanks: A Methodist Who Became a Catholic — The Journey Home</div>
+  <div class="jml-desc">Jason shares his conversion story from Methodist upbringing through evangelical Christianity to the Catholic faith on EWTN&#x27;s Journey Home with Marcus Grodi</div>
+  <div class="jml-meta"><span class="jml-date">Nov 22, 2004</span><div class="jml-tags"><span class="jml-tag">Conversion</span><span class="jml-tag">EWTN</span><span class="jml-tag">Journey Home</span></div></div>
 </a>
   </div>
 
