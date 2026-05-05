@@ -33,17 +33,43 @@ from urllib.parse import urlparse
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = REPO_ROOT / "data" / "media_links.json"
 
+# Search philosophy:
+# - Keep exact-name searches broad enough to catch small podcasts, blogs,
+#   local radio pages, diocesan sites, transcript mirrors, and aggregator pages.
+# - Newly discovered items stay verified=false until reviewed, so broader search
+#   is acceptable even when it introduces a little noise.
+# - Avoid depending only on major Catholic media brands; the goal is a current
+#   living media page, including smaller appearances.
 SEARCH_QUERIES = [
-    "Jason Shanks",
-    "Jason Shanks Eucharistic Congress",
-    "Jason Shanks interview",
-    "Jason Shanks podcast",
-    "Jason Shanks EWTN",
-    "Jason Shanks Catholic",
-    "Jason Shanks Relevant Radio",
-    "Jason Shanks OSV",
-    "Jason Shanks speaker",
-    "Jason Shanks media",
+    '"Jason Shanks"',
+    '"Jason R. Shanks"',
+    '"Jason Shanks" podcast',
+    '"Jason Shanks" interview',
+    '"Jason Shanks" episode',
+    '"Jason Shanks" "Apple Podcasts"',
+    '"Jason Shanks" Spotify',
+    '"Jason Shanks" YouTube',
+    '"Jason Shanks" Listen Notes',
+    '"Jason Shanks" Podtail',
+    '"Jason Shanks" "National Eucharistic Congress"',
+    '"Jason Shanks" "Eucharistic Revival"',
+    '"Jason Shanks" "Eucharistic Congress"',
+    '"Jason Shanks" "OSV Institute"',
+    '"Jason Shanks" "Our Sunday Visitor"',
+    '"Jason Shanks" Catholic',
+    '"Jason Shanks" speaker',
+    '"Jason Shanks" media',
+    '"Jason Shanks" radio',
+]
+
+YOUTUBE_QUERIES = [
+    '"Jason Shanks"',
+    '"Jason Shanks" podcast',
+    '"Jason Shanks" interview',
+    '"Jason Shanks" Eucharistic',
+    '"Jason Shanks" Catholic',
+    '"Jason Shanks" OSV',
+    '"Jason Shanks" speaker',
 ]
 
 RSS_FEEDS = [
@@ -175,9 +201,10 @@ def make_item(
     date: str = "",
     tags: list[str] | None = None,
     verified: bool = False,
+    discovery_query: str = "",
 ) -> dict:
     """Create a properly structured media item."""
-    return {
+    item = {
         "title": title.strip(),
         "url": url.strip(),
         "category": guess_category(title, url, description),
@@ -187,6 +214,9 @@ def make_item(
         "tags": tags or [],
         "verified": verified,
     }
+    if discovery_query:
+        item["discovery_query"] = discovery_query
+    return item
 
 # ---------------------------------------------------------------------------
 # YouTube Data API
@@ -239,6 +269,7 @@ def search_youtube(queries: list[str], max_per_query: int = 10) -> list[dict]:
                 date=snippet.get("publishedAt", "")[:10],
                 tags=["YouTube"],
                 verified=False,
+                discovery_query=query,
             ))
         log.info("YouTube: found %d results for '%s'", len(data.get("items", [])), query)
 
@@ -293,6 +324,7 @@ def search_google_cse(queries: list[str], max_per_query: int = 10) -> list[dict]
                 description=item.get("snippet", "")[:300],
                 tags=["web-search"],
                 verified=False,
+                discovery_query=query,
             ))
         log.info("Google CSE: found %d results for '%s'", len(data.get("items", [])), query)
 
@@ -381,7 +413,7 @@ def main():
     if not rss_only:
         # YouTube
         log.info("--- YouTube Search ---")
-        yt_results = search_youtube(SEARCH_QUERIES[:5])
+        yt_results = search_youtube(YOUTUBE_QUERIES)
         all_new.extend(yt_results)
 
         # Google Custom Search
