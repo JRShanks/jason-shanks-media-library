@@ -28,5 +28,41 @@
       "\"Jason Shanks\" \"Teresa Tomeo\""
     ],
     "notes": "User-reported media lead. Publication date unknown; check periodically."
+  },
+  {
+    "outlet": "OSV News",
+    "title_hint": "OSV News interview with Jason Shanks about NEC",
+    "medium": "Article",
+    "recording_date": "2026-05-12",
+    "calendar_summary": "OSV News Interview NEC",
+    "status": "watching",
+    "search_queries": [
+      "\"Jason Shanks\" \"OSV News\" \"National Eucharistic Congress\"",
+      "\"Jason Shanks\" \"OSV\" \"NEC\" \"2026\"",
+      "site:osvnews.com \"Jason Shanks\" \"2026\"",
+      "site:oursundayvisitor.com \"Jason Shanks\" \"National Eucharistic Congress\""
+    ],
+    "notes": "Calendar-derived OSV interview lead. Existing OSV profile and 2024 coverage are already in the media library; no published 2026 article found yet."
+  },
+  {
+    "outlet": "ASCEND Eucharistic Revival / Northwest Catholic",
+    "title_hint": "Seattle ASCEND Eucharistic Revival coverage",
+    "medium": "Event Coverage",
+    "event_date": "2026-05-16",
+    "calendar_summary": "Seattle ASCEND Eucharistic Revival; Jason spoke after Mass on Walk With One/resources.",
+    "status": "watching",
+    "known_links": [
+      "https://www.ascendeucharisticrevival.church/jason-shanks/",
+      "https://nwcatholic.org/news/andrew-foster/ascend-conference-welcomes-one-of-the-largest-gatherings-of-pnw-catholics-in-over-100-years",
+      "https://archseattle.org/events/ascend-eucharistic-revival/"
+    ],
+    "search_queries": [
+      "\"Jason Shanks\" \"ASCEND Eucharistic Revival\"",
+      "\"Jason Shanks\" \"Walk With One\" \"Seattle\"",
+      "\"Jason Shanks\" \"Bellevue\" \"Eucharistic Revival\"",
+      "site:nwcatholic.org \"Jason Shanks\" ASCEND",
+      "site:ascendeucharisticrevival.church \"Jason Shanks\""
+    ],
+    "notes": "Official ASCEND speaker page found and added to the public media library. Northwest Catholic event coverage found but does not name Jason, so keep watching for Jason-specific press before adding more public items."
   }
 ]
