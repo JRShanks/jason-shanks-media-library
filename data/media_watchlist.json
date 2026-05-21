@@ -35,14 +35,15 @@
     "medium": "Article",
     "recording_date": "2026-05-12",
     "calendar_summary": "OSV News Interview NEC",
-    "status": "watching",
+    "status": "found",
+    "found_url": "https://www.osvnews.com/national-eucharistic-pilgrimages-florida-kickoff-roots-us-history-in-the-mass/",
     "search_queries": [
       "\"Jason Shanks\" \"OSV News\" \"National Eucharistic Congress\"",
       "\"Jason Shanks\" \"OSV\" \"NEC\" \"2026\"",
       "site:osvnews.com \"Jason Shanks\" \"2026\"",
       "site:oursundayvisitor.com \"Jason Shanks\" \"National Eucharistic Congress\""
     ],
-    "notes": "Calendar-derived OSV interview lead. Existing OSV profile and 2024 coverage are already in the media library; no published 2026 article found yet."
+    "notes": "Calendar-derived OSV interview lead. Found OSV News article on 2026 National Eucharistic Pilgrimage kickoff and added it to the public media library."
   },
   {
     "outlet": "ASCEND Eucharistic Revival / Northwest Catholic",
