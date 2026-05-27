@@ -1,5 +1,35 @@
 [
   {
+    "title": "USCCB Consecration to the US, Fr. Emil Kapaun, One Nation Under God Pilgrimage, Sr. Dierdre Byrne and more!",
+    "url": "https://ondemand.ewtn.com/Home/Play/en/~CB20260525",
+    "category": "Radio",
+    "source": "EWTN Catholic Connection",
+    "date": "2026-05-25",
+    "description": "Teresa Tomeo's Catholic Connection includes Jason Shanks on the One Nation Under God Pilgrimage and the 250,000 Holy Hours campaign.",
+    "tags": [
+      "Catholic Connection",
+      "One Nation Under God",
+      "National Eucharistic Pilgrimage",
+      "250,000 Holy Hours"
+    ],
+    "verified": true
+  },
+  {
+    "title": "Third U.S. Eucharistic Pilgrimage Sets Out on Pentecost Praying for a Fresh Outpouring of the Spirit",
+    "url": "https://www.detroitcatholic.com/news/third-u-s-eucharistic-pilgrimage-sets-out-on-pentecost-praying-for-a-fresh-outpouring-of-the-spirit",
+    "category": "Writing",
+    "source": "Detroit Catholic / OSV News",
+    "date": "2026-05-25",
+    "description": "OSV News coverage of the 2026 National Eucharistic Pilgrimage launch quotes Jason Shanks on beginning in St. Augustine, America's Catholic roots, and unity in diversity.",
+    "tags": [
+      "OSV News",
+      "Detroit Catholic",
+      "National Eucharistic Pilgrimage",
+      "St. Augustine"
+    ],
+    "verified": true
+  },
+  {
     "title": "National Eucharistic Pilgrimage's Florida Kickoff Roots US History in the Mass",
     "url": "https://www.osvnews.com/national-eucharistic-pilgrimages-florida-kickoff-roots-us-history-in-the-mass/",
     "category": "Writing",
@@ -44,6 +74,20 @@
     "verified": true
   },
   {
+    "title": "Sacred Treasures with Kathie Duggan - May 18, 2026 - Special Guests: John Tuminello and Jason Shanks",
+    "url": "https://podcasts.apple.com/bf/podcast/radio-maria-us/id1596763191",
+    "category": "Radio",
+    "source": "Radio Maria US",
+    "date": "2026-05-18",
+    "description": "Kathie Duggan's Sacred Treasures includes Jason Shanks discussing the 2026 National Eucharistic Pilgrimage from St. Augustine, Florida, to Portland, Maine.",
+    "tags": [
+      "Radio Maria",
+      "Sacred Treasures",
+      "National Eucharistic Pilgrimage"
+    ],
+    "verified": true
+  },
+  {
     "title": "ASCEND Eucharistic Revival — Walk with One Speaker",
     "url": "https://www.ascendeucharisticrevival.church/jason-shanks/",
     "category": "Talk",
@@ -55,6 +99,21 @@
       "Eucharistic Revival",
       "Walk With One",
       "Seattle"
+    ],
+    "verified": true
+  },
+  {
+    "title": "Journey Home Highlights, 250,000 Holy Hours, Padre Pio & Spiritual Daughter Mary Pyle",
+    "url": "https://ondemand.ewtn.com/Home/Play/en/~CB20260511",
+    "category": "Radio",
+    "source": "EWTN Catholic Connection",
+    "date": "2026-05-11",
+    "description": "Teresa Tomeo's Catholic Connection includes Jason Shanks on the One Nation Under God Pilgrimage and the 250,000 Holy Hours campaign.",
+    "tags": [
+      "Catholic Connection",
+      "One Nation Under God",
+      "National Eucharistic Pilgrimage",
+      "250,000 Holy Hours"
     ],
     "verified": true
   },
@@ -133,6 +192,36 @@
     ],
     "verified": true,
     "featured": true
+  },
+  {
+    "title": "National Eucharistic Pilgrimage Unveils Goal of 250,000 Holy Hours for America's Renewal",
+    "url": "https://catholicvote.org/national-eucharistic-pilgrimage-unveils-goal-of-250000-holy-hours-for-americas-renewal/",
+    "category": "Writing",
+    "source": "CatholicVote",
+    "date": "2026-03-25",
+    "description": "CatholicVote coverage of the 2026 National Eucharistic Pilgrimage's 250,000 Holy Hours goal includes Jason Shanks on prayers for peace, unity, and God's guidance for the United States.",
+    "tags": [
+      "CatholicVote",
+      "National Eucharistic Pilgrimage",
+      "250,000 Holy Hours",
+      "America 250"
+    ],
+    "verified": true
+  },
+  {
+    "title": "The 2026 National Eucharistic Pilgrimage - Jason Shanks - 01/19/2026",
+    "url": "https://the-catholic-morning-show.simplecast.com/episodes/the-catholic-morning-show-01-19-2026-jehadAMB",
+    "category": "Podcast",
+    "source": "The Catholic Morning Show",
+    "date": "2026-01-19",
+    "description": "Jason Shanks joins Iowa Catholic Radio's Catholic Morning Show to discuss the upcoming 2026 National Eucharistic Pilgrimage and renewed Eucharistic devotion.",
+    "tags": [
+      "Iowa Catholic Radio",
+      "Catholic Morning Show",
+      "National Eucharistic Pilgrimage",
+      "Eucharistic Revival"
+    ],
+    "verified": true
   },
   {
     "title": "The Fullness of Prayer: An Exchange of Hearts",
