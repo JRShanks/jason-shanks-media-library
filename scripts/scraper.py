@@ -32,6 +32,7 @@ from urllib.parse import urlparse
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = REPO_ROOT / "data" / "media_links.json"
+CANDIDATES_FILE = REPO_ROOT / "data" / "media_candidates.json"
 
 # Search philosophy:
 # - Keep exact-name searches broad enough to catch small podcasts, blogs,
@@ -130,6 +131,22 @@ def save_database(items: list[dict]) -> None:
     log.info("Saved %d items to %s", len(items), DATA_FILE)
 
 
+def load_candidates() -> list[dict]:
+    """Load candidate discoveries that still need human/agent verification."""
+    if CANDIDATES_FILE.exists():
+        with open(CANDIDATES_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def save_candidates(items: list[dict]) -> None:
+    """Write candidate discoveries back to disk."""
+    CANDIDATES_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(CANDIDATES_FILE, "w", encoding="utf-8") as f:
+        json.dump(items, f, indent=2, ensure_ascii=False)
+    log.info("Saved %d candidates to %s", len(items), CANDIDATES_FILE)
+
+
 TRACKING_PARAMS = {
     "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
     "fbclid", "gclid", "ref", "source", "mc_cid", "mc_eid",
@@ -158,6 +175,11 @@ def normalize_url(url: str) -> str:
 def existing_urls(items: list[dict]) -> set:
     """Build a set of normalized URLs already in the database."""
     return {normalize_url(item["url"]) for item in items}
+
+
+def candidate_urls(items: list[dict]) -> set:
+    """Build a set of normalized candidate URLs."""
+    return {normalize_url(item["url"]) for item in items if item.get("url")}
 
 
 def guess_category(title: str, url: str, description: str = "") -> str:
@@ -384,17 +406,50 @@ def search_rss_feeds() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def merge_new_items(existing: list[dict], new_items: list[dict]) -> tuple[list[dict], int]:
-    """Merge new items into the existing database, deduplicating by URL."""
+    """Merge verified items into the public database, deduplicating by URL."""
     known = existing_urls(existing)
     added = 0
     for item in new_items:
         norm = normalize_url(item["url"])
-        if norm not in known:
+        if item.get("verified") and norm not in known:
             known.add(norm)
             existing.append(item)
             added += 1
             log.info("  + NEW: %s", item["title"][:80])
     return existing, added
+
+
+def merge_candidates(
+    existing: list[dict],
+    candidates: list[dict],
+    new_items: list[dict],
+) -> tuple[list[dict], int]:
+    """Store unverified discoveries separately for later review."""
+    known = existing_urls(existing) | candidate_urls(candidates)
+    added = 0
+    today = datetime.now().strftime("%Y-%m-%d")
+    for item in new_items:
+        norm = normalize_url(item["url"])
+        if item.get("verified") or norm in known:
+            continue
+        known.add(norm)
+        candidate = {
+            "title": item.get("title", "").strip(),
+            "url": item.get("url", "").strip(),
+            "source": item.get("source", ""),
+            "category": item.get("category", ""),
+            "date": item.get("date", ""),
+            "description": item.get("description", ""),
+            "tags": item.get("tags", []),
+            "discovery_query": item.get("discovery_query", ""),
+            "discovered_at": today,
+            "status": "needs-review",
+            "notes": "Auto-discovered candidate; verify link and Jason relevance before adding to media_links.json.",
+        }
+        candidates.append(candidate)
+        added += 1
+        log.info("  + CANDIDATE: %s", candidate["title"][:80])
+    return candidates, added
 
 
 def main():
@@ -406,7 +461,9 @@ def main():
     log.info("=" * 60)
 
     existing = load_existing()
+    candidates = load_candidates()
     log.info("Loaded %d existing items", len(existing))
+    log.info("Loaded %d candidates", len(candidates))
 
     all_new = []
 
@@ -429,15 +486,25 @@ def main():
     log.info("Total new candidates: %d", len(all_new))
 
     merged, added_count = merge_new_items(existing, all_new)
+    merged_candidates, candidate_count = merge_candidates(existing, candidates, all_new)
 
     if dry_run:
-        log.info("DRY RUN — would have added %d new items", added_count)
+        log.info(
+            "DRY RUN — would have added %d verified item(s) and %d candidate(s)",
+            added_count,
+            candidate_count,
+        )
     else:
         if added_count > 0:
             save_database(merged)
             log.info("Added %d new items (total: %d)", added_count, len(merged))
         else:
             log.info("No new items found")
+        if candidate_count > 0:
+            save_candidates(merged_candidates)
+            log.info("Added %d candidates (total: %d)", candidate_count, len(merged_candidates))
+        else:
+            log.info("No new candidates found")
 
     log.info("Done.")
     return added_count

@@ -6,6 +6,8 @@
     "recording_date": "2026-05-05",
     "calendar_summary": "Jason on Legatus Podcast with Stephen Henley NEC",
     "status": "watching",
+    "last_checked_at": "2026-05-27",
+    "next_check_date": "2026-06-05",
     "search_queries": [
       "\"Jason Shanks\" \"Legatus\" podcast",
       "\"Jason Shanks\" \"Stephen Henley\"",
@@ -22,6 +24,8 @@
     "calendar_summary": "User mentioned recording/appearance; not found in today's scanned calendar results yet.",
     "status": "found",
     "found_url": "https://ondemand.ewtn.com/Home/Play/en/~CB20260511",
+    "last_checked_at": "2026-05-27",
+    "next_check_date": null,
     "search_queries": [
       "\"Jason Shanks\" \"Ave Maria Radio\"",
       "site:avemariaradio.net \"Jason Shanks\"",
@@ -38,6 +42,8 @@
     "calendar_summary": "OSV News Interview NEC",
     "status": "found",
     "found_url": "https://www.osvnews.com/national-eucharistic-pilgrimages-florida-kickoff-roots-us-history-in-the-mass/",
+    "last_checked_at": "2026-05-27",
+    "next_check_date": null,
     "search_queries": [
       "\"Jason Shanks\" \"OSV News\" \"National Eucharistic Congress\"",
       "\"Jason Shanks\" \"OSV\" \"NEC\" \"2026\"",
@@ -53,6 +59,8 @@
     "event_date": "2026-05-16",
     "calendar_summary": "Seattle ASCEND Eucharistic Revival; Jason spoke after Mass on Walk With One/resources.",
     "status": "watching",
+    "last_checked_at": "2026-05-27",
+    "next_check_date": "2026-06-06",
     "known_links": [
       "https://www.ascendeucharisticrevival.church/jason-shanks/",
       "https://nwcatholic.org/news/andrew-foster/ascend-conference-welcomes-one-of-the-largest-gatherings-of-pnw-catholics-in-over-100-years",

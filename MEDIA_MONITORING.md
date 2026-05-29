@@ -19,6 +19,8 @@ For each lead, store:
 - recording date
 - search queries
 - status: `watching`, `found`, `added`, `ignored`
+- last_checked_at
+- next_check_date for leads still being watched
 - notes
 
 ## Follow-up cadence
@@ -41,4 +43,4 @@ Do not search only large Catholic media sources. Use exact-name and outlet-speci
 - `site:<outlet-domain> "Jason Shanks"`
 - YouTube, Apple Podcasts, Spotify, Listen Notes, Podtail, podcast/radio pages, Substack, diocesan pages, and small show websites.
 
-When found, add to `data/media_links.json`, mark verified after checking the link opens, rebuild, and push.
+When found, add verified public items to `data/media_links.json`, mark the watchlist item found/added, rebuild, and push. If an automated scraper finds a plausible but unverified result, store it in `data/media_candidates.json` until a future run verifies both the link and Jason relevance.

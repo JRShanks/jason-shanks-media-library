@@ -661,7 +661,7 @@ def run(cmd, label):
     print("=" * 50)
     result = subprocess.run(cmd, cwd=str(REPO_ROOT))
     if result.returncode != 0:
-        print("  WARNING: {} exited with code {}".format(label, result.returncode))
+        print("  ERROR: {} exited with code {}".format(label, result.returncode))
         return False
     return True
 
@@ -694,13 +694,23 @@ def git_commit():
         ["git", "status", "--porcelain"],
         capture_output=True, text=True, cwd=str(REPO_ROOT),
     )
+    if result.returncode != 0:
+        print("  ERROR: git status exited with code {}".format(result.returncode))
+        return False
     if not result.stdout.strip():
         print("  No changes to commit")
-        return
-    subprocess.run(["git", "add", "-A"], cwd=str(REPO_ROOT))
-    msg = "Auto-update media library — {}".format(datetime.now().strftime("%Y-%m-%d %H:%M"))
-    subprocess.run(["git", "commit", "-m", msg], cwd=str(REPO_ROOT))
+        return True
+    add_result = subprocess.run(["git", "add", "-A"], cwd=str(REPO_ROOT))
+    if add_result.returncode != 0:
+        print("  ERROR: git add exited with code {}".format(add_result.returncode))
+        return False
+    msg = "Auto-update media library - {}".format(datetime.now().strftime("%Y-%m-%d %H:%M"))
+    commit_result = subprocess.run(["git", "commit", "-m", msg], cwd=str(REPO_ROOT))
+    if commit_result.returncode != 0:
+        print("  ERROR: git commit exited with code {}".format(commit_result.returncode))
+        return False
     print("  Committed: " + msg)
+    return True
 
 
 def main():
@@ -712,16 +722,26 @@ def main():
 
     # Step 1: Scrape
     if not skip_scrape:
-        run([sys.executable, str(SCRIPTS / "scraper.py")], "Step 1: Scraper")
+        if not run([sys.executable, str(SCRIPTS / "scraper.py")], "Step 1: Scraper"):
+            return 1
     else:
         print("\nSkipping scraper (--skip-scrape)")
 
     # Step 2: Normalize
     normalizer = SCRIPTS / "normalize.py"
     if normalizer.exists():
-        run([sys.executable, str(normalizer)], "Step 2: Normalize")
+        if not run([sys.executable, str(normalizer)], "Step 2: Normalize"):
+            return 1
     else:
         print("\nSkipping normalizer (not found)")
+
+    # Step 2b: Validate source data
+    validator = SCRIPTS / "validate_data.py"
+    if validator.exists():
+        if not run([sys.executable, str(validator)], "Step 2b: Validate data"):
+            return 1
+    else:
+        print("\nSkipping data validator (not found)")
 
     # Step 3: Build static site
     print("\n" + "=" * 50)
@@ -761,10 +781,12 @@ def main():
         print("\n" + "=" * 50)
         print("  Step 4: Git commit")
         print("=" * 50)
-        git_commit()
+        if not git_commit():
+            return 1
 
     print("\nBuild complete at " + datetime.now().isoformat())
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

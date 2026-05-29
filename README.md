@@ -7,12 +7,12 @@ A self-updating, searchable media library that automatically discovers and publi
 ## How It Works
 
 ```
-Weekly (GitHub Actions)
+OpenClaw scheduled jobs
   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
   │  scraper.py   │ ──▶ │ normalize.py  │ ──▶ │   build.py   │
   │ YouTube API   │     │ dedupe/clean  │     │ copy to public│
   │ Google CSE    │     │ categorize    │     │ gen sitemap   │
-  │ RSS feeds     │     │ validate      │     │ git commit    │
+  │ RSS feeds     │     │ validate      │     │ optional commit│
   └──────────────┘     └──────────────┘     └──────────────┘
                                                       │
                                                       ▼
@@ -35,13 +35,14 @@ Weekly (GitHub Actions)
 
 ```
 jason-shanks-media-library/
-├── .github/workflows/
-│   └── update-media.yml        ← Weekly automation
 ├── data/
 │   └── media_links.json        ← Source-of-truth database
 ├── scripts/
 │   ├── scraper.py              ← Content discovery
 │   ├── normalize.py            ← Clean & dedupe
+│   ├── validate_data.py        ← JSON/source-data validator
+│   ├── preflight.py            ← Cron repo/auth preflight
+│   ├── verify_deploy.py        ← Netlify deploy verification
 │   └── build.py                ← Build pipeline
 ├── public/
 │   ├── index.html              ← Media library page
@@ -91,12 +92,15 @@ You need these for automated content discovery:
 3. Copy the **Search Engine ID**
 4. Use the same Google Cloud API key (enable **Custom Search API**)
 
-#### Add Secrets to GitHub
-1. Go to your repo → **Settings** → **Secrets and variables** → **Actions**
-2. Add these secrets:
+#### Add Secrets to OpenClaw
+The scheduled OpenClaw jobs load `/Users/clive/.openclaw/secrets/tokens.env`.
+Add these optional discovery secrets there when API-backed search is desired:
+
    - `YOUTUBE_API_KEY` — your YouTube API key
    - `GOOGLE_CSE_API_KEY` — your Google API key
    - `GOOGLE_CSE_ID` — your Custom Search Engine ID
+
+GitHub push auth should also be available through `GITHUB_TOKEN`, `GH_TOKEN`, or `/Users/clive/.openclaw/secrets/github-token`.
 
 ### 3. Connect Netlify
 
@@ -171,25 +175,25 @@ After editing, Netlify will auto-redeploy within ~1 minute.
 
 ## How Automatic Updates Work
 
-1. **Every Monday at 6 AM UTC**, GitHub Actions runs the workflow
-2. The scraper searches YouTube, Google, and RSS feeds for new content
-3. New items are added to `media_links.json` with `"verified": false`
-4. The normalizer cleans and deduplicates
-5. Changes are committed and pushed
-6. Netlify auto-deploys the updated site
+1. OpenClaw runs a weekly lightweight watchlist/calendar follow-up and a monthly broad media discovery scan.
+2. Each cron run starts with `python3 scripts/preflight.py` to check the local repo, GitHub push authentication, and required build inputs before making edits.
+3. The monthly broad scan searches exact-name, outlet-specific, platform, API-backed, and RSS sources.
+4. Unverified automated discoveries go to `data/media_candidates.json`; verified public items are added to `data/media_links.json`; private calendar details stay out of public data.
+5. The normalizer cleans and deduplicates, `scripts/validate_data.py` validates source JSON, then `scripts/build.py --skip-scrape` regenerates `public/`, `squarespace-embed.html`, and `squarespace-loader.html`.
+6. Changes are committed and pushed in one batch; Netlify auto-deploys from GitHub. After deploy, `python3 scripts/verify_deploy.py` can confirm deployed JSON matches local public data. If push/deploy is blocked after new verified items are added, the cron reports the run as blocked/failed rather than successful.
 
 **Note:** Auto-discovered items have `"verified": false` and won't appear on the public page until you set them to `true`. This prevents false positives from appearing publicly.
 
-To manually trigger an update: go to **Actions** → **Update Media Library** → **Run workflow**.
+To manually trigger an update, run the corresponding OpenClaw cron or run the scripts locally after loading the OpenClaw secrets.
 
 ---
 
 ## Customization
 
-- **Colors:** Edit CSS variables at the top of `public/styles.css`
+- **Colors:** Edit the shared CSS in `scripts/build.py`, then rebuild
 - **Search queries:** Edit the `SEARCH_QUERIES` list in `scripts/scraper.py`
 - **RSS feeds:** Add feed URLs to the `RSS_FEEDS` list in `scripts/scraper.py`
-- **Schedule:** Change the cron in `.github/workflows/update-media.yml`
+- **Schedule:** Change the OpenClaw cron definitions in `/Users/clive/.openclaw/cron/jobs.json`
 
 ---
 
@@ -199,8 +203,14 @@ To manually trigger an update: go to **Actions** → **Update Media Library** �
 # Install dependencies
 pip install -r requirements.txt
 
+# Preflight a scheduled run
+python3 scripts/preflight.py --skip-push-check
+
 # Run the build pipeline
 python scripts/build.py --skip-scrape
+
+# Validate data only
+python3 scripts/validate_data.py
 
 # Serve locally
 cd public && python -m http.server 8000
