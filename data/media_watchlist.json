@@ -74,5 +74,41 @@
       "site:ascendeucharisticrevival.church \"Jason Shanks\""
     ],
     "notes": "Official ASCEND speaker page found and added to the public media library. Northwest Catholic event coverage found but does not name Jason, so keep watching for Jason-specific press before adding more public items."
+  },
+  {
+    "outlet": "OSV News / The Tablet",
+    "title_hint": "Gretchen interview about the 2026 National Eucharistic Pilgrimage kickoff",
+    "medium": "Article",
+    "recording_date": "2026-05-20",
+    "calendar_summary": "Redacted calendar-derived interview lead with a Catholic journalist.",
+    "status": "found",
+    "found_url": "https://www.osvnews.com/new-us-eucharistic-pilgrimage-sets-out-on-pentecost-praying-for-a-fresh-outpouring-of-the-spirit/",
+    "last_checked_at": "2026-06-02",
+    "next_check_date": null,
+    "search_queries": [
+      "\"Jason Shanks\" \"Gretchen\" interview \"2026\"",
+      "\"Jason Shanks\" \"Gretchen R. Crowe\"",
+      "\"Jason Shanks\" \"The Tablet\" \"National Eucharistic Pilgrimage\"",
+      "site:osvnews.com \"Jason Shanks\" \"Gretchen\""
+    ],
+    "notes": "Calendar-derived private lead. Public OSV/The Tablet syndication appears to cover this interview; no new public item added because similar OSV coverage is already in the media library."
+  },
+  {
+    "outlet": "Relevant Radio Morning Air",
+    "title_hint": "Jason on Morning Air with John Morales",
+    "medium": "Radio",
+    "recording_date": "2026-05-26",
+    "calendar_summary": "Redacted calendar-derived radio interview lead.",
+    "status": "added",
+    "found_url": "https://omny.fm/shows/morning-air/kick-off-national-eucharistic-pilgrimage-connection-in-world-of-ai",
+    "last_checked_at": "2026-06-02",
+    "next_check_date": null,
+    "search_queries": [
+      "\"Jason Shanks\" \"Morning Air\" \"John Morales\" \"2026\"",
+      "\"Jason Shanks\" \"Kick Off National Eucharistic Pilgrimage\"",
+      "site:relevantradio.com \"Jason Shanks\" \"Morning Air\"",
+      "site:omny.fm/shows/morning-air \"Jason Shanks\""
+    ],
+    "notes": "Calendar-derived media lead. Verified public Omny episode from May 26, 2026 and added it to the public media library."
   }
 ]
