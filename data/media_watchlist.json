@@ -5,16 +5,17 @@
     "medium": "Podcast",
     "recording_date": "2026-05-05",
     "calendar_summary": "Jason on Legatus Podcast with Stephen Henley NEC",
-    "status": "watching",
-    "last_checked_at": "2026-05-27",
-    "next_check_date": "2026-06-05",
+    "status": "added",
+    "found_url": "https://www.youtube.com/watch?v=NBv9LXB83_w",
+    "last_checked_at": "2026-06-04",
+    "next_check_date": null,
     "search_queries": [
       "\"Jason Shanks\" \"Legatus\" podcast",
       "\"Jason Shanks\" \"Stephen Henley\"",
       "site:legatus.org \"Jason Shanks\" \"podcast\"",
       "\"Jason Shanks\" \"Legatus\" \"Stephen Henley\""
     ],
-    "notes": "Calendar-derived media lead. Publication date unknown; check periodically."
+    "notes": "Calendar-derived media lead. Found the Eleven Talents | Legatus Podcast YouTube video, added it to the public media library, and marked it featured for the speaker page embed."
   },
   {
     "outlet": "Ave Maria Radio",
