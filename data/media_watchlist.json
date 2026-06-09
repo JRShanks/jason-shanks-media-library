@@ -59,13 +59,15 @@
     "medium": "Event Coverage",
     "event_date": "2026-05-16",
     "calendar_summary": "Seattle ASCEND Eucharistic Revival; Jason spoke after Mass on Walk With One/resources.",
-    "status": "watching",
-    "last_checked_at": "2026-05-27",
-    "next_check_date": "2026-06-06",
+    "status": "added",
+    "found_url": "https://www.prnewswire.com/news-releases/ascend-eucharistic-revival-draws-one-of-the-largest-gatherings-of-pacific-northwest-catholics-in-decades-302778293.html",
+    "last_checked_at": "2026-06-09",
+    "next_check_date": null,
     "known_links": [
       "https://www.ascendeucharisticrevival.church/jason-shanks/",
       "https://nwcatholic.org/news/andrew-foster/ascend-conference-welcomes-one-of-the-largest-gatherings-of-pnw-catholics-in-over-100-years",
-      "https://archseattle.org/events/ascend-eucharistic-revival/"
+      "https://archseattle.org/events/ascend-eucharistic-revival/",
+      "https://www.prnewswire.com/news-releases/ascend-eucharistic-revival-draws-one-of-the-largest-gatherings-of-pacific-northwest-catholics-in-decades-302778293.html"
     ],
     "search_queries": [
       "\"Jason Shanks\" \"ASCEND Eucharistic Revival\"",
@@ -74,7 +76,7 @@
       "site:nwcatholic.org \"Jason Shanks\" ASCEND",
       "site:ascendeucharisticrevival.church \"Jason Shanks\""
     ],
-    "notes": "Official ASCEND speaker page found and added to the public media library. Northwest Catholic event coverage found but does not name Jason, so keep watching for Jason-specific press before adding more public items."
+    "notes": "Official ASCEND speaker page was already added. Follow-up search found verified public PR Newswire/ASCEND event coverage naming Jason among the speakers; added that public item and closed this lead."
   },
   {
     "outlet": "OSV News / The Tablet",
