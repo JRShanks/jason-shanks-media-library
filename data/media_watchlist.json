@@ -1,5 +1,56 @@
 [
   {
+    "outlet": "SiriusXM Catholic Channel / The Doug Tooke Show",
+    "title_hint": "Jason on The Doug Tooke Show",
+    "medium": "Radio",
+    "recording_date": "2026-06-02",
+    "calendar_summary": "Redacted calendar-derived SiriusXM interview lead.",
+    "status": "watching",
+    "last_checked_at": "2026-06-16",
+    "next_check_date": "2026-07-02",
+    "search_queries": [
+      "\"Jason Shanks\" \"Doug Tooke\" \"SiriusXM\"",
+      "\"Jason Shanks\" \"The Doug Tooke Show\"",
+      "\"Jason Shanks\" \"Catholic Channel\" \"129\"",
+      "site:siriusxm.com \"Jason Shanks\" \"Doug Tooke\""
+    ],
+    "notes": "Calendar-derived media lead. A public social promo was found and stored as a candidate, but no visitor-accessible episode/replay page was verified yet."
+  },
+  {
+    "outlet": "America Media",
+    "title_hint": "Jason Shanks America Media interview",
+    "medium": "Interview",
+    "recording_date": "2026-06-16",
+    "calendar_summary": "Redacted calendar-derived America Media interview lead.",
+    "status": "watching",
+    "last_checked_at": "2026-06-16",
+    "next_check_date": "2026-06-23",
+    "search_queries": [
+      "\"Jason Shanks\" \"America Media\" interview",
+      "\"Jason Shanks\" \"America Magazine\" \"National Eucharistic\"",
+      "site:americamagazine.org \"Jason Shanks\" \"Eucharistic\"",
+      "\"Jason Shanks\" \"America Media\" \"Nora Malone\""
+    ],
+    "notes": "Calendar-derived media lead. Recording/interview date is current; no public article or episode was verified on the initial same-day search."
+  },
+  {
+    "outlet": "America Media / Fuzati",
+    "title_hint": "Jason Shanks America Media / Fuzati lead",
+    "medium": "Media planning",
+    "recording_date": "2026-06-05",
+    "calendar_summary": "Redacted calendar-derived America Media/Fuzati lead.",
+    "status": "watching",
+    "last_checked_at": "2026-06-16",
+    "next_check_date": "2026-06-26",
+    "search_queries": [
+      "\"Jason Shanks\" \"Fuzati\"",
+      "\"Jason Shanks\" \"America Media\" \"Fuzati\"",
+      "site:americamagazine.org \"Jason Shanks\" \"Fuzati\"",
+      "\"Jason Shanks\" \"America Magazine\" \"Fuzati\""
+    ],
+    "notes": "Calendar-derived private lead with media-adjacent outlet context. No public item was verified in targeted searches; keep watching once more before deciding whether to ignore."
+  },
+  {
     "outlet": "Legatus",
     "title_hint": "Jason on Legatus Podcast with Stephen Henley",
     "medium": "Podcast",
