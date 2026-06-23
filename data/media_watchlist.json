@@ -22,16 +22,17 @@
     "medium": "Interview",
     "recording_date": "2026-06-16",
     "calendar_summary": "Redacted calendar-derived America Media interview lead.",
-    "status": "watching",
-    "last_checked_at": "2026-06-16",
-    "next_check_date": "2026-06-23",
+    "status": "added",
+    "found_url": "https://www.americamagazine.org/politics-society/dispatches/2026/06/18/national-eucharistic-pilgrimage-america-250th-cabrini-immigration/",
+    "last_checked_at": "2026-06-23",
+    "next_check_date": null,
     "search_queries": [
       "\"Jason Shanks\" \"America Media\" interview",
       "\"Jason Shanks\" \"America Magazine\" \"National Eucharistic\"",
       "site:americamagazine.org \"Jason Shanks\" \"Eucharistic\"",
       "\"Jason Shanks\" \"America Media\" \"Nora Malone\""
     ],
-    "notes": "Calendar-derived media lead. Recording/interview date is current; no public article or episode was verified on the initial same-day search."
+    "notes": "Calendar-derived media lead. Found a public America Magazine article by Nora Malone from June 18, 2026 quoting Jason on the 2026 National Eucharistic Pilgrimage and added it to the public media library."
   },
   {
     "outlet": "America Media / Fuzati",
