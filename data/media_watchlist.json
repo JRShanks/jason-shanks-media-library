@@ -1,5 +1,41 @@
 [
   {
+    "outlet": "Real Presence Radio / Real Presence Live",
+    "title_hint": "Jason Shanks on Real Presence Live",
+    "medium": "Radio",
+    "recording_date": "2026-07-01",
+    "calendar_summary": "Redacted calendar-derived Real Presence Radio interview lead.",
+    "status": "added",
+    "found_url": "https://podcasts.apple.com/us/podcast/jason-shanks-rpl-7-1-26-2-2/id878903086?i=1000775064213",
+    "last_checked_at": "2026-07-07",
+    "next_check_date": null,
+    "search_queries": [
+      "\"Jason Shanks\" \"Real Presence Radio\"",
+      "\"Jason Shanks\" \"Real Presence Live\"",
+      "\"Jason Shanks\" \"RPL 7.1.26\"",
+      "site:archive.realpresenceradio.com \"Jason Shanks\""
+    ],
+    "notes": "Calendar-derived private radio lead. Verified a normal visitor-accessible Apple Podcasts episode for the July 1, 2026 Real Presence Live appearance and added it to the public media library."
+  },
+  {
+    "outlet": "Lexington Observer",
+    "title_hint": "Lexington Observer coverage quoting Jason Shanks",
+    "medium": "Article",
+    "recording_date": "2026-06-23",
+    "calendar_summary": "Redacted calendar-derived Lexington Observer interview lead.",
+    "status": "added",
+    "found_url": "https://lexobserver.org/2026/07/01/national-eucharistic-congress-prays-for-country-on-lexington-battle-green/",
+    "last_checked_at": "2026-07-07",
+    "next_check_date": null,
+    "search_queries": [
+      "\"Jason Shanks\" \"LexObserver\"",
+      "\"Jason Shanks\" \"Lexington Observer\"",
+      "site:lexobserver.org \"Jason Shanks\"",
+      "\"Jason Shanks\" \"Battle Green\" \"Eucharistic\""
+    ],
+    "notes": "Calendar-derived private media lead. Verified public Lexington Observer coverage from July 1, 2026 quoting Jason on the National Eucharistic Pilgrimage in Lexington and added it to the public media library."
+  },
+  {
     "outlet": "SiriusXM Catholic Channel / The Doug Tooke Show",
     "title_hint": "Jason on The Doug Tooke Show",
     "medium": "Radio",
