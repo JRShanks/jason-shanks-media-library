@@ -14,13 +14,5 @@
     "discovered_at": "2026-06-30",
     "status": "needs-review",
     "notes": "Public search result appears to promote Jason Shanks as a guest on The Doug Tooke Show / SiriusXM Catholic Channel, but no normal visitor episode page or replay URL was verified yet."
-  },
-  {
-    "title": "Pope Leo Message to the American Faithful at the National Eucharistic Pilgrimage in Philadelphia",
-    "url": "https://www.youtube.com/watch?v=UEVSuictS54",
-    "source": "EWTN News YouTube",
-    "discovered_at": "2026-07-14",
-    "status": "needs-review",
-    "notes": "Public EWTN YouTube video for the July 5, 2026 National Eucharistic Pilgrimage closing message opened for a normal visitor, but public metadata does not verify Jason Shanks appears or is discussed. Review manually before adding to media_links.json."
   }
 ]
