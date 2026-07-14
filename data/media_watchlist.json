@@ -209,15 +209,15 @@
     "event_date": "2026-07-04",
     "calendar_summary": "Redacted calendar-derived Philadelphia pilgrimage livestream lead.",
     "status": "watching",
-    "last_checked_at": "2026-06-30",
-    "next_check_date": "2026-07-11",
+    "last_checked_at": "2026-07-14",
+    "next_check_date": "2026-07-28",
     "search_queries": [
       "\"Jason Shanks\" \"Family Rosary Across America\" \"July 4 2026\"",
       "\"Jason Shanks\" \"Relevant Radio\" \"Philadelphia\" \"Family Rosary\"",
       "site:omny.fm/shows/the-family-rosary-across-america \"Jason Shanks\" \"2026\"",
       "site:relevantradio.com \"Jason Shanks\" \"Family Rosary\" \"Philadelphia\""
     ],
-    "notes": "Calendar-derived private lead for a planned livestream during the Philadelphia pilgrimage weekend. Search after the event for an archived episode or normal visitor-accessible replay."
+    "notes": "Calendar-derived private lead for a planned livestream during the Philadelphia pilgrimage weekend. Checked targeted Relevant Radio, Family Rosary, Omny, Facebook, and general searches on 2026-07-14. Found public Relevant Radio NEP pages and a July 7 pilgrimage recap, but no normal visitor-accessible Jason-specific July 4 Family Rosary replay yet. Continue watching at the 2-3 week follow-up."
   },
   {
     "outlet": "EWTN / National Eucharistic Pilgrimage",
@@ -226,15 +226,15 @@
     "event_date": "2026-07-05",
     "calendar_summary": "Redacted calendar-derived Philadelphia pilgrimage broadcast lead.",
     "status": "watching",
-    "last_checked_at": "2026-06-30",
-    "next_check_date": "2026-07-12",
+    "last_checked_at": "2026-07-14",
+    "next_check_date": "2026-07-28",
     "search_queries": [
       "\"Jason Shanks\" \"Pope Leo\" \"National Eucharistic Pilgrimage\"",
       "\"Jason Shanks\" \"EWTN\" \"Philadelphia\" \"Eucharistic Pilgrimage\"",
       "site:ewtn.com \"Jason Shanks\" \"Philadelphia\" \"Pilgrimage\"",
       "site:ondemand.ewtn.com \"Jason Shanks\" \"National Eucharistic Pilgrimage\""
     ],
-    "notes": "Calendar-derived private lead around a planned Philadelphia pilgrimage Mass broadcast component. Found and added a public EWTN News preview quoting Jason on the planned Pope Leo XIV video message; continue watching for the actual broadcast archive or pilgrimage recap after the event."
+    "notes": "Calendar-derived private lead around a planned Philadelphia pilgrimage Mass broadcast component. Previously added the public EWTN News preview quoting Jason. On 2026-07-14 found a public EWTN YouTube papal-message video and stored it as a candidate because the video is visitor-accessible but Jason relevance/appearance is not verified from public metadata. Continue watching for an EWTN archive or recap that clearly includes Jason."
   },
   {
     "outlet": "National Eucharistic Pilgrimage / Philadelphia media",
@@ -243,14 +243,14 @@
     "event_date": "2026-07-05",
     "calendar_summary": "Redacted calendar-derived Philadelphia pilgrimage press/media lead.",
     "status": "watching",
-    "last_checked_at": "2026-07-01",
-    "next_check_date": "2026-07-12",
+    "last_checked_at": "2026-07-14",
+    "next_check_date": "2026-07-28",
     "search_queries": [
       "\"Jason Shanks\" \"Philadelphia\" \"National Eucharistic Pilgrimage\"",
       "\"Jason Shanks\" \"press conference\" \"Eucharistic Pilgrimage\"",
       "\"Jason Shanks\" \"St. John Neumann\" \"Philadelphia\"",
       "site:catholicphilly.com \"Jason Shanks\" \"Eucharistic Pilgrimage\""
     ],
-    "notes": "Calendar-derived private lead for possible public coverage from the Philadelphia closing events. Public EWTN News preview coverage was added on 2026-07-01; search after the event for local Catholic media, press conference coverage, or pilgrimage recap coverage before adding anything else public."
+    "notes": "Calendar-derived private lead for possible public coverage from the Philadelphia closing events. Public EWTN News preview coverage was added on 2026-07-01. On 2026-07-14 verified OSV News coverage of the July 5 closing procession and press-conference context, but it does not appear to mention Jason; no public item added. Continue watching local Catholic media and recap coverage."
   }
 ]
