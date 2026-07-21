@@ -42,15 +42,15 @@
     "recording_date": "2026-06-02",
     "calendar_summary": "Redacted calendar-derived SiriusXM interview lead.",
     "status": "watching",
-    "last_checked_at": "2026-07-01",
-    "next_check_date": "2026-07-15",
+    "last_checked_at": "2026-07-21",
+    "next_check_date": "2026-08-21",
     "search_queries": [
       "\"Jason Shanks\" \"Doug Tooke\" \"SiriusXM\"",
       "\"Jason Shanks\" \"The Doug Tooke Show\"",
       "\"Jason Shanks\" \"Catholic Channel\" \"129\"",
       "site:siriusxm.com \"Jason Shanks\" \"Doug Tooke\""
     ],
-    "notes": "Calendar-derived media lead. Public social promos have been found and stored as candidates, but no normal visitor-accessible episode/replay page was verified yet."
+    "notes": "Calendar-derived media lead. Targeted follow-up on 2026-07-21 found only public social promos already stored as candidates plus unrelated/older search noise; no normal visitor-accessible episode/replay page was verified yet. Continue monthly follow-up."
   },
   {
     "outlet": "America Media",
