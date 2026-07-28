@@ -209,14 +209,31 @@
     "event_date": "2026-07-04",
     "calendar_summary": "Redacted calendar-derived Philadelphia pilgrimage livestream lead.",
     "status": "watching",
-    "last_checked_at": "2026-07-14",
-    "next_check_date": "2026-07-28",
+    "last_checked_at": "2026-07-28",
+    "next_check_date": "2026-08-28",
     "search_queries": [
       "\"Jason Shanks\" \"Family Rosary Across America\" \"July 4 2026\"",
       "\"Jason Shanks\" \"Relevant Radio\" \"Philadelphia\" \"Family Rosary\"",
       "site:omny.fm/shows/the-family-rosary-across-america \"Jason Shanks\" \"2026\"",
       "site:relevantradio.com \"Jason Shanks\" \"Family Rosary\" \"Philadelphia\""
     ],
-    "notes": "Calendar-derived private lead for a planned livestream during the Philadelphia pilgrimage weekend. Checked targeted Relevant Radio, Family Rosary, Omny, Facebook, and general searches on 2026-07-14. Found public Relevant Radio NEP pages and a July 7 pilgrimage recap, but no normal visitor-accessible Jason-specific July 4 Family Rosary replay yet. Continue watching at the 2-3 week follow-up."
+    "notes": "Calendar-derived private lead for a planned livestream during the Philadelphia pilgrimage weekend. Targeted follow-up on 2026-07-28 checked Relevant Radio NEP pages, Family Rosary/Omny search, Facebook/social search results, and general searches. Public Relevant Radio NEP pages and social posts mention the pilgrimage/Family Rosary, but no normal visitor-accessible Jason-specific July 4 Family Rosary replay was verified yet. Continue monthly follow-up."
+  },
+  {
+    "outlet": "Legatus Raleigh",
+    "title_hint": "Jason Shanks Legatus Raleigh speaking engagement",
+    "medium": "Speaking event",
+    "event_date": "2026-09-24",
+    "calendar_summary": "Redacted calendar-derived Legatus Raleigh speaking lead.",
+    "status": "watching",
+    "last_checked_at": "2026-07-28",
+    "next_check_date": "2026-10-01",
+    "search_queries": [
+      "\"Jason Shanks\" \"Legatus Raleigh\"",
+      "\"Jason Shanks\" \"Strength in Surrender\" \"Humility In The Eucharist\"",
+      "site:legatus.org \"Jason Shanks\" \"Raleigh\"",
+      "\"Jason Shanks\" \"Legatus\" \"Raleigh\" \"2026\""
+    ],
+    "notes": "Calendar-derived private lead for a future Legatus Raleigh speaking engagement. Added to watchlist for the 1-week post-event follow-up cadence; do not add to public media library unless a normal visitor-accessible public listing, recording, recap, or media item is verified."
   }
 ]
