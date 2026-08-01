@@ -42,15 +42,15 @@
     "recording_date": "2026-06-02",
     "calendar_summary": "Redacted calendar-derived SiriusXM interview lead.",
     "status": "watching",
-    "last_checked_at": "2026-07-21",
-    "next_check_date": "2026-08-21",
+    "last_checked_at": "2026-08-01",
+    "next_check_date": "2026-09-01",
     "search_queries": [
       "\"Jason Shanks\" \"Doug Tooke\" \"SiriusXM\"",
       "\"Jason Shanks\" \"The Doug Tooke Show\"",
       "\"Jason Shanks\" \"Catholic Channel\" \"129\"",
       "site:siriusxm.com \"Jason Shanks\" \"Doug Tooke\""
     ],
-    "notes": "Calendar-derived media lead. Targeted follow-up on 2026-07-21 found only public social promos already stored as candidates plus unrelated/older search noise; no normal visitor-accessible episode/replay page was verified yet. Continue monthly follow-up."
+    "notes": "Targeted follow-up on 2026-08-01 found public social promos already stored as candidates plus an additional Instagram promo surfaced in search, but no normal visitor-accessible episode/replay page was verified yet. Continue monthly follow-up."
   },
   {
     "outlet": "America Media",
@@ -209,15 +209,15 @@
     "event_date": "2026-07-04",
     "calendar_summary": "Redacted calendar-derived Philadelphia pilgrimage livestream lead.",
     "status": "watching",
-    "last_checked_at": "2026-07-28",
-    "next_check_date": "2026-08-28",
+    "last_checked_at": "2026-08-01",
+    "next_check_date": "2026-09-01",
     "search_queries": [
       "\"Jason Shanks\" \"Family Rosary Across America\" \"July 4 2026\"",
       "\"Jason Shanks\" \"Relevant Radio\" \"Philadelphia\" \"Family Rosary\"",
       "site:omny.fm/shows/the-family-rosary-across-america \"Jason Shanks\" \"2026\"",
       "site:relevantradio.com \"Jason Shanks\" \"Family Rosary\" \"Philadelphia\""
     ],
-    "notes": "Calendar-derived private lead for a planned livestream during the Philadelphia pilgrimage weekend. Targeted follow-up on 2026-07-28 checked Relevant Radio NEP pages, Family Rosary/Omny search, Facebook/social search results, and general searches. Public Relevant Radio NEP pages and social posts mention the pilgrimage/Family Rosary, but no normal visitor-accessible Jason-specific July 4 Family Rosary replay was verified yet. Continue monthly follow-up."
+    "notes": "Targeted follow-up on 2026-08-01 found public Relevant Radio pilgrimage pages and social promos for the Philadelphia Family Rosary, but no normal visitor-accessible Jason-specific July 4 Family Rosary replay was verified yet. Continue monthly follow-up."
   },
   {
     "outlet": "Legatus Raleigh",
