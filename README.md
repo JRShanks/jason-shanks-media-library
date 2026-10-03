@@ -2,6 +2,8 @@
 
 A self-updating, searchable media library that automatically discovers and publishes Jason Shanks' media appearances — videos, podcasts, articles, and conference talks.
 
+For the complete operational workflow, see [MEDIA_PAGE_UPDATE_GUIDE.md](MEDIA_PAGE_UPDATE_GUIDE.md).
+
 ---
 
 ## How It Works
