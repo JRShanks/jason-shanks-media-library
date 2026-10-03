@@ -15,7 +15,8 @@
       "Podcast Recording",
       "Missionary Discipleship"
     ],
-    "verified": true
+    "verified": true,
+    "featured": true
   },
   {
     "title": "Diocese of Dallas Parish Leadership Conference 2026",
@@ -59,7 +60,8 @@
       "Leadership",
       "CEO Transition"
     ],
-    "verified": true
+    "verified": true,
+    "featured": true
   },
   {
     "title": "CEO Leadership Transition",
