@@ -16,6 +16,8 @@ Usage:
   python scraper.py --dry-run        # print new items, don't write
 """
 
+from __future__ import annotations
+
 import json
 import os
 import re
@@ -147,30 +149,7 @@ def save_candidates(items: list[dict]) -> None:
     log.info("Saved %d candidates to %s", len(items), CANDIDATES_FILE)
 
 
-TRACKING_PARAMS = {
-    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
-    "fbclid", "gclid", "ref", "source", "mc_cid", "mc_eid",
-}
-
-
-def normalize_url(url: str) -> str:
-    """Strip tracking params and normalize the URL for dedup.
-
-    Preserves meaningful query strings (e.g. YouTube ?v=, Apple Podcasts ?i=).
-    """
-    from urllib.parse import parse_qs, urlencode
-    parsed = urlparse(url)
-    if parsed.query:
-        params = parse_qs(parsed.query, keep_blank_values=True)
-        cleaned = {k: v for k, v in params.items() if k.lower() not in TRACKING_PARAMS}
-        query = urlencode(cleaned, doseq=True)
-        clean = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
-        if query:
-            clean += f"?{query}"
-    else:
-        clean = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
-    return clean.rstrip("/").lower()
-
+from url_identity import normalize_url
 
 def existing_urls(items: list[dict]) -> set:
     """Build a set of normalized URLs already in the database."""
@@ -275,7 +254,7 @@ def search_youtube(queries: list[str], max_per_query: int = 10) -> list[dict]:
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
-            log.error("YouTube API error for '%s': %s", query, e)
+            log.error("YouTube API error for '%s': %s", query, type(e).__name__)
             continue
 
         for item in data.get("items", []):
@@ -331,7 +310,7 @@ def search_google_cse(queries: list[str], max_per_query: int = 10) -> list[dict]
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
-            log.error("Google CSE error for '%s': %s", query, e)
+            log.error("Google CSE error for '%s': %s", query, type(e).__name__)
             continue
 
         for item in data.get("items", []):

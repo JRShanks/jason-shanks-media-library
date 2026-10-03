@@ -18,6 +18,7 @@ Usage:
 import html as html_mod
 import json
 import shutil
+import hashlib
 import subprocess
 import sys
 from datetime import datetime
@@ -32,6 +33,25 @@ PUBLIC_DATA = PUBLIC_DIR / "data"
 CATEGORIES = ["Video", "Podcast", "Radio", "Writing", "Talk", "Book", "Interview", "Recognition"]
 FEATURED_COUNT = 6
 ASSET_BASE_URL = "https://jason-shanks-media.netlify.app"
+
+
+def build_fingerprint():
+    digest = hashlib.sha256()
+    for path in [DATA_FILE, *sorted(SCRIPTS.glob('*.py'))]:
+        digest.update(path.name.encode())
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def build_time():
+    # Keep presentation timestamps stable when source content has not changed.
+    path = PUBLIC_DIR / 'build-manifest.json'
+    fingerprint = build_fingerprint()
+    state = json.loads(path.read_text()) if path.exists() else {}
+    if state.get('fingerprint') != fingerprint:
+        state = {'fingerprint': fingerprint, 'built_at': datetime.now().isoformat(timespec='seconds')}
+        path.write_text(json.dumps(state, indent=2) + '\n')
+    return datetime.fromisoformat(state['built_at'])
 
 
 def esc(text):
@@ -296,8 +316,8 @@ def generate_index_html(items):
     featured = pick_featured(items)
     counts = count_by_category(items)
     total = len(items)
-    now = datetime.now().strftime("%Y-%m-%d")
-    year = datetime.now().year
+    now = build_time().strftime("%Y-%m-%d")
+    year = build_time().year
 
     featured_cards = "\n".join(render_card_html(item, "jml-featured") for item in featured)
     all_cards = "\n".join(render_card_html(item) for item in items)
@@ -407,7 +427,7 @@ def generate_squarespace_embed(items):
     featured = pick_featured(items)
     counts = count_by_category(items)
     total = len(items)
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = build_time().strftime("%Y-%m-%d %H:%M")
 
     featured_cards = "\n".join(render_card_html(item, "jml-featured") for item in featured)
     all_cards = "\n".join(render_card_html(item) for item in items)
@@ -489,7 +509,7 @@ def generate_external_embed_assets(items):
     and redeploying the external static site.
     """
     total = len(items)
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = build_time().strftime("%Y-%m-%d %H:%M")
 
     embed_css = """/* Jason Shanks Media Library — external Squarespace embed CSS */
 .jml-wrap {
@@ -641,7 +661,7 @@ def generate_external_embed_assets(items):
         now=now,
         total=total,
         base=ASSET_BASE_URL,
-        version=datetime.now().strftime("%Y%m%d%H%M"),
+        version=build_fingerprint()[:16],
     )
 
     (PUBLIC_DIR / "embed.css").write_text(embed_css, encoding="utf-8")
@@ -683,7 +703,7 @@ def generate_sitemap():
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
-""".format(datetime.now().strftime("%Y-%m-%d"))
+""".format(build_time().strftime("%Y-%m-%d"))
     path = PUBLIC_DIR / "sitemap.xml"
     path.write_text(sitemap)
     print("  Generated " + path.name)
@@ -704,7 +724,7 @@ def git_commit():
     if add_result.returncode != 0:
         print("  ERROR: git add exited with code {}".format(add_result.returncode))
         return False
-    msg = "Auto-update media library - {}".format(datetime.now().strftime("%Y-%m-%d %H:%M"))
+    msg = "Auto-update media library - {}".format(build_time().strftime("%Y-%m-%d %H:%M"))
     commit_result = subprocess.run(["git", "commit", "-m", msg], cwd=str(REPO_ROOT))
     if commit_result.returncode != 0:
         print("  ERROR: git commit exited with code {}".format(commit_result.returncode))

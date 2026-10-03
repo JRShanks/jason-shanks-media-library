@@ -2,6 +2,7 @@
 """Preflight checks for scheduled media-library maintenance."""
 
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -21,6 +22,7 @@ def run(cmd, *, capture=True):
         cwd=str(REPO_ROOT),
         text=True,
         capture_output=capture,
+        env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},
     )
 
 

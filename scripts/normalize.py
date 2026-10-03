@@ -27,36 +27,7 @@ DATA_FILE = REPO_ROOT / "data" / "media_links.json"
 # URL normalization
 # ---------------------------------------------------------------------------
 
-TRACKING_PARAMS = {
-    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
-    "fbclid", "gclid", "ref", "source", "mc_cid", "mc_eid",
-}
-
-
-def normalize_url(url: str) -> str:
-    """Canonicalize a URL for deduplication.
-
-    Preserves query strings for sites that need them (YouTube, Apple Podcasts, etc.)
-    but strips common tracking parameters.
-    """
-    parsed = urlparse(url)
-    # For YouTube and similar sites, the query string IS the identity
-    if parsed.query:
-        from urllib.parse import parse_qs, urlencode
-        params = parse_qs(parsed.query, keep_blank_values=True)
-        # Remove tracking params only
-        cleaned_params = {
-            k: v for k, v in params.items()
-            if k.lower() not in TRACKING_PARAMS
-        }
-        query = urlencode(cleaned_params, doseq=True)
-        clean = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
-        if query:
-            clean += f"?{query}"
-    else:
-        clean = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
-    return clean.rstrip("/").lower()
-
+from url_identity import normalize_url
 
 # ---------------------------------------------------------------------------
 # Title normalization

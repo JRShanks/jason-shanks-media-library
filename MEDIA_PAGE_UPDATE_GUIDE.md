@@ -1,4 +1,6 @@
-# Jason Shanks Media Page — Complete Update Guide
+# Jason Shanks Media Page — Clive Update Guide
+
+Clive/Codex owns media maintenance. Start with [automation/RUNBOOK.md](automation/RUNBOOK.md) for shared lease, approved automatic publication, access boundaries, source coverage and repeat-run rules. Jason authorized automatic publication of verified additions on October 3, 2026.
 
 This runbook explains how to research, add, feature, publish, and verify items on Jason Shanks's **Media & Appearances** page.
 
@@ -43,18 +45,9 @@ Verify the live JSON and rendered page
 7. **Do not report success until the live deployment is verified.** A successful local build or GitHub push is not enough.
 8. **Preserve unrelated work.** Stop if the repository is unexpectedly dirty or behind the remote.
 
-## Current automation status
+## Automation ownership
 
-The media-page automation jobs currently exist but are **disabled**:
-
-- `jason-shanks-media-watchlist-followup`
-  - Former schedule: Tuesdays at 9:10 AM Indianapolis time
-  - Purpose: follow calendar-derived leads and items due for rechecking
-- `jason-shanks-media-discovery`
-  - Former schedule: the first day of each month at 9:00 AM Indianapolis time
-  - Purpose: broad discovery and media-library maintenance
-
-Manual updates still work normally. Enabling or changing either automation is a separate scheduler action and should be done only when Jason requests it.
+The two legacy OpenClaw media jobs were verified disabled on October 3, 2026. Keep them disabled. Parent task owns enabling replacement Clive schedules; the presence of these files does not prove recurrence is enabled. Target cadence: Tuesday 09:10 and first day of each month 09:00, America/Indiana/Indianapolis. Durable prompts are in automation/.
 
 ## Repository files
 
@@ -68,20 +61,21 @@ Manual updates still work normally. Enabling or changing either automation is a 
 
 ### Supporting workflow files
 
-- `data/media_watchlist.json` — private/redacted leads that need future searching
+- `data/media_watchlist.json` — public-safe research leads that need future searching
 - `data/media_candidates.json` — plausible public URLs that are not yet verified
 - `MEDIA_MONITORING.md` — discovery and follow-up cadence
 - `scripts/preflight.py` — repository, remote, branch, and push-auth checks
 - `scripts/validate_data.py` — validates all three JSON data files
 - `scripts/normalize.py` — deduplicates, normalizes, and sorts media records
 - `scripts/build.py` — normalizes data and generates the public site and Squarespace files
-- `scripts/verify_deploy.py` — compares deployed Netlify URLs with local public data
+- `scripts/verify_deploy.py` — verifies exact JSON, assets and live Squarespace loader
 - `netlify.toml` — Netlify publish and cache/header configuration
 
 ## Step 1: Enter the repository and run preflight
 
 ```bash
 cd /Users/clive/Desktop/jason-shanks-media-library
+# Acquire the shared lease as documented in automation/RUNBOOK.md first.
 python3 scripts/preflight.py
 ```
 
@@ -373,7 +367,7 @@ rg -n -C 8 'Exact Title' squarespace-embed.html
 Review the final diff first. Then stage tracked source and generated files:
 
 ```bash
-git add -u
+git add data/media_links.json data/media_watchlist.json data/media_candidates.json public/index.html public/embed.css public/embed.js public/data/media_links.json public/build-manifest.json squarespace-embed.html squarespace-loader.html
 git status --short
 git diff --cached --check
 git diff --cached --stat
@@ -414,7 +408,7 @@ python3 scripts/verify_deploy.py \
   --require-url 'https://publisher.example/item'
 ```
 
-The verifier confirms that every locally published verified URL is present in the deployed JSON. It does **not** prove that changed title, description, tags, or featured status have propagated, so verify those fields separately.
+The verifier requires exact complete JSON equality, exact generated HTML/CSS/JS/build manifest, and the actual Squarespace loader integration. Changed metadata, featured status, missing records, extra records and stale assets fail verification.
 
 ### Verify changed fields
 
@@ -527,13 +521,7 @@ Preserve both local and remote work. Resolve conflicts deliberately.
 
 ### Push authentication fails
 
-GitHub authentication may use:
-
-- `GITHUB_TOKEN`;
-- `GH_TOKEN`;
-- `/Users/clive/.openclaw/secrets/github-token`.
-
-Never print token values. Confirm only the missing or invalid secret name.
+Use only independently approved existing GitHub access. Do not load OpenClaw secret files, copy browser sessions, or set up new persistent credentials. Stop and report the missing access route. Normal GitHub-triggered Netlify publication does not require a Netlify token.
 
 ### Validation fails
 
@@ -556,13 +544,13 @@ Inspect the complete diff. Expected generated changes commonly include:
 - item and category counts;
 - the new or updated card;
 - footer date;
-- cache-busting timestamps in `squarespace-loader.html`.
+- content-fingerprint cache keys in `squarespace-loader.html`.
 
 Stop if unrelated records, styles, scripts, or content changed unexpectedly.
 
-### Deploy verifier passes but wording is stale
+### Deployment is stale
 
-`verify_deploy.py` compares URLs. It may pass when an existing URL is present but its title, description, tags, or featured flag are still stale. Query the deployed JSON with `jq` and verify exact fields before completion.
+The strengthened verifier compares exact data and assets. Retry with `--attempts 6 --delay 10`. A failure after the bounded retries is a deployment blocker. Never mark success based only on the push or a scheduler receipt.
 
 ### New item is in JSON but not visible
 

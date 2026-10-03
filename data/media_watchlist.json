@@ -225,16 +225,17 @@
     "medium": "Speaking event",
     "event_date": "2026-09-24",
     "calendar_summary": "Redacted calendar-derived Legatus Raleigh speaking lead.",
-    "status": "watching",
-    "last_checked_at": "2026-10-01",
-    "next_check_date": "2026-11-01",
+    "status": "added",
+    "last_checked_at": "2026-10-03",
+    "next_check_date": null,
     "search_queries": [
       "\"Jason Shanks\" \"Legatus Raleigh\"",
       "\"Jason Shanks\" \"Strength in Surrender\" \"Humility In The Eucharist\"",
       "site:legatus.org \"Jason Shanks\" \"Raleigh\"",
       "\"Jason Shanks\" \"Legatus\" \"Raleigh\" \"2026\""
     ],
-    "notes": "Targeted post-event follow-up on 2026-10-01 found no normal visitor-accessible public listing, recording, recap, or media item for the September 24 Legatus Raleigh engagement. Continue monthly follow-up."
+    "notes": "Completed talk was added to the public media library on October 2 following Jason confirmation, using the stable public chapter profile. Reconciled this lead with the published record; no separate public event advertisement was claimed.",
+    "found_url": "https://www.linkedin.com/in/legatus-of-raleigh-20981218b"
   },
   {
     "outlet": "Diocese of Dallas Parish Leadership Conference",
@@ -252,6 +253,6 @@
       "site:dallascatholic.org \"Jason Shanks\" \"podcast\"",
       "site:dallascatholic.org \"Parish Leadership Conference\" \"Jason Shanks\""
     ],
-    "notes": "Calendar-derived private lead for an anticipated brief podcast interview tied to the 2026 Diocese of Dallas Parish Leadership Conference. The public event page is already in the media library; watch for a distinct normal visitor-accessible podcast/interview item after the event."
+    "notes": "Conference and keynote engagement are already published in the media library. This separate lead remains watching for a distinct normal visitor-accessible podcast/interview recording; the published conference record does not establish replay availability."
   }
 ]
