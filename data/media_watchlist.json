@@ -243,9 +243,8 @@
     "medium": "Podcast interview",
     "event_date": "2026-10-03",
     "calendar_summary": "Redacted calendar-derived Dallas conference media lead.",
-    "status": "watching",
-    "last_checked_at": "2026-08-11",
-    "next_check_date": "2026-10-10",
+    "status": "added",
+    "last_checked_at": "2026-11-20",
     "search_queries": [
       "\"Jason Shanks\" \"Diocese of Dallas\" podcast",
       "\"Jason Shanks\" \"Parish Leadership Conference\" \"podcast\"",
@@ -253,6 +252,7 @@
       "site:dallascatholic.org \"Jason Shanks\" \"podcast\"",
       "site:dallascatholic.org \"Parish Leadership Conference\" \"Jason Shanks\""
     ],
-    "notes": "Conference and keynote engagement are already published in the media library. This separate lead remains watching for a distinct normal visitor-accessible podcast/interview recording; the published conference record does not establish replay availability."
+    "notes": "Published Voices of Faith interview from The Texas Catholic, released November 12, 2026. Publisher confirms the Dallas Parish Leadership Conference recording context; public playback without signing in verified November 20. Added as a distinct podcast from the existing conference and keynote coverage.",
+    "found_url": "https://creators.spotify.com/pod/profile/texascatholic/episodes/Voices-of-Faith-Jason-Shanks-on-what-it-means-to-be-a-missionary-disciple-e3s93ph"
   }
 ]
